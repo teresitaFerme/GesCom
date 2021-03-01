@@ -1,5 +1,6 @@
 package com.example.a1_4learn2helpyourself;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        nav_drawer nd = new nav_drawer();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
