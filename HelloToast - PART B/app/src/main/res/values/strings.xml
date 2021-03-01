@@ -3,4 +3,5 @@
     <string name="toast">Toast</string>
     <string name="count">Count</string>
     <string name="_0">0</string>
+    <string name="zero">Zero</string>
 </resources>
