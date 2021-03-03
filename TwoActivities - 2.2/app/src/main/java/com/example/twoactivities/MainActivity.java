@@ -18,6 +18,15 @@ public class MainActivity extends AppCompatActivity {
     private TextView mReplyTextView;
 
     @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (mReplyHeadTextView.getVisibility() == View.VISIBLE) {
+            outState.putBoolean("reply_visible", true);
+            outState.putString("reply_text", mReplyTextView.getText().toString());
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -26,6 +35,26 @@ public class MainActivity extends AppCompatActivity {
         mReplyTextView = findViewById(R.id.text_message_reply);
         Log.d(LOG_TAG, "-------");
         Log.d(LOG_TAG, "onCreate");
+
+        mMessageEditText = findViewById(R.id.editText_main);
+        mReplyHeadTextView = findViewById(R.id.text_header_reply);
+        mReplyTextView = findViewById(R.id.text_message_reply);
+
+// Restore the state.
+
+        if (savedInstanceState != null) {
+            boolean isVisible =
+                    savedInstanceState.getBoolean("reply_visible");
+            // Show both the header and the message views. If isVisible is
+            // false or missing from the bundle, use the default layout.
+            if (isVisible) {
+                mReplyHeadTextView.setVisibility(View.VISIBLE);
+                mReplyTextView.setText(savedInstanceState
+                        .getString("reply_text"));
+                mReplyTextView.setVisibility(View.VISIBLE);
+            }
+        }
+
     }
 
     @Override
@@ -40,21 +69,25 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         Log.d(LOG_TAG, "onStop");
     }
+
     @Override
     public void onPause() {
         super.onPause();
         Log.d(LOG_TAG, "onPause");
     }
+
     @Override
     public void onRestart() {
         super.onRestart();
         Log.d(LOG_TAG, "onRestart");
     }
+
     @Override
     public void onResume() {
         super.onResume();
         Log.d(LOG_TAG, "onResume");
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
