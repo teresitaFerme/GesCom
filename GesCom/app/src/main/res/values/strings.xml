@@ -3,4 +3,6 @@
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="introduce_tu_contrasena">Introduce tu contraseña</string>
     <string name="introduce_tu_usuario">Introduce tu usuario</string>
+    <string name="gescom">GesCom</string>
+    <string name="registrarse">Registrarse</string>
 </resources>
