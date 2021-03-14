@@ -16,12 +16,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
-            sleep(5000000);
+        /*try {
+            wait(1000);
             Log.d("MainActivity", "acaba de hacer el sleep");
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         launchView();
     }
 
