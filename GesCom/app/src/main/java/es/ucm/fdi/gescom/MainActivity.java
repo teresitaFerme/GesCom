@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 
 import static java.lang.Thread.sleep;
@@ -15,6 +16,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try {
+            sleep(5000000);
+            Log.d("MainActivity", "acaba de hacer el sleep");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         launchView();
     }
 
