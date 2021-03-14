@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
+                android:onClick="inflateMenu"
                 android:text="Menu"
                 app:backgroundTint="@color/teal_700" />
 

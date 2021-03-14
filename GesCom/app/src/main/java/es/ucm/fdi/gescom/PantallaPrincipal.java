@@ -25,26 +25,16 @@ public class PantallaPrincipal extends AppCompatActivity {
 
 
     }
-/* Estas funciones son para hacer el menu
+
+    /* Esto no sirve porque te hace como un options menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.game_menu, menu);
+        inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
+*/
+    public void inflateMenu(View view) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.new_game:
-                newGame();
-                return true;
-            case R.id.help:
-                showHelp();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
+    }
 }
