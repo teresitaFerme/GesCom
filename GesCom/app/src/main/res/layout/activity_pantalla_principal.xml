@@ -39,7 +39,7 @@
                 android:fontFamily="cursive"
                 android:text="@string/app_name"
                 android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
