@@ -10,18 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
         <activity
-            android:name=".PantallaPrincipal"
+            android:name=".ui.PantallaPrincipal"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ui.RegisterActivity" />
         <activity
-            android:name=".LoginRegister"
+            android:name=".ui.LoginRegister"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".ui.LoginActivity"
+            android:parentActivityName=".ui.MainActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

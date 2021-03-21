@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom;
+package es.ucm.fdi.gescom.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+
+import es.ucm.fdi.gescom.R;
 
 
 //NO SE PORQUE NO FUNCIONA LO DEL TOOLBAR

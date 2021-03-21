@@ -7,7 +7,7 @@
     android:background="@drawable/ic_first_background"
     android:windowActionBar="false"
     android:windowNoTitle="true"
-    tools:context=".LoginActivity">
+    tools:context=".ui.LoginActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

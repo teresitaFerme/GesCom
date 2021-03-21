@@ -1,16 +1,23 @@
-package es.ucm.fdi.gescom;
+package es.ucm.fdi.gescom.ui;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.View;
+
+import java.util.List;
+
+import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.ViewModel;
+import es.ucm.fdi.gescom.roomdatabase.Comunidad;
 
 import static java.lang.Thread.sleep;
 
 public class MainActivity extends AppCompatActivity {
+    private ViewModel mComunidadViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }*/
+
+        mComunidadViewModel = ViewModelProviders.of(this).get(ViewModel.class);
+        mComunidadViewModel.getTodasComunidades().observe(this, new Observer<List<Comunidad>>() {
+            @Override
+            public void onChanged(@Nullable final List<Comunidad> words) {
+                // Update the cached copy of the words in the adapter.
+
+            }
+        });
+
+
         launchView();
     }
 
@@ -31,6 +49,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
 
 }
