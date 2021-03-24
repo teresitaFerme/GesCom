@@ -38,6 +38,8 @@ public class PantallaPrincipal extends AppCompatActivity {
         mMenuNavigation = findViewById(R.id.navigation_view);
         mMenuIcon = findViewById(R.id.imagen_menu);
         mMenuNavigation.setVisibility(View.GONE);
+
+        //TODO que el menu no ocupe la mitad de la pantalla
     }
 
     @Override
