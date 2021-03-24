@@ -30,10 +30,12 @@
                 android:id="@+id/imagen_menu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@color/purple_500"
+                android:onClick="inflateMenu"
                 android:src="@drawable/ic_menu_closed"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="18dp"
-                android:onClick="inflateMenu"/>
+                tools:layout_editor_absoluteY="18dp" />
 
             <TextView
                 android:id="@+id/title"

@@ -25,7 +25,6 @@ import static java.lang.Thread.sleep;
 public class MainActivity extends AppCompatActivity {
     private ViewModel mComunidadViewModel;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         launchView();
-
-
     }
 
     private void launchView(){
