@@ -59,6 +59,12 @@ public class PantallaPrincipal extends AppCompatActivity {
         //mMenuIcon.setImageResource(R.drawable.ic_menu_opened);
     }
 
+    public void launchUser(View view) {
+
+
+    }
+
+
 
 
 }
