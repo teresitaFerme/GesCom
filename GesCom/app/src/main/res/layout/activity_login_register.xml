@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_first_background"
-    tools:context=".LoginRegister">
+    tools:context=".ui.LoginRegister">
 
 
     <androidx.cardview.widget.CardView

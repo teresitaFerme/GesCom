@@ -1,8 +1,10 @@
-package es.ucm.fdi.gescom;
+package es.ucm.fdi.gescom.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import es.ucm.fdi.gescom.R;
 
 public class RegisterActivity extends AppCompatActivity {
 

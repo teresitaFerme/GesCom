@@ -1,10 +1,12 @@
-package es.ucm.fdi.gescom;
+package es.ucm.fdi.gescom.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import es.ucm.fdi.gescom.R;
 
 public class LoginRegister extends AppCompatActivity {
 
