@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -40,6 +41,7 @@ public class PantallaPrincipal extends AppCompatActivity {
         mMenuNavigation.setVisibility(View.GONE);
 
         //TODO que el menu no ocupe la mitad de la pantalla
+        //TODO cambiar el tamaño de los items del menu
     }
 
     @Override
@@ -62,8 +64,8 @@ public class PantallaPrincipal extends AppCompatActivity {
     }
 
     public void launchUser(View view) {
-
-
+        Intent intent = new Intent(this, UserDisplay.class);
+        startActivity(intent);
     }
 
 

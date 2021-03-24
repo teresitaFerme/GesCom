@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,12 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //TODO: poner que salga el splash unos segundos antes de que aparezca la primera vista
-        /*try {
-            wait(1000);
-            Log.d("MainActivity", "acaba de hacer el sleep");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+//        SystemClock.sleep(100000);
 
         mComunidadViewModel = ViewModelProviders.of(this).get(ViewModel.class);
         mComunidadViewModel.getTodasComunidades().observe(this, new Observer<List<Comunidad>>() {

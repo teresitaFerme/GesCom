@@ -15,6 +15,7 @@ public class ComunidadRepository {
     private ComunidadDao mComunidadDao;
     private LiveData<List<Comunidad>> mTodasComunidades;
 
+
     ComunidadRepository(Application application) {
         ComunidadRoomDatabase db = ComunidadRoomDatabase.getDatabase(application);
         mComunidadDao = db.comunidadDao();
