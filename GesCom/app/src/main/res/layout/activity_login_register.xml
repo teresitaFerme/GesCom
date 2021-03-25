@@ -74,7 +74,7 @@
                 android:gravity="center_vertical"
                 android:onClick="launchRegister"
                 android:text="@string/registrarse"
-                ndroid:textColor="@color/white"
+                android:textColor="@color/white"
                 app:backgroundTint="@color/teal_700"
                 android:layout_marginTop="35dp"
                 app:layout_constraintBottom_toBottomOf="@id/button_login_selected"
