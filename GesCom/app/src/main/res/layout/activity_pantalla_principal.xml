@@ -72,10 +72,13 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:menu="@menu/main_menu"
         android:visibility="invisible"
-        />
+        >
+
+
+    </com.google.android.material.navigation.NavigationView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardView_reservas_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -97,6 +100,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_reservas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -105,7 +109,7 @@
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintTop_toBottomOf="@+id/cardView_reservas_title">
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,6 +117,49 @@
             android:layout_gravity="center_horizontal"
             android:padding="8dp"
             android:text="No dispone de ninguna reserva"
+            android:textSize="12sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_incidencias_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/teal_700"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_reservas">
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="4dp"
+            android:text="Incidencias"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_incidencias_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="8dp"
+            android:text="No hay incidencias"
             android:textSize="12sp" />
     </androidx.cardview.widget.CardView>
 

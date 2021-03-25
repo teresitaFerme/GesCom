@@ -20,7 +20,7 @@ public class UserDisplay extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         TextView tv = findViewById(R.id.title_user);
-        tv.setText("userName");
+        tv.setText("Tu cuenta");
 
     }
 
