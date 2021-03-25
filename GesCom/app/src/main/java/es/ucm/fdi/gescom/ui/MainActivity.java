@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable final List<Comunidad> words) {
                 // Update the cached copy of the words in the adapter.
-
             }
         });
         launchView();
