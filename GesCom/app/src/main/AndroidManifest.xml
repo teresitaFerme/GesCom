@@ -15,13 +15,16 @@
         <activity
             android:name=".ui.PantallaPrincipal"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
-        <activity android:name=".ui.RegisterActivity" />
+        <activity android:name=".ui.RegisterActivity"
+            android:parentActivityName=".ui.LoginRegister"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        />
         <activity
             android:name=".ui.LoginRegister"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".ui.LoginActivity"
-            android:parentActivityName=".ui.MainActivity"
+            android:parentActivityName=".ui.LoginRegister"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".ui.MainActivity"
