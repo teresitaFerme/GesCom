@@ -30,8 +30,6 @@
             android:layout_height="match_parent"
             android:background="@color/purple_500"
             android:orientation="vertical">
-            <!-- Rest of LinearLayout -->
-            <!-- TextView elements -->
 
             <TextView
                 android:id="@+id/textView2"
@@ -58,11 +56,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="35dp"
                 android:onClick="launchLogin"
                 android:text="@string/iniciar_sesion"
-                android:textColor="@color/teal_700"
-                app:backgroundTint="@color/white"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/teal_700"
                 app:layout_constraintBottom_toTopOf="@+id/button_register_selected"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,8 +74,9 @@
                 android:gravity="center_vertical"
                 android:onClick="launchRegister"
                 android:text="@string/registrarse"
-                android:textColor="@color/teal_700"
-                app:backgroundTint="@color/white"
+                ndroid:textColor="@color/white"
+                app:backgroundTint="@color/teal_700"
+                android:layout_marginTop="35dp"
                 app:layout_constraintBottom_toBottomOf="@id/button_login_selected"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
