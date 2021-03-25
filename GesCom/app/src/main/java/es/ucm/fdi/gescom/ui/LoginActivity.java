@@ -41,4 +41,8 @@ public class LoginActivity extends AppCompatActivity {
        // toast.show();
 
     }
+
+    public void resetPassword(View view) {
+        //TODO resetPassword activity -> enviar un correo para resetear la contraseña
+    }
 }
