@@ -51,38 +51,42 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="40dp"
-                android:ems="10"
-                android:hint="@string/introduce_tu_usuario"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/editText_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="24dp"
-                android:ems="10"
-                android:hint="@string/introduce_tu_contrasena"
-                android:importantForAutofill="no"
-                android:inputType="textPersonName|textPassword"
-                android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toTopOf="@+id/button_login"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText_user"
-                tools:ignore="TextFields" />
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_formulario_nombre_comunidad"
+                style="@style/cardFormulary">
+
+                <EditText
+                    android:id="@+id/editText_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="Nombre de tu comunidad/Dirección"
+                    android:importantForAutofill="yes"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_formulario_password"
+                style="@style/cardFormulary">
+
+                <EditText
+                    android:id="@+id/editText_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="@string/introduce_tu_contrasena"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName|textPassword"
+                    android:textColor="#FFFFFF"
+                    tools:ignore="TextFields" />
+
+            </androidx.cardview.widget.CardView>
+
+
 
             <Button
                 android:id="@+id/button_login"
@@ -91,11 +95,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="50dp"
-                android:background="#E0F2F1"
-                android:onClick="comprobarLogin"
-                android:text="@string/iniciar_sesion"
-                android:textColor="@color/teal_700"
-                app:backgroundTint="@color/purple_200"
+                android:text="Registrar"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/teal_700"
                 app:layout_constraintBottom_toBottomOf="@id/editText_password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
