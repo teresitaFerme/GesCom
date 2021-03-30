@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.UserDisplay">
 
-    <include android:id="@+id/toolbar" layout="@layout/toolbar_principal"/>
+    <include android:id="@+id/toolbar" layout="@layout/toolbar_activity"/>
 
 
     <androidx.cardview.widget.CardView
