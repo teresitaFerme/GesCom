@@ -16,12 +16,12 @@ public class UserDisplay extends AppCompatActivity {
         setContentView(R.layout.activity_user_display);
         getIntent();
 
-        toolbar = this.findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        TextView tv = findViewById(R.id.title_user);
+        TextView tv = toolbar.findViewById(R.id.title);
         tv.setText("Tu cuenta");
-
+        //TODO poner la flecha en la izq para volver hacia atrás y a la derecha del toolbar el logout
     }
 
 

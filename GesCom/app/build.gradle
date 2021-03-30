@@ -46,4 +46,5 @@ dependencies {
 // Lifecycle components
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+    compile files('src/lib/mysql-connector-java-8.0.23.jar')
 }
