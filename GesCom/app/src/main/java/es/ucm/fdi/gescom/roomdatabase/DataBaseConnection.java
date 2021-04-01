@@ -2,13 +2,10 @@ package es.ucm.fdi.gescom.roomdatabase;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import es.ucm.fdi.gescom.ui.PantallaPrincipal;
 
 public class DataBaseConnection extends AsyncTask<Void, Void, Void> {
     private String edServidor = "sql11.freemysqlhosting.net", edPuerto = "3306", edUsuario = "sql11401998", edPassword = "Y5hMbgyCqi";

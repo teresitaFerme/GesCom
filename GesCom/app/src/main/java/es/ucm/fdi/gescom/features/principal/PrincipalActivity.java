@@ -1,36 +1,25 @@
-package es.ucm.fdi.gescom.ui;
+package es.ucm.fdi.gescom.features.principal;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-import com.mysql.jdbc.Driver;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import es.ucm.fdi.gescom.R;
-import es.ucm.fdi.gescom.roomdatabase.DataBaseConnection;
+import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
+import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 
 
 //NO SE PORQUE NO FUNCIONA LO DEL TOOLBAR
-public class PantallaPrincipal extends AppCompatActivity {
+public class PrincipalActivity extends AppCompatActivity {
     private final String edServidor = "sql11.freemysqlhosting.net";
     private final String edPuerto = "3306";
     private final String edUsuario = "sql11401998";
@@ -111,7 +100,7 @@ public class PantallaPrincipal extends AppCompatActivity {
     }
 
     public void launchUser(View view) {
-        Intent intent = new Intent(this, UserDisplay.class);
+        Intent intent = new Intent(this, UserDisplayActivity.class);
         startActivity(intent);
     }
 

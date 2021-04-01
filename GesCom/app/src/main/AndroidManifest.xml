@@ -11,27 +11,29 @@
         android:roundIcon="@mipmap/ic_launcher_gescom_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
-        <activity android:name=".ui.AvisosActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
+        <activity android:name=".base.BaseActivity"></activity>
         <activity
-            android:name=".ui.UserDisplay"
+            android:name=".features.avisos.AvisosActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.PantallaPrincipal"
+            android:name=".features.userdisplay.UserDisplayActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.RegisterActivity"
-            android:parentActivityName=".ui.LoginRegister"
+            android:name=".features.principal.PrincipalActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.LoginRegister"
+            android:name=".features.register.RegisterActivity"
+            android:parentActivityName=".features.loginregister.LoginRegisterActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.LoginActivity"
-            android:parentActivityName=".ui.LoginRegister"
+            android:name=".features.loginregister.LoginRegisterActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".features.login.LoginActivity"
+            android:parentActivityName=".features.loginregister.LoginRegisterActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
+            android:name=".features.main.MainActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

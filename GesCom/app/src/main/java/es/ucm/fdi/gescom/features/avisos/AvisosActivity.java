@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.ui;
+package es.ucm.fdi.gescom.features.avisos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.ui;
+package es.ucm.fdi.gescom.features.loginregister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.features.login.LoginActivity;
+import es.ucm.fdi.gescom.features.register.RegisterActivity;
 
-public class LoginRegister extends AppCompatActivity {
+public class LoginRegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

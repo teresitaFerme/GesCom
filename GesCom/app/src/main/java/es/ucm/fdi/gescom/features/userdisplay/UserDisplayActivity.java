@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.ui;
+package es.ucm.fdi.gescom.features.userdisplay;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class UserDisplay extends AppCompatActivity {
+public class UserDisplayActivity extends AppCompatActivity {
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
