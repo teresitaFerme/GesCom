@@ -12,7 +12,7 @@ public class LoginPresenter extends BasePresenter {
     }
 
     public void validateLogin(String username, String password) {
-        if(!username.equals(null) && !password.equals(null)){
+        if(username.length() != 0 && password.length() != 0){
             if(mLoginModel.validateLogin(username, password)) mLoginView.loginSuccessful();
             else mLoginView.loginFailure();
         }else{

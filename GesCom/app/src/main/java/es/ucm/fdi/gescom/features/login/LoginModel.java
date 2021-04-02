@@ -9,7 +9,9 @@ public class LoginModel extends BaseModel {
         //en caso afirmativo, guardar toda la info del usuario en una instancia singleton de la clase usuario
 
         //lo que está a continuación es para probar todas las lógicas de negocio
-        if(username.equals("username") && password.equals("password")) return true;
+        if(username.equals("username") && password.equals("password")){
+            return true;
+        }
         else return false;
     }
 }
