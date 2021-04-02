@@ -1,6 +1,7 @@
 package es.ucm.fdi.gescom.features.userdisplay;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
+import es.ucm.fdi.gescom.roomdatabase.Usuario;
 
 public class UserDisplayPresenter extends BasePresenter {
     private UserDisplayView mView;
@@ -9,5 +10,10 @@ public class UserDisplayPresenter extends BasePresenter {
     UserDisplayPresenter(UserDisplayView view){
         mView = view;
         mModel = new UserDisplayModel();
+    }
+
+    public void getUser() {
+        Usuario user = Usuario.getUser(null, null);
+        mView.setUserInfo(user.getUserName() , user.getRole() );
     }
 }

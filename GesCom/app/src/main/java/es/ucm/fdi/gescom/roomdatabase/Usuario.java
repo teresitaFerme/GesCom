@@ -4,12 +4,13 @@ public class Usuario {
     private String mUserName;
     private int mId;
     private String mPassword;
-    private String role;
+    private String mRole;
     private static Usuario mUser;
 
     public static Usuario getUser(String username, String password){
         if(mUser == null){
-            return new Usuario(username, password);
+            mUser = new Usuario(username, password);
+            return mUser;
         }else return mUser;
     }
 
@@ -17,7 +18,7 @@ public class Usuario {
         mUserName = username;
         mPassword = password;
         mId = 0;
-        role = "user";
+        mRole = "Vecino";
     }
 
     public String getUserName(){
@@ -30,6 +31,10 @@ public class Usuario {
 
     public int getId(){
         return mId;
+    }
+
+    public String getRole(){
+        return mRole;
     }
 
 }
