@@ -1,31 +1,33 @@
 package es.ucm.fdi.gescom.features.avisos;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.base.BaseActivity;
 
 import static androidx.recyclerview.widget.RecyclerView.*;
 
-public class AvisosActivity extends AppCompatActivity {
+public class AvisosActivity extends BaseActivity implements AvisosView {
     private RecyclerView mRecyclerAvisos;
     private FloatingActionButton mNuevoAviso;
+    private AvisosPresenter mPresenter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avisos);
+
+        mPresenter = new AvisosPresenter(this);
 
         mRecyclerAvisos = findViewById(R.id.recycler_avisos);
         mRecyclerAvisos.setAdapter(new Adapter() {
