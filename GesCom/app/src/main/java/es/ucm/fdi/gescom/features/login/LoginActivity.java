@@ -63,4 +63,5 @@ public class LoginActivity extends BaseActivity implements LoginView{
         Toast toast = Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_LONG);
         toast.show();
     }
+
 }

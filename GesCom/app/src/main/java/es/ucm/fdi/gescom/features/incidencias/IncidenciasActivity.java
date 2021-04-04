@@ -66,4 +66,5 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
         Intent intent = new Intent(this, PrincipalActivity.class);
         startActivity(intent);
     }
+
 }

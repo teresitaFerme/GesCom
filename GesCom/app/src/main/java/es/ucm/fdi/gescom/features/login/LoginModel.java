@@ -1,6 +1,7 @@
 package es.ucm.fdi.gescom.features.login;
 
 import es.ucm.fdi.gescom.base.BaseModel;
+import es.ucm.fdi.gescom.roomdatabase.GesComApp;
 import es.ucm.fdi.gescom.roomdatabase.Usuario;
 
 public class LoginModel extends BaseModel {
@@ -11,7 +12,7 @@ public class LoginModel extends BaseModel {
 
         //lo que está a continuación es para probar todas las lógicas de negocio
         if(username.equals("username") && password.equals("password")){
-            Usuario.getUser(username, password);//aqui deberiamos meterle los datos reales
+            GesComApp.getApp().setUser(username, password);;//aqui deberiamos meterle los datos reales
             return true;
         }
         else return false;

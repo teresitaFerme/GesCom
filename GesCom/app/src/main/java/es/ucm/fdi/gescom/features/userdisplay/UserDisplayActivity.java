@@ -1,6 +1,9 @@
 package es.ucm.fdi.gescom.features.userdisplay;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 
 import es.ucm.fdi.gescom.R;
@@ -38,15 +41,19 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
         mPresenter.getUser();
     }
 
-    //TODO no funciona bien lo de volver para atrás
     @Override
     public void onBackPressed() {
-        finish();
+        super.onBackPressed();
     }
+
+
+    //TODO no funciona bien lo de volver para atrás
+
 
     @Override
     public void setUserInfo(String username, String role) {
         mUsername.setText(username);
         mUserRole.append(role);
     }
+
 }

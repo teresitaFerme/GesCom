@@ -12,34 +12,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
         <activity
+            android:name=".features.ajustes.AjustesActivity"
+            android:parentActivityName=".features.principal.PrincipalActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
             android:name=".features.incidencias.IncidenciasActivity"
             android:parentActivityName=".features.principal.PrincipalActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".base.BaseActivity" />
         <activity
             android:name=".features.avisos.AvisosActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:parentActivityName=".features.principal.PrincipalActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.userdisplay.UserDisplayActivity"
             android:parentActivityName=".features.principal.PrincipalActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.principal.PrincipalActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.register.RegisterActivity"
             android:parentActivityName=".features.loginregister.LoginRegisterActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.loginregister.LoginRegisterActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.login.LoginActivity"
             android:parentActivityName=".features.loginregister.LoginRegisterActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.main.MainActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

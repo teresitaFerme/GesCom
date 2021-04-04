@@ -57,6 +57,7 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
         //TODO poner bien el recycler view y que salgan todos los card views
     }
 
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView avisosCardView;
 
@@ -72,9 +73,4 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
         }
     }
 
-
-    @Override
-    public void onBackPressed() {
-        finish();
-    }
 }

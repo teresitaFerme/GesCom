@@ -1,22 +1,29 @@
 package es.ucm.fdi.gescom.features.principal;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
 import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
+import es.ucm.fdi.gescom.roomdatabase.GesComApp;
+import es.ucm.fdi.gescom.roomdatabase.Incidencia;
+import es.ucm.fdi.gescom.roomdatabase.Usuario;
 
 
 //NO SE PORQUE NO FUNCIONA LO DEL TOOLBAR
@@ -32,7 +39,8 @@ public class PrincipalActivity extends AppCompatActivity {
     private NavigationView mMenuNavigation;
     private ImageView mMenuIcon;
     private Menu mMenu;
-
+    private TextView mIncidenciaAsunto;
+    private TextView mIncidenciaDescripcion;
 
 
     @Override
@@ -50,11 +58,22 @@ public class PrincipalActivity extends AppCompatActivity {
         mMenuNavigation.setVisibility(View.GONE);
         mMenu = mMenuNavigation.getMenu();
 
+        mIncidenciaAsunto = findViewById(R.id.incidencias_asunto_principañ);
+        mIncidenciaDescripcion = findViewById(R.id.incidencias_descripcion_pricipal);
+
+        Incidencia inci = GesComApp.getIncidencia();
+        if(inci != null){
+            mIncidenciaAsunto.setText(inci.getAsunto());
+            mIncidenciaDescripcion.setText(inci.getDescripcion());
+        }
+
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
 
         conectarMySQL();
     }
+
+    //TODO hay que hacer override de onResume o onRestart para que actualice las incidencias
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -74,13 +93,13 @@ public class PrincipalActivity extends AppCompatActivity {
                 //nextClass = AvisosActivity.class;
                 break;
             case R.id.ajustes:
-                //nextClass = AvisosActivity.class;
+                nextClass = AjustesActivity.class;
                 break;
         }
         Intent intent = new Intent(this, nextClass);
         startActivity(intent);
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @Override
@@ -110,5 +129,9 @@ public class PrincipalActivity extends AppCompatActivity {
       // new DataBaseConnection().execute();
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
 
+        super.onSaveInstanceState(outState, outPersistentState);
+    }
 }
