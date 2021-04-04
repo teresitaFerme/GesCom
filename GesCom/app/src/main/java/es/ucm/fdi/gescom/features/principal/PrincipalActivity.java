@@ -15,6 +15,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
+import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 
 
@@ -64,7 +65,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 nextClass = AvisosActivity.class;
                 break;
             case R.id.incidencias:
-                //nextClass = AvisosActivity.class;
+                nextClass = IncidenciasActivity.class;
                 break;
             case R.id.reservas:
                 //nextClass = AvisosActivity.class;

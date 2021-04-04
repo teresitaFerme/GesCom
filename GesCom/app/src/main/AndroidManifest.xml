@@ -11,12 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_gescom_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
-        <activity android:name=".base.BaseActivity"></activity>
+        <activity
+            android:name=".features.incidencias.IncidenciasActivity"
+            android:parentActivityName=".features.principal.PrincipalActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity android:name=".base.BaseActivity" />
         <activity
             android:name=".features.avisos.AvisosActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".features.userdisplay.UserDisplayActivity"
+            android:parentActivityName=".features.principal.PrincipalActivity"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
         <activity
             android:name=".features.principal.PrincipalActivity"

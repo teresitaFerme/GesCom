@@ -57,9 +57,10 @@
                 style="@style/cardFormulary">
                     <EditText
                         android:id="@+id/editText_user"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:layout_margin="8dp"
                         android:hint="@string/introduce_tu_usuario"
                         android:importantForAutofill="yes"
                         android:inputType="textPersonName"
@@ -71,11 +72,12 @@
                 style="@style/cardFormulary">
                 <EditText
                     android:id="@+id/editText_password"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:hint="@string/introduce_tu_contrasena"
                     android:importantForAutofill="yes"
+                    android:layout_margin="8dp"
                     android:inputType="textPersonName|textPassword"
                     android:textColor="@color/black"
                     tools:ignore="TextFields" />

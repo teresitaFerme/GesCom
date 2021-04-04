@@ -14,6 +14,6 @@ public class UserDisplayPresenter extends BasePresenter {
 
     public void getUser() {
         Usuario user = Usuario.getUser(null, null);
-        mView.setUserInfo(user.getUserName() , user.getRole() );
+        mView.setUserInfo(String.valueOf(user.getUserName()) , String.valueOf(user.getRole()) );
     }
 }

@@ -29,13 +29,19 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         TextView tv = toolbar.findViewById(R.id.title);
         tv.setText("Tu cuenta");
-        //TODO poner la flecha en la izq para volver hacia atrás y a la derecha del toolbar el logout
+        //TODO poner a la derecha del toolbar el logout
 
 
         mUsername = findViewById(R.id.textView_username);
         mUserRole = findViewById(R.id.textView_role);
 
         mPresenter.getUser();
+    }
+
+    //TODO no funciona bien lo de volver para atrás
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
     @Override

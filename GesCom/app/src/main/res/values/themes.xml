@@ -35,11 +35,13 @@
         <item name="android:layout_margin">16dp</item>
         <item name="cardCornerRadius">8dp</item>
         <item name="cardElevation">10dp</item>
+        <item name="background">@drawable/card_stroke</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="layout_constraintTop_toTopOf">parent</item>
     </style>
+
 
 
 </resources>
