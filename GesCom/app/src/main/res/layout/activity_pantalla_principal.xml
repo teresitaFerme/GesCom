@@ -7,59 +7,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.PantallaPrincipal">
+    tools:context=".features.principal.PrincipalActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_500"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <ImageButton
-                android:id="@+id/imagen_menu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:background="@color/purple_500"
-                android:onClick="inflateMenu"
-                android:src="@drawable/ic_menu_closed"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="18dp" />
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:fontFamily="cursive"
-                android:layout_gravity="center"
-                android:text="@string/app_name"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-
-            <ImageButton
-                android:id="@+id/imagen_usuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:background="@color/purple_500"
-                android:onClick="launchUser"
-                android:src="@drawable/ic_usuario" />
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
+    <include android:id="@+id/toolbar" layout="@layout/toolbar_principal"/>
 
 
     <com.google.android.material.navigation.NavigationView
@@ -105,7 +55,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        app:cardBackgroundColor="@color/white"
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,23 +93,52 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_incidencias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        app:cardBackgroundColor="@color/white"
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView_incidencias_title">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:padding="8dp"
-            android:text="No hay incidencias"
-            android:textSize="12sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="No hay incidencias"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/incidencias_asunto_principañ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="8dp"
+                android:text=""
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/incidencias_descripcion_pricipal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="8dp"
+                android:text=""
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

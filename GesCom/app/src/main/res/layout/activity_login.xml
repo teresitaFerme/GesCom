@@ -7,7 +7,7 @@
     android:background="@drawable/ic_first_background"
     android:windowActionBar="false"
     android:windowNoTitle="true"
-    tools:context=".ui.LoginActivity">
+    tools:context=".features.login.LoginActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -57,9 +57,11 @@
                 style="@style/cardFormulary">
                     <EditText
                         android:id="@+id/editText_user"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
+                        android:layout_margin="8dp"
+                        android:text="username"
                         android:hint="@string/introduce_tu_usuario"
                         android:importantForAutofill="yes"
                         android:inputType="textPersonName"
@@ -71,11 +73,13 @@
                 style="@style/cardFormulary">
                 <EditText
                     android:id="@+id/editText_password"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="password"
                     android:layout_gravity="center_horizontal"
                     android:hint="@string/introduce_tu_contrasena"
                     android:importantForAutofill="yes"
+                    android:layout_margin="8dp"
                     android:inputType="textPersonName|textPassword"
                     android:textColor="@color/black"
                     tools:ignore="TextFields" />
@@ -88,7 +92,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="30dp"
-                android:onClick="comprobarLogin"
                 android:text="@string/iniciar_sesion"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/teal_700"

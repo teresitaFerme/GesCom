@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_first_background"
-    tools:context=".ui.LoginRegister">
+    tools:context=".features.loginregister.LoginRegisterActivity">
 
 
     <androidx.cardview.widget.CardView
@@ -57,7 +57,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="35dp"
-                android:onClick="launchLogin"
                 android:text="@string/iniciar_sesion"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/teal_700"
@@ -72,7 +71,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
-                android:onClick="launchRegister"
                 android:text="@string/registrarse"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/teal_700"
