@@ -6,12 +6,10 @@ import es.ucm.fdi.gescom.base.BasePresenter;
 
 public class LoginRegisterPresenter extends BasePresenter {
     private LoginRegisterView mView;
-    private LoginRegisterModel mModel;
     //TODO el model de esta clase debería comprobar si hay sesión ya iniciada
 
     LoginRegisterPresenter(LoginRegisterView loginRegisterView){
         mView = loginRegisterView;
-        mModel = new LoginRegisterModel();
     }
 
     public void openLogin() {
