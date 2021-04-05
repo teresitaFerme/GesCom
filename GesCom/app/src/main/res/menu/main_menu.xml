@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+    <item android:id="@+id/avisos"
+        android:title="Avisos"
+        android:onClick="onOptionsItemSelected"
+         />
+    <item android:id="@+id/incidencias"
+        android:title="Reportar Incidencia"
+        android:onClick="onOptionsItemSelected"
+        />
+    <item android:id="@+id/reservas"
+        android:title="Realizar Reserva"
+        android:onClick="onOptionsItemSelected"
+        />
+    <item android:id="@+id/votaciones"
+        android:title="Votaciones en curso"
+        android:onClick="onOptionsItemSelected"
+        />
+    <item android:id="@+id/ajustes"
+        android:title="Ajustes"
+        android:onClick="onOptionsItemSelected"/>
+
+</menu>
