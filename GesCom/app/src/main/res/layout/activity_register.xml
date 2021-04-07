@@ -64,10 +64,10 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
-                        android:hint="Nombre de tu comunidad/Dirección"
                         android:importantForAutofill="yes"
                         android:inputType="textPersonName"
-                        android:textColor="@color/white" />
+                        android:hint="Nombre de tu comunidad/Dirección"
+                        android:textColor="@color/black" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -81,12 +81,10 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         android:hint="@string/introduce_tu_contrasena"
-                        android:importantForAutofill="no"
                         android:inputType="textPersonName|textPassword"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/black"
                         android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        tools:ignore="TextFields" />
+                        android:layout_marginEnd="8dp" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -100,12 +98,10 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
                         android:hint="Introduce un correo electrónico"
-                        android:importantForAutofill="no"
-                        android:inputType="textPersonName|textPassword"
-                        android:textColor="#FFFFFF"
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
                         android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        tools:ignore="TextFields"/>
+                        android:layout_marginEnd="8dp"/>
 
                 </androidx.cardview.widget.CardView>
 
