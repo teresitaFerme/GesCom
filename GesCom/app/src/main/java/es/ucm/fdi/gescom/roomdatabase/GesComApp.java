@@ -1,7 +1,7 @@
 package es.ucm.fdi.gescom.roomdatabase;
 
 public class GesComApp {
-    private static Usuario mUser = null;
+    private static User mUser = null;
     private Comunidad mComunidad = null;
     private static GesComApp mApp = null;
     private static Incidencia mIncidencia;
@@ -14,10 +14,10 @@ public class GesComApp {
     }
 
     public void setUser(String username, String password){
-       mUser =  Usuario.getUser(username, password);
+       mUser =  User.getUser(username, password);
     }
 
-    public static Usuario getUser(){
+    public static User getUser(){
         return mUser;
     }
 

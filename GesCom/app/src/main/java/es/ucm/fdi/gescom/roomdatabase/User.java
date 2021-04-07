@@ -1,20 +1,20 @@
 package es.ucm.fdi.gescom.roomdatabase;
 //singleton
-public class Usuario {
+public class User {
     private String mUserName;
     private int mId;
     private String mPassword;
     private String mRole;
-    private static Usuario mUser;
+    private static User mUser;
 
-    public static Usuario getUser(String username, String password){
+    public static User getUser(String username, String password){
         if(mUser == null){
-            mUser = new Usuario(username, password);
+            mUser = new User(username, password);
             return mUser;
         }else return mUser;
     }
 
-    private Usuario(String username, String password){
+    private User(String username, String password){
         mUserName = username;
         mPassword = password;
         mId = 0;

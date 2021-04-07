@@ -1,7 +1,6 @@
 package es.ucm.fdi.gescom.features.principal;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -23,7 +22,6 @@ import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 import es.ucm.fdi.gescom.roomdatabase.GesComApp;
 import es.ucm.fdi.gescom.roomdatabase.Incidencia;
-import es.ucm.fdi.gescom.roomdatabase.Usuario;
 
 
 //NO SE PORQUE NO FUNCIONA LO DEL TOOLBAR

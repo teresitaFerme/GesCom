@@ -1,7 +1,7 @@
 package es.ucm.fdi.gescom.features.incidencias;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
-import es.ucm.fdi.gescom.roomdatabase.Usuario;
+import es.ucm.fdi.gescom.roomdatabase.User;
 
 public class IncidenciasPresenter extends BasePresenter {
     private IncidenciasView mIncidenciasView;
@@ -14,7 +14,7 @@ public class IncidenciasPresenter extends BasePresenter {
 
     public void validateIncidence(String asunto, String descripcion) {
         if(asunto.length() != 0 && descripcion.length() != 0){
-            if(mIncidenciasModel.saveIncidence(asunto, descripcion, Usuario.getUser(null,null).getId())){
+            if(mIncidenciasModel.saveIncidence(asunto, descripcion, User.getUser(null,null).getId())){
                 mIncidenciasView.reportSuccessful();
             }
             else{

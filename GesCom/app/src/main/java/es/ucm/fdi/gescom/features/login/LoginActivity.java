@@ -1,7 +1,5 @@
 package es.ucm.fdi.gescom.features.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +9,6 @@ import android.widget.Toast;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
-import es.ucm.fdi.gescom.roomdatabase.Usuario;
 import es.ucm.fdi.gescom.features.principal.PrincipalActivity;
 
 public class LoginActivity extends BaseActivity implements LoginView{

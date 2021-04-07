@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
 //        SystemClock.sleep(100000);
         mApp = GesComApp.getApp();
         launchView();
+
+        //this.deleteDatabase("GesCom.db");
+
     }
 
     private void launchView(){
