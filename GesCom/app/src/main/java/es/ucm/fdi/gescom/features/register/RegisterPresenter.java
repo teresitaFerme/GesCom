@@ -17,6 +17,7 @@ public class RegisterPresenter extends BasePresenter {
         if (username.length() != 0 && commName.length() != 0) {
             if (!mRegisterModel.getUsername(username)) {
                 if (!mRegisterModel.getCommunityName(commName)) {
+                    //TODO mirar si comprueba/registra bien las comunidades
                     long admin_id = mRegisterModel.registerUser(username, commName);
                     mRegisterModel.registerCommunity(commName, admin_id);
                     mRegisterView.registerSuccessful();

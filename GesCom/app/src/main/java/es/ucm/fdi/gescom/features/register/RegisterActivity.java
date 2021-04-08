@@ -27,8 +27,8 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
         mRegisterPresenter = new RegisterPresenter(this);
         //
-        mCommunityName = findViewById(R.id.editText_user);
-        mUserName = findViewById(R.id.editText_correo_administrador);
+        mCommunityName = findViewById(R.id.registro_editText_nombre_comunidad);
+        mUserName = findViewById(R.id.registro_editText_username_admin);
         //
         spinnerNumeroEdificios = findViewById(R.id.spinner_numero_edificios);
         ArrayAdapter adaptadorEdificios = ArrayAdapter.createFromResource(this, R.array.valores_spinner_numero_edificios, android.R.layout.simple_spinner_item);
@@ -110,7 +110,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
     @Override
     public void registerCommunityFailure() {
-        Toast toast = Toast.makeText(this, "Comunidad ya creada", Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(this, "Esta comunidad ya existe. Por favor introduzca otro nombre.", Toast.LENGTH_LONG);
         toast.show();
     }
 
