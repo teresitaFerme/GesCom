@@ -1,7 +1,5 @@
 package es.ucm.fdi.gescom.features.loginregister;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +12,7 @@ import es.ucm.fdi.gescom.features.register.RegisterActivity;
 
 public class LoginRegisterActivity extends BaseActivity implements LoginRegisterView {
     private LoginRegisterPresenter mPresenter;
-    private Button mLogin, mRegister;
+    private Button mLogin, mRegisterCommunity, mRegisterUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +30,19 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
             }
         });
 
-        mRegister = findViewById(R.id.button_register_selected);
-        mRegister.setOnClickListener(new View.OnClickListener() {
+        mRegisterUser = findViewById(R.id.button_register_user_selected);
+        mRegisterUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.openRegistration();
+                mPresenter.openUserRegistration();
+            }
+        });
+
+        mRegisterCommunity = findViewById(R.id.button_register_community_selected);
+        mRegisterCommunity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.openCommunityRegistration();
             }
         });
 
@@ -49,8 +55,13 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
     }
 
     @Override
-    public void register() {
+    public void registerCommunity() {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void registerUser() {
+        //TODO: llamar aqui a la pag de registrar usuario
     }
 }
