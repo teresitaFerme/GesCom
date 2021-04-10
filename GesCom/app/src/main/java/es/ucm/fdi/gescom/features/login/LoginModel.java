@@ -21,19 +21,13 @@ public class LoginModel extends BaseModel {
         //TODO guardar todos los datos ne cache, incluida la comunidad entera
 
         SQLiteDatabase db = mCommunitiesDBHelper.getReadableDatabase();
-
-        // Define a projection that specifies which columns from the database
-        // you will actually use after this query.
         String[] projection = {
                 BaseColumns._ID,
                 CommunitiesDatabase.User.COLUMN_NAME_USERNAME,
                 CommunitiesDatabase.User.COLUMN_NAME_PASSWORD
         };
-
-        // Filter results WHERE "title" = 'My Title'
         String selection = CommunitiesDatabase.User.COLUMN_NAME_USERNAME + " = ?";
         String[] selectionArgs = {username};
-
         Cursor cursor = db.query(
                 CommunitiesDatabase.User.TABLE_NAME,   // The table to query
                 projection,             // The array of columns to return (pass null to get all)
@@ -46,7 +40,7 @@ public class LoginModel extends BaseModel {
 
         if(cursor.moveToFirst()){
             if(cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_PASSWORD)).equals(password)){
-                GesComApp.getApp().setUser(username, password);;//aqui deberiamos meterle los datos reales
+                GesComApp.getApp().setUser(username, password);
                 return true;
             }
             else return false;

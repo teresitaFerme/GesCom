@@ -26,12 +26,13 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/purple_500"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_500"
                 android:orientation="vertical">
 
                 <TextView
@@ -141,12 +142,12 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/editText_numero_edificios"
+                    android:id="@+id/editText_numero_viviendas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:importantForAutofill="no"
-                    android:text="Seleccione número de edificios:"
+                    android:text="Seleccione número de viviendas:"
                     android:textColor="#FFFFFF"
                     tools:ignore="TextFields"/>
 
@@ -156,68 +157,13 @@
                     android:layout_width="wrap_content">
 
                     <Spinner
-                        android:id="@+id/spinner_numero_edificios"
+                        android:id="@+id/spinner_numero_viviendas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"/>
 
                 </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/editText_plantas_edificio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:importantForAutofill="no"
-                    android:text="Plantas por edificio:"
-                    android:textColor="#FFFFFF"
-                    tools:ignore="TextFields"/>
-
-                <androidx.cardview.widget.CardView
-                    style="@style/cardFormulary"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
-
-                    <Spinner
-                        android:id="@+id/spinner_plantas_edificio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp" />
-
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/editText_viviendas_planta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:importantForAutofill="no"
-                    android:text="Viviendas por planta:"
-                    android:textColor="#FFFFFF"
-                    tools:ignore="TextFields"/>
-
-                <androidx.cardview.widget.CardView
-                    style="@style/cardFormulary"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content">
-
-                    <Spinner
-                        android:id="@+id/spinner_viviendas_planta"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp" />
-
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/editText_total_viviendas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:importantForAutofill="no"
-                    android:text="Número total de viviendas: "
-                    android:textColor="#FFFFFF"
-                    tools:ignore="TextFields"/>
 
                 <Button
                     android:id="@+id/button_register"

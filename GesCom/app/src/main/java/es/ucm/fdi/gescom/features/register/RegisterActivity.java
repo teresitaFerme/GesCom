@@ -14,7 +14,7 @@ import android.widget.Toast;
 import es.ucm.fdi.gescom.R;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView{
-    private Spinner spinnerNumeroEdificios, spinnerNumeroPlantas, spinnerViviendasPlanta;
+    private Spinner spinnerNumeroViviendas, spinnerNumeroPlantas, spinnerViviendasPlanta;
     private RegisterPresenter mRegisterPresenter;
     private Button mButton;
     private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat;
@@ -33,12 +33,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         mUserPasswordRepeat = findViewById(R.id.registro_editText_password_repeat);
 
         //
-        spinnerNumeroEdificios = findViewById(R.id.spinner_numero_edificios);
+        spinnerNumeroViviendas = findViewById(R.id.spinner_numero_viviendas);
         ArrayAdapter adaptadorEdificios = ArrayAdapter.createFromResource(this, R.array.valores_spinner_numero_edificios, android.R.layout.simple_spinner_item);
         adaptadorEdificios.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerNumeroEdificios.setAdapter(adaptadorEdificios);
+        spinnerNumeroViviendas.setAdapter(adaptadorEdificios);
 
-        spinnerNumeroEdificios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerNumeroViviendas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -50,43 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
             }
         });
 
-
-        //TODO crear el array de valores para las plantas
         //TODO crear el layout para mostrar cada item
-
-        spinnerNumeroPlantas = findViewById(R.id.spinner_plantas_edificio);
-        ArrayAdapter adaptadorPlantas = ArrayAdapter.createFromResource(this, R.array.valores_spinner_numero_edificios, android.R.layout.simple_spinner_item);
-        adaptadorPlantas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerNumeroPlantas.setAdapter(adaptadorPlantas);
-
-        spinnerNumeroPlantas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        spinnerViviendasPlanta = findViewById(R.id.spinner_viviendas_planta);
-        ArrayAdapter adaptadorViviendas = ArrayAdapter.createFromResource(this, R.array.valores_spinner_numero_edificios, android.R.layout.simple_spinner_item);
-        adaptadorViviendas.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerViviendasPlanta.setAdapter(adaptadorViviendas);
-
-        spinnerViviendasPlanta.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         mButton = findViewById(R.id.button_register);
         mButton.setOnClickListener(new View.OnClickListener() {
