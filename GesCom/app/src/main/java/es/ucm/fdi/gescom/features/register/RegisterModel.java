@@ -11,14 +11,13 @@ import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
 public class RegisterModel extends BaseModel {
-    private CommunitiesDatabaseHelper mCommunitiesDBHelper;
+    private final CommunitiesDatabaseHelper mCommunitiesDBHelper;
 
     RegisterModel(Context ctx){
         mCommunitiesDBHelper = new CommunitiesDatabaseHelper(ctx);
     }
 
     public boolean getUsername(String username) {
-
         SQLiteDatabase db = mCommunitiesDBHelper.getReadableDatabase();
 
         // Define a projection that specifies which columns from the database
@@ -42,8 +41,7 @@ public class RegisterModel extends BaseModel {
                 null               // The sort order
         );
 
-        if(cursor.moveToFirst()) return true;
-        else return false;
+        return cursor.moveToFirst();
     }
 
     public boolean getCommunityName(String name) {
@@ -53,7 +51,6 @@ public class RegisterModel extends BaseModel {
         // you will actually use after this query.
         String[] projection = {
                 BaseColumns._ID,
-                CommunitiesDatabase.Communities.COLUMN_NAME_NAME
         };
 
         // Filter results WHERE "title" = 'My Title'
@@ -70,13 +67,12 @@ public class RegisterModel extends BaseModel {
                 null               // The sort order
         );
 
-        if(cursor.moveToFirst()) return true;
-        else return false;
+        return cursor.moveToFirst();
     }
 
     public long registerUser(String username, String community) {
         SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
-        // Create a new map of values, where column names are the keys
+
         ContentValues values = new ContentValues();
         values.put(CommunitiesDatabase.User.COLUMN_NAME_COMMUNITY, community);
         values.put(CommunitiesDatabase.User.COLUMN_NAME_USERNAME, username);
@@ -89,16 +85,15 @@ public class RegisterModel extends BaseModel {
 
     public boolean registerCommunity(String communityName, long idAdmin) {
         SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
-        // Create a new map of values, where column names are the keys
+
         ContentValues values = new ContentValues();
         values.put(CommunitiesDatabase.Communities.COLUMN_NAME_NAME, communityName);
         values.put(CommunitiesDatabase.Communities.COLUMN_NAME_ID_ADMIN, idAdmin);
 
         // Insert the new row, returning the primary key value of the new row
-        long newRowId = db.insert(CommunitiesDatabase.User.TABLE_NAME, null, values);
+        long newRowId = db.insert(CommunitiesDatabase.Communities.TABLE_NAME, null, values);
 
-        if (newRowId == -1) return false;
-        else return true;
+        return newRowId != -1;
     }
 
 }
