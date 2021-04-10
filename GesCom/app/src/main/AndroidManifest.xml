@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_gescom_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
+        <activity android:name=".features.register_comunidad.initialize_users.UserInitializationActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.ajustes.AjustesActivity"
             android:parentActivityName=".features.principal.PrincipalActivity"
@@ -32,7 +34,7 @@
             android:name=".features.principal.PrincipalActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".features.register.RegisterActivity"
+            android:name=".features.register_comunidad.RegisterActivity"
             android:parentActivityName=".features.loginregister.LoginRegisterActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
@@ -44,7 +46,7 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.main.MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

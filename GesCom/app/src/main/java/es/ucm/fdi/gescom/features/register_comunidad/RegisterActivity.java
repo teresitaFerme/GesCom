@@ -1,7 +1,8 @@
-package es.ucm.fdi.gescom.features.register;
+package es.ucm.fdi.gescom.features.register_comunidad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.features.register_comunidad.initialize_users.UserInitializationActivity;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView{
     private RegisterPresenter mRegisterPresenter;
@@ -42,9 +44,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
     @Override
     public void registerSuccessful() {
-        //ver a donde vamos una vez creada la comunidad
         Toast toast = Toast.makeText(this, "SUCCESSFUL", Toast.LENGTH_LONG);
         toast.show();
+
+        Intent intent = new Intent(this, UserInitializationActivity.class);
+        startActivity(intent);
     }
 
     @Override

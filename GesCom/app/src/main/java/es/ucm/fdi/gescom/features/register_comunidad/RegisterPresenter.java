@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.features.register;
+package es.ucm.fdi.gescom.features.register_comunidad;
 
 import android.content.Context;
 
