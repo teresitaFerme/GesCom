@@ -4,7 +4,9 @@ import es.ucm.fdi.gescom.base.BaseView;
 
 public interface RegisterView extends BaseView {
     void registerSuccessful();
-    void registerUserFailure();
+    void registerExistingUser();
     void registerCommunityFailure();
     void fillingFailure();
+    void noMatchingPasswords();
+    void registerUserServerFailure();
 }

@@ -9,6 +9,7 @@ public final class CommunitiesDatabase {
         public static final String TABLE_NAME = "user";
         public static final String COLUMN_NAME_USERNAME = "username";
         public static final String COLUMN_NAME_COMMUNITY = "community";
+        public static final String COLUMN_NAME_PASSWORD = "password";
     }
 
     public static class Communities implements BaseColumns {

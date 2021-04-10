@@ -17,7 +17,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     private Spinner spinnerNumeroEdificios, spinnerNumeroPlantas, spinnerViviendasPlanta;
     private RegisterPresenter mRegisterPresenter;
     private Button mButton;
-    private EditText mCommunityName, mUserName;
+    private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat;
 
     //TODO empezar por ver que necesitamos para registrar una comunidad
     @Override
@@ -29,6 +29,9 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         //
         mCommunityName = findViewById(R.id.registro_editText_nombre_comunidad);
         mUserName = findViewById(R.id.registro_editText_username_admin);
+        mUserPassword = findViewById(R.id.registro_editText_password);
+        mUserPasswordRepeat = findViewById(R.id.registro_editText_password_repeat);
+
         //
         spinnerNumeroEdificios = findViewById(R.id.spinner_numero_edificios);
         ArrayAdapter adaptadorEdificios = ArrayAdapter.createFromResource(this, R.array.valores_spinner_numero_edificios, android.R.layout.simple_spinner_item);
@@ -89,7 +92,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mRegisterPresenter.validateRegister(String.valueOf(mCommunityName.getText()), String.valueOf(mUserName.getText()));
+                mRegisterPresenter.validateRegister(String.valueOf(mCommunityName.getText()), String.valueOf(mUserName.getText()), String.valueOf(mUserPassword.getText()), String.valueOf(mUserPasswordRepeat.getText()));
             }
         });
 
@@ -103,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     }
 
     @Override
-    public void registerUserFailure() {
+    public void registerExistingUser() {
         Toast toast = Toast.makeText(this, "Este usuario ya existe. Por favor introduzca otro usuario.", Toast.LENGTH_LONG);
         toast.show();
     }
@@ -117,6 +120,20 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     @Override
     public void fillingFailure() {
         Toast toast = Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    @Override
+    public void noMatchingPasswords() {
+        Toast toast = Toast.makeText(this, "Las contraseñas no coinciden.", Toast.LENGTH_LONG);
+        toast.show();
+        mUserPassword.setText("");
+        mUserPasswordRepeat.setText("");
+    }
+
+    @Override
+    public void registerUserServerFailure() {
+        Toast toast = Toast.makeText(this, "No se pudo registrar el usuario. \n Por favor inténtelo más tarde.", Toast.LENGTH_LONG);
         toast.show();
     }
 }

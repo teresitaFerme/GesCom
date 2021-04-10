@@ -8,11 +8,13 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "GesCom.db";
+    //CUIDADO CON NO PONER ESPACIOS DESPUES DE LA PRIMERA COMILLA
     private static final String SQL_CREATE_USER_TABLE =
             "CREATE TABLE " + CommunitiesDatabase.User.TABLE_NAME + " (" +
                     CommunitiesDatabase.User._ID + " INTEGER PRIMARY KEY," +
                     CommunitiesDatabase.User.COLUMN_NAME_USERNAME + " TEXT NOT NULL," +
-                    CommunitiesDatabase.User.COLUMN_NAME_COMMUNITY + " TEXT NOT NULL);";
+                    CommunitiesDatabase.User.COLUMN_NAME_COMMUNITY + " TEXT NOT NULL," +
+                    CommunitiesDatabase.User.COLUMN_NAME_PASSWORD + " TEXT NOT NULL);";
 
     private static final String SQL_CREATE_COMMUNITIES_TABLE =
             "CREATE TABLE " + CommunitiesDatabase.Communities.TABLE_NAME + " (" +
