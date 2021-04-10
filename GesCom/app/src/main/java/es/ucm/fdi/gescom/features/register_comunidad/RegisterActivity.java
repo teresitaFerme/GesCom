@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         toast.show();
 
         Intent intent = new Intent(this, UserInitializationActivity.class);
+        intent.putExtra("numHouses", String.valueOf(mNumHouses.getText()));
         startActivity(intent);
     }
 
