@@ -1,7 +1,7 @@
 package es.ucm.fdi.gescom.features.incidencias;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
-import es.ucm.fdi.gescom.roomdatabase.User;
+import es.ucm.fdi.gescom.datacache.User;
 
 public class IncidenciasPresenter extends BasePresenter {
     private IncidenciasView mIncidenciasView;

@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.roomdatabase;
+package es.ucm.fdi.gescom.datacache;
 
 public class Incidencia {
     private String mAsunto;

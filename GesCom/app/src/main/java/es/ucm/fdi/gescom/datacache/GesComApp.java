@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.roomdatabase;
+package es.ucm.fdi.gescom.datacache;
 
 public class GesComApp {
     private static User mUser = null;

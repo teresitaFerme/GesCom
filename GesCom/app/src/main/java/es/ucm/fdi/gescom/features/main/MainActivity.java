@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.features.loginregister.LoginRegisterActivity;
-import es.ucm.fdi.gescom.roomdatabase.GesComApp;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 
 import static java.lang.Thread.sleep;
 

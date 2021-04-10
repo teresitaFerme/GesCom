@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.roomdatabase;
+package es.ucm.fdi.gescom.datacache;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

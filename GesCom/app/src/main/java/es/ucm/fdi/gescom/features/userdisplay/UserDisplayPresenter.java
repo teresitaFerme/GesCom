@@ -1,8 +1,8 @@
 package es.ucm.fdi.gescom.features.userdisplay;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
-import es.ucm.fdi.gescom.roomdatabase.GesComApp;
-import es.ucm.fdi.gescom.roomdatabase.User;
+import es.ucm.fdi.gescom.datacache.GesComApp;
+import es.ucm.fdi.gescom.datacache.User;
 
 public class UserDisplayPresenter extends BasePresenter {
     private UserDisplayView mView;

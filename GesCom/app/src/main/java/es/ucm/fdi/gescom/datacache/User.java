@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.roomdatabase;
+package es.ucm.fdi.gescom.datacache;
 //singleton
 public class User {
     private String mUserName;

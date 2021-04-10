@@ -20,8 +20,8 @@ import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
-import es.ucm.fdi.gescom.roomdatabase.GesComApp;
-import es.ucm.fdi.gescom.roomdatabase.Incidencia;
+import es.ucm.fdi.gescom.datacache.GesComApp;
+import es.ucm.fdi.gescom.datacache.Incidencia;
 
 
 //NO SE PORQUE NO FUNCIONA LO DEL TOOLBAR

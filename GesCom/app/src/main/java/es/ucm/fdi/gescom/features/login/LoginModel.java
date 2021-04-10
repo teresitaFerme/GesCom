@@ -1,7 +1,7 @@
 package es.ucm.fdi.gescom.features.login;
 
 import es.ucm.fdi.gescom.base.BaseModel;
-import es.ucm.fdi.gescom.roomdatabase.GesComApp;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 
 public class LoginModel extends BaseModel {
 

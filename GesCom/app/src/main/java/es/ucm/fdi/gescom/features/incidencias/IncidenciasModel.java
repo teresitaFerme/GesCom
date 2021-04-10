@@ -1,8 +1,8 @@
 package es.ucm.fdi.gescom.features.incidencias;
 
 import es.ucm.fdi.gescom.base.BaseModel;
-import es.ucm.fdi.gescom.roomdatabase.GesComApp;
-import es.ucm.fdi.gescom.roomdatabase.Incidencia;
+import es.ucm.fdi.gescom.datacache.GesComApp;
+import es.ucm.fdi.gescom.datacache.Incidencia;
 
 public class IncidenciasModel extends BaseModel {
     public boolean saveIncidence(String asunto, String descripcion, int id) {
