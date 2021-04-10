@@ -14,7 +14,7 @@ public class IncidenciasPresenter extends BasePresenter {
 
     public void validateIncidence(String asunto, String descripcion) {
         if(asunto.length() != 0 && descripcion.length() != 0){
-            if(mIncidenciasModel.saveIncidence(asunto, descripcion, User.getUser(null,null).getId())){
+            if(mIncidenciasModel.saveIncidence(asunto, descripcion, User.getUser(null,null, null).getId())){
                 mIncidenciasView.reportSuccessful();
             }
             else{

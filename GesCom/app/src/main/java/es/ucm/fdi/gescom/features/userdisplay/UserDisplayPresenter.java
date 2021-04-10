@@ -15,6 +15,6 @@ public class UserDisplayPresenter extends BasePresenter {
 
     public void getUser() {
         User user = GesComApp.getUser();
-        mView.setUserInfo(String.valueOf(user.getUserName()) , String.valueOf(user.getRole()) );
+        mView.setUserInfo(String.valueOf(user.getUserName()) , String.valueOf(user.getLocalizer()) );
     }
 }

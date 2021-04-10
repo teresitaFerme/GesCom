@@ -4,21 +4,21 @@ public class User {
     private String mUserName;
     private int mId;
     private String mPassword;
-    private String mRole;
+    private String mLocalizer;
     private static User mUser;
 
-    public static User getUser(String username, String password){
+    public static User getUser(String username, String password, String localizer){
         if(mUser == null){
-            mUser = new User(username, password);
+            mUser = new User(username, password, localizer);
             return mUser;
         }else return mUser;
     }
 
-    private User(String username, String password){
+    private User(String username, String password, String localizer){
         mUserName = username;
         mPassword = password;
         mId = 0;
-        mRole = "Vecino";
+        mLocalizer = localizer;
     }
 
     public String getUserName(){
@@ -33,8 +33,8 @@ public class User {
         return mId;
     }
 
-    public String getRole(){
-        return mRole;
+    public String getLocalizer(){
+        return mLocalizer;
     }
 
 }

@@ -13,8 +13,8 @@ public class GesComApp {
         return mApp;
     }
 
-    public void setUser(String username, String password){
-       mUser =  User.getUser(username, password);
+    public void setUser(String username, String password, String localizer){
+       mUser =  User.getUser(username, password, localizer);
     }
 
     public static User getUser(){

@@ -14,49 +14,27 @@ import android.widget.Toast;
 import es.ucm.fdi.gescom.R;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView{
-    private Spinner spinnerNumeroViviendas, spinnerNumeroPlantas, spinnerViviendasPlanta;
     private RegisterPresenter mRegisterPresenter;
-    private Button mButton;
-    private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat;
+    private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat, mUserDni, mNumHouses;
 
-    //TODO empezar por ver que necesitamos para registrar una comunidad
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         mRegisterPresenter = new RegisterPresenter(this);
-        //
+
         mCommunityName = findViewById(R.id.registro_editText_nombre_comunidad);
         mUserName = findViewById(R.id.registro_editText_username_admin);
         mUserPassword = findViewById(R.id.registro_editText_password);
         mUserPasswordRepeat = findViewById(R.id.registro_editText_password_repeat);
+        mUserDni = findViewById(R.id.editText_dni_administrador);
+        mNumHouses = findViewById(R.id.registro_editText_num_viviendas);
 
-        //
-        spinnerNumeroViviendas = findViewById(R.id.spinner_numero_viviendas);
-        ArrayAdapter adaptadorEdificios = ArrayAdapter.createFromResource(this, R.array.valores_spinner_numero_edificios, android.R.layout.simple_spinner_item);
-        adaptadorEdificios.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerNumeroViviendas.setAdapter(adaptadorEdificios);
-
-        spinnerNumeroViviendas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        //TODO crear el layout para mostrar cada item
-
-        mButton = findViewById(R.id.button_register);
-        mButton.setOnClickListener(new View.OnClickListener() {
+        Button mButton = findViewById(R.id.button_register);
+        mButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                mRegisterPresenter.validateRegister(String.valueOf(mCommunityName.getText()), String.valueOf(mUserName.getText()), String.valueOf(mUserPassword.getText()), String.valueOf(mUserPasswordRepeat.getText()));
+                mRegisterPresenter.validateRegister(String.valueOf(mCommunityName.getText()), String.valueOf(mUserName.getText()), String.valueOf(mUserPassword.getText()), String.valueOf(mUserPasswordRepeat.getText()), String.valueOf(mUserDni.getText()));
             }
         });
 
@@ -99,5 +77,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     public void registerUserServerFailure() {
         Toast toast = Toast.makeText(this, "No se pudo registrar el usuario. \n Por favor inténtelo más tarde.", Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    @Override
+    public void invalidDniFormat() {
+        //TODO: llamar a esta función cuando el formato de dni no sea válido
+        Toast toast = Toast.makeText(this, "Formato de DNI inválido.", Toast.LENGTH_LONG);
+        toast.show();
+        mUserDni.setText("");
     }
 }

@@ -70,13 +70,15 @@ public class RegisterModel extends BaseModel {
         return cursor.moveToFirst();
     }
 
-    public long registerUser(String username, String community, String pss) {
+    public long registerUser(String username, String community, String pss, String dni, String localizer) {
         SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(CommunitiesDatabase.User.COLUMN_NAME_COMMUNITY, community);
         values.put(CommunitiesDatabase.User.COLUMN_NAME_USERNAME, username);
         values.put(CommunitiesDatabase.User.COLUMN_NAME_PASSWORD, pss);
+        values.put(CommunitiesDatabase.User.COLUMN_NAME_DNI, dni);
+        values.put(CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER, localizer);
 
         long newRowId = db.insert(CommunitiesDatabase.User.TABLE_NAME, null, values);
 

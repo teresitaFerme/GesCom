@@ -9,4 +9,5 @@ public interface RegisterView extends BaseView {
     void fillingFailure();
     void noMatchingPasswords();
     void registerUserServerFailure();
+    void invalidDniFormat();
 }

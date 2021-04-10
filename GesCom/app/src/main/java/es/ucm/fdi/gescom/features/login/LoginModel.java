@@ -24,7 +24,8 @@ public class LoginModel extends BaseModel {
         String[] projection = {
                 BaseColumns._ID,
                 CommunitiesDatabase.User.COLUMN_NAME_USERNAME,
-                CommunitiesDatabase.User.COLUMN_NAME_PASSWORD
+                CommunitiesDatabase.User.COLUMN_NAME_PASSWORD,
+                CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER
         };
         String selection = CommunitiesDatabase.User.COLUMN_NAME_USERNAME + " = ?";
         String[] selectionArgs = {username};
@@ -40,7 +41,7 @@ public class LoginModel extends BaseModel {
 
         if(cursor.moveToFirst()){
             if(cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_PASSWORD)).equals(password)){
-                GesComApp.getApp().setUser(username, password);
+                GesComApp.getApp().setUser(username, password, cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER)));
                 return true;
             }
             else return false;

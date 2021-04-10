@@ -14,7 +14,9 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
                     CommunitiesDatabase.User._ID + " INTEGER PRIMARY KEY," +
                     CommunitiesDatabase.User.COLUMN_NAME_USERNAME + " TEXT NOT NULL," +
                     CommunitiesDatabase.User.COLUMN_NAME_COMMUNITY + " TEXT NOT NULL," +
-                    CommunitiesDatabase.User.COLUMN_NAME_PASSWORD + " TEXT NOT NULL);";
+                    CommunitiesDatabase.User.COLUMN_NAME_PASSWORD + " TEXT NOT NULL," +
+                    CommunitiesDatabase.User.COLUMN_NAME_DNI + " TEXT NOT NULL," +
+                    CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER + " TEXT NOT NULL);";
 
     private static final String SQL_CREATE_COMMUNITIES_TABLE =
             "CREATE TABLE " + CommunitiesDatabase.Communities.TABLE_NAME + " (" +
