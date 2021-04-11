@@ -12,6 +12,4 @@ public class UsersInitializationPresenter extends BasePresenter {
         mView = view;
         mModel = new UsersInitializationModel((Context) view);
     }
-
-
 }

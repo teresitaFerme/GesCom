@@ -14,7 +14,7 @@ import es.ucm.fdi.gescom.base.BaseActivity;
 public class UserInitializationActivity extends BaseActivity implements UsersInitializationView{
     private UsersInitializationPresenter mPresenter;
     private RecyclerView mRecyclerView;
-    private ArrayList<InitializableUser> mUsers;
+    private ArrayList<InitializableUser> mUsers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +28,10 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
         mRecyclerView = findViewById(R.id.initialize_users_recyclerView);
 
         mUsers = InitializableUser.createContactsList(numhouses);
-        UsersAdapter usersAdapter = new UsersAdapter(mUsers);
+        UsersAdapter usersAdapter = new UsersAdapter(this, mUsers);
         mRecyclerView.setAdapter(usersAdapter);
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 
