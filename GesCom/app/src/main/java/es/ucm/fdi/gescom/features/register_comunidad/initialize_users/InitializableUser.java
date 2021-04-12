@@ -8,10 +8,20 @@ public class InitializableUser {
     private String localizer;
 
     InitializableUser(int pos){
+        username = null;
+        localizer = null;
         position = pos;
     }
 
     public int getPosition(){return position;}
+
+    public String getUsername(){
+        return username;
+    }
+
+    public String getLocalizer(){
+        return localizer;
+    }
 
     public static ArrayList<InitializableUser> createContactsList(int numContacts) {
         ArrayList<InitializableUser> users = new ArrayList<InitializableUser>();

@@ -37,12 +37,14 @@
 
 
             <EditText
+                android:id="@+id/initialize_dni"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter users DNI"
                 />
 
             <EditText
+                android:id="@+id/initialize_localizer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter users localizer"
