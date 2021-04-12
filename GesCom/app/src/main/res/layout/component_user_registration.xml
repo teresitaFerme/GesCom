@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="6dp">
 
     <androidx.cardview.widget.CardView
+        app:cardCornerRadius="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -15,13 +16,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:padding="8dp"
             android:background="@color/white">
 
-            <TextView
-                android:id="@+id/holi"
-                android:text="holi"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                android:text="Usuario "
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content" />
+
+                <TextView
+                    android:id="@+id/user_number"
+                    android:text="0"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+            </LinearLayout>
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter users DNI"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter users localizer"
+                />
 
         </LinearLayout>
 

@@ -31,7 +31,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
     @Override
     public void onBindViewHolder(UsersAdapter.UserViewHolder holder, int position) {
-
+       holder.numberTextView.setText(String.valueOf(position));
     }
 
     @Override
@@ -41,12 +41,12 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
 
     public class UserViewHolder extends RecyclerView.ViewHolder {
-        public final TextView nameTextView;
+        public final TextView numberTextView;
         final UsersAdapter mAdapter;
 
         public UserViewHolder(View itemView, UsersAdapter usersAdapter) {
             super(itemView);
-            nameTextView = (TextView) itemView.findViewById(R.id.holi);
+            numberTextView = itemView.findViewById(R.id.user_number);
             mAdapter = usersAdapter;
         }
     }

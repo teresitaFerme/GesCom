@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class InitializableUser {
     private int position;
     private String username;
-    private String newUsername;
-    private String newPassword;
+    private String localizer;
 
     InitializableUser(int pos){
         position = pos;
@@ -22,5 +21,13 @@ public class InitializableUser {
         }
 
         return users;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setLocalizer(String localizer) {
+        this.localizer = localizer;
     }
 }
