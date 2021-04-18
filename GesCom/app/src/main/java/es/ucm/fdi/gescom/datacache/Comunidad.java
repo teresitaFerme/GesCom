@@ -7,18 +7,23 @@ import androidx.room.PrimaryKey;
 
 public class Comunidad {
 
-    private Integer id;
+    private long id;
+    private String name;
+    private long id_admin;
+    private String key;
 
-    private String direccion;
-
-    public Comunidad(Integer id,  String direccion) {
+    public Comunidad(long id,  String name, long id_admin, String key) {
         this.id = id;
-        this.direccion = direccion;
+        this.name = name;
+        this.id_admin = id_admin;
+        this.key = key;
     }//the parameter can never be null
 
     public Comunidad getComunidad(){return this;}
 
-    public Integer getId(){return this.id;}
+    public long getId(){return this.id;}
 
-    public String getDireccion(){return this.direccion;}
+    public String getName(){return this.name;}
+
+    public String getKey(){return this.key;}
 }

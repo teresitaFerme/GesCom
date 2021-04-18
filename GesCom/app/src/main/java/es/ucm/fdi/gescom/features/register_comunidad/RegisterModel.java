@@ -6,7 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Random;
+
 import es.ucm.fdi.gescom.base.BaseModel;
+import es.ucm.fdi.gescom.datacache.Comunidad;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
@@ -92,8 +98,22 @@ public class RegisterModel extends BaseModel {
         values.put(CommunitiesDatabase.Communities.COLUMN_NAME_NAME, communityName);
         values.put(CommunitiesDatabase.Communities.COLUMN_NAME_ID_ADMIN, idAdmin);
 
-        // Insert the new row, returning the primary key value of the new row
+        int zero = 48;
+        int letterZ = 122;
+        int targetStringLength = 10;
+        Random random = new Random();
+
+        String generatedKey = random.ints(zero, letterZ + 1)
+                .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
+                .limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+
+        values.put(CommunitiesDatabase.Communities.COLUMN_NAME_KEY, generatedKey);
+
         long newRowId = db.insert(CommunitiesDatabase.Communities.TABLE_NAME, null, values);
+
+        GesComApp.setComunidad(new Comunidad(newRowId, communityName, idAdmin, generatedKey));
 
         return newRowId != -1;
     }

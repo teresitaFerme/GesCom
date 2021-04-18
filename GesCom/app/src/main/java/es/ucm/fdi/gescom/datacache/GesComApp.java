@@ -2,7 +2,7 @@ package es.ucm.fdi.gescom.datacache;
 
 public class GesComApp {
     private static User mUser = null;
-    private Comunidad mComunidad = null;
+    private static Comunidad mComunidad = null;
     private static GesComApp mApp = null;
     private static Incidencia mIncidencia;
 
@@ -26,6 +26,10 @@ public class GesComApp {
     }
 
     public static Incidencia getIncidencia(){return mIncidencia;}
+
+    public static Comunidad getComunidad(){return mComunidad;}
+
+    public static void setComunidad(Comunidad comunidad){mComunidad = comunidad;}
 
 
 }

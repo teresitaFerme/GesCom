@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
         mApp = GesComApp.getApp();
         launchView();
 
-        //this.deleteDatabase("GesCom.db");
+        //NO COMMITEAR ESTE CAMBIO
+        this.deleteDatabase("GesCom.db");
 
     }
 

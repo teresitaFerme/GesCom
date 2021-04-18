@@ -2,6 +2,10 @@ package es.ucm.fdi.gescom.features.register_comunidad.initialize_users;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +19,7 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
     private UsersInitializationPresenter mPresenter;
     private RecyclerView mRecyclerView;
     private ArrayList<InitializableUser> mUsers = new ArrayList<>();
+    private Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +37,25 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
         mRecyclerView.setAdapter(usersAdapter);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mButton = findViewById(R.id.button_end_register);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.validateUsers(mUsers);
+            }
+        });
     }
 
+    @Override
+    public void validationSuccess() {
+        Toast toast = Toast.makeText(this, "Se han insertado correctamente los usuarios", Toast.LENGTH_LONG);
+        toast.show();
+    }
 
-
+    @Override
+    public void validationFailure(String message) {
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
+        toast.show();
+    }
 }

@@ -22,6 +22,7 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + CommunitiesDatabase.Communities.TABLE_NAME + " (" +
                     CommunitiesDatabase.Communities._ID + " INTEGER PRIMARY KEY," +
                     CommunitiesDatabase.Communities.COLUMN_NAME_NAME + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Communities.COLUMN_NAME_KEY + " TEXT, " +
                     CommunitiesDatabase.Communities.COLUMN_NAME_ID_ADMIN + " TEXT, FOREIGN KEY (" + CommunitiesDatabase.Communities.COLUMN_NAME_ID_ADMIN + ") REFERENCES " +
                     CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID + "));";
 

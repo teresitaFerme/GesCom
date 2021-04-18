@@ -18,5 +18,6 @@ public final class CommunitiesDatabase {
         public static final String TABLE_NAME = "communities";
         public static final String COLUMN_NAME_NAME = "name";
         public static final String COLUMN_NAME_ID_ADMIN = "id_admin";
+        public static final String COLUMN_NAME_KEY = "clave";
     }
 }
