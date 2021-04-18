@@ -6,11 +6,13 @@ public class InitializableUser {
     private int position;
     private String username;
     private String localizer;
+    private String dni;
 
     InitializableUser(int pos){
-        username = null;
-        localizer = null;
+        username = "";
+        localizer = "";
         position = pos;
+        dni = "";
     }
 
     public int getPosition(){return position;}
@@ -33,7 +35,8 @@ public class InitializableUser {
         return users;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(String username, String dni) {
+        this.dni = dni;
         this.username = username;
     }
 
