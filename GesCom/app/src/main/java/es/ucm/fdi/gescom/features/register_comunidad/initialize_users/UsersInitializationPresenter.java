@@ -21,15 +21,15 @@ public class UsersInitializationPresenter extends BasePresenter {
             if(mUsers.get(i).getUsername().equals("") || mUsers.get(i).getLocalizer().equals("")) {
                 message = "Por favor rellena todos los campos";
                 mView.validationFailure(message);
+                return;
             }else if(mModel.getUsername(mUsers.get(i).getUsername())){
                 message = "Ese usuario ya pertenece a otra comunidad";
                 mView.validationFailure(message);
                 mUsers.get(i).setUsername("", "");
+                return;
             }//TODO METER AQUI MÁS VALIDACIONES DEL TIPO QUE LOS LOCALIZADORES SEan DIFERENTES Y QUE LOS DNIS TENGAN FORMATO DNI
-            else{
-                mModel.registerUsers(mUsers);
-                mView.validationSuccess();
-            }
         }
+        mModel.registerUsers(mUsers);
+        mView.validationSuccess();
     }
 }
