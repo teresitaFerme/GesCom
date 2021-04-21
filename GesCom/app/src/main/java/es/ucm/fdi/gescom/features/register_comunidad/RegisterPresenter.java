@@ -29,5 +29,5 @@ public class RegisterPresenter extends BasePresenter {
                 } else mRegisterView.registerExistingUser();
             }else mRegisterView.noMatchingPasswords();
         }else mRegisterView.fillingFailure();
-    }
+    }//TODO pensar como le hacemos llegar al administrador la clave de la comunidad, en su perfil?
 }

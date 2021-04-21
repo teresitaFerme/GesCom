@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         launchView();
 
         //NO COMMITEAR ESTE CAMBIO
-        this.deleteDatabase("GesCom.db");
+        //this.deleteDatabase("GesCom.db");
 
     }
 

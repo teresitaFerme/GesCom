@@ -9,6 +9,7 @@ import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.features.login.LoginActivity;
 import es.ucm.fdi.gescom.features.register_comunidad.RegisterActivity;
+import es.ucm.fdi.gescom.features.register_user.RegisterUserActivity;
 
 public class LoginRegisterActivity extends BaseActivity implements LoginRegisterView {
     private LoginRegisterPresenter mPresenter;
@@ -62,6 +63,7 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
 
     @Override
     public void registerUser() {
-        //TODO: meter aqui la pag de registrar usuario
+        Intent intent = new Intent(this, RegisterUserActivity.class);
+        startActivity(intent);
     }
 }

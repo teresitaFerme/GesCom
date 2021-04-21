@@ -51,6 +51,7 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
     public void validationSuccess() {
         Toast toast = Toast.makeText(this, "Se han insertado correctamente los usuarios", Toast.LENGTH_LONG);
         toast.show();
+        //TODO dirigir al admin a la pantalla principal
     }
 
     @Override

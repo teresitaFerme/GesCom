@@ -35,7 +35,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
     public void onViewDetachedFromWindow(@NonNull UserViewHolder holder) {
         mUsers.get(holder.getAbsoluteAdapterPosition()).setUsername(String.valueOf(holder.userDni.getText()), String.valueOf(holder.userDni.getText()));
         mUsers.get(holder.getAbsoluteAdapterPosition()).setLocalizer(String.valueOf(holder.userLocalizer.getText()));
-    }
+    }//TODO cambiar esto, porque si el admin no sube hacia arriba una vez guadados todos, entonces no se guardan bien
 
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
