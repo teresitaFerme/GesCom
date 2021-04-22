@@ -14,7 +14,7 @@ public class User {
         }else return mUser;
     }
 
-    private User(String username, String password, String localizer){
+    public User(String username, String password, String localizer){
         mUserName = username;
         mPassword = password;
         mId = 0;

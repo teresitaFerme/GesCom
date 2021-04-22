@@ -21,6 +21,8 @@ public class GesComApp {
         return mUser;
     }
 
+    public static void setUser(User user){mUser = user;}
+
     public static void setIncidencia(Incidencia incidencia){
         mIncidencia = incidencia;
     }

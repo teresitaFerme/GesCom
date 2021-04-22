@@ -11,6 +11,7 @@ import java.util.Random;
 import es.ucm.fdi.gescom.base.BaseModel;
 import es.ucm.fdi.gescom.datacache.Comunidad;
 import es.ucm.fdi.gescom.datacache.GesComApp;
+import es.ucm.fdi.gescom.datacache.User;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
@@ -25,25 +26,22 @@ public class InitAccountModel extends BaseModel {
     public boolean getUsername(String username) {
         SQLiteDatabase db = mCommunitiesDBHelper.getReadableDatabase();
 
-        // Define a projection that specifies which columns from the database
-        // you will actually use after this query.
         String[] projection = {
                 BaseColumns._ID,
                 CommunitiesDatabase.User.COLUMN_NAME_USERNAME
         };
 
-        // Filter results WHERE "title" = 'My Title'
         String selection = CommunitiesDatabase.User.COLUMN_NAME_USERNAME + " = ?";
         String[] selectionArgs = {username};
 
         Cursor cursor = db.query(
-                CommunitiesDatabase.User.TABLE_NAME,   // The table to query
-                projection,             // The array of columns to return (pass null to get all)
-                selection,              // The columns for the WHERE clause
-                selectionArgs,          // The values for the WHERE clause
-                null,                   // don't group the rows
-                null,                   // don't filter by row groups
-                null               // The sort order
+                CommunitiesDatabase.User.TABLE_NAME,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
         );
 
         return cursor.moveToFirst();
@@ -51,7 +49,6 @@ public class InitAccountModel extends BaseModel {
 
     public void registerUser(String username, String pss, String dni) {
         SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
-        //TODO actualizar los datos en la bbdd
 
         ContentValues values = new ContentValues();
         values.put(CommunitiesDatabase.User.COLUMN_NAME_USERNAME, username);
@@ -66,5 +63,12 @@ public class InitAccountModel extends BaseModel {
                 selection,
                 selectionArgs
         );
+
+        String[] projection = {
+                BaseColumns._ID,
+                CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER
+        };
+        selectionArgs = new String[]{username};
+        GesComApp.setUser(new User(username, pss, db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getString(0)));
     }
 }
