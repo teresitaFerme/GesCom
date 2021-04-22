@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void launchView(){
-        //si no tiene la sesion iniciada entonces puede o iniciar sesion o registrarse
         Intent intent = new Intent(this, LoginRegisterActivity.class);
         startActivity(intent);
     }

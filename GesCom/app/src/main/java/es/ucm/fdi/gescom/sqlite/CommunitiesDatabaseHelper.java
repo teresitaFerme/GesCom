@@ -26,6 +26,16 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
                     CommunitiesDatabase.Communities.COLUMN_NAME_ID_ADMIN + " TEXT, FOREIGN KEY (" + CommunitiesDatabase.Communities.COLUMN_NAME_ID_ADMIN + ") REFERENCES " +
                     CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID + "));";
 
+    private static final String SQL_CREATE_INCIDENCES_TABLE =
+            "CREATE TABLE " + CommunitiesDatabase.Incidences.TABLE_NAME + " (" +
+                    CommunitiesDatabase.Incidences._ID + " INTEGER PRIMARY KEY," +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_BODY + " TEXT, FOREIGN KEY (" +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY + ") REFERENCES " +
+                    CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "), FOREIGN KEY (" +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_USER + ") REFERENCES " +
+                    CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID + "));";
+
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + CommunitiesDatabase.User.TABLE_NAME;
 
@@ -35,6 +45,7 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USER_TABLE);
         db.execSQL(SQL_CREATE_COMMUNITIES_TABLE);
+        db.execSQL(SQL_CREATE_INCIDENCES_TABLE);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(SQL_DELETE_ENTRIES);

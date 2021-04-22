@@ -20,4 +20,12 @@ public final class CommunitiesDatabase {
         public static final String COLUMN_NAME_ID_ADMIN = "id_admin";
         public static final String COLUMN_NAME_KEY = "clave";
     }
+
+    public static class Incidences implements BaseColumns{
+        public static final String TABLE_NAME = "incidences";
+        public static final String COLUMN_NAME_TITLE = "title";
+        public static final String COLUMN_NAME_BODY = "body";
+        public static final String COLUMN_NAME_COMMUNITY = "community";
+        public static final String COLUMN_NAME_USER = "user";
+    }
 }

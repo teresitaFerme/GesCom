@@ -23,8 +23,6 @@ import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 
-
-//NO SE PORQUE NO FUNCIONA LO DEL TOOLBAR
 public class PrincipalActivity extends AppCompatActivity {
     private final String edServidor = "sql11.freemysqlhosting.net";
     private final String edPuerto = "3306";
@@ -68,7 +66,6 @@ public class PrincipalActivity extends AppCompatActivity {
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
 
-        conectarMySQL();
     }
 
     //TODO hay que hacer override de onResume o onRestart para que actualice las incidencias
@@ -85,10 +82,10 @@ public class PrincipalActivity extends AppCompatActivity {
                 nextClass = IncidenciasActivity.class;
                 break;
             case R.id.reservas:
-                //nextClass = AvisosActivity.class;
+                //nextClass = ReservasActivity.class;
                 break;
             case R.id.votaciones:
-                //nextClass = AvisosActivity.class;
+                //nextClass = VotacionesActivity.class;
                 break;
             case R.id.ajustes:
                 nextClass = AjustesActivity.class;
@@ -102,8 +99,7 @@ public class PrincipalActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        //TODO when the user clicks back the menu must disappear if inflated, if not close application
-        super.onBackPressed();
+        //esto está vacío para que si el usuario da hacia atrás, no se vaya a la pantalla de login
     }
 
     public void inflateMenu(View view) {
@@ -114,7 +110,6 @@ public class PrincipalActivity extends AppCompatActivity {
             mMenuNavigation.setVisibility(View.GONE);
             mMenuIcon.setImageResource(R.drawable.ic_menu_closed);
         }
-        //mMenuIcon.setImageResource(R.drawable.ic_menu_opened);
     }
 
     public void launchUser(View view) {
@@ -122,14 +117,8 @@ public class PrincipalActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void conectarMySQL() {
-
-      // new DataBaseConnection().execute();
-    }
-
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
-
         super.onSaveInstanceState(outState, outPersistentState);
     }
 }

@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:onClick="onBackPressed"
+            android:onClick="goBack"
             android:background="@color/purple_500"
             android:src="@drawable/abc_vector_test" />
         <!-- TODO no funciona bien la flecha para atrás -->

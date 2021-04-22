@@ -9,7 +9,9 @@ import androidx.appcompat.widget.Toolbar;
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.base.BasePresenter;
+import es.ucm.fdi.gescom.features.principal.PrincipalActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -41,13 +43,11 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
         mPresenter.getUser();
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+    public void goBack() {
+        finish();
     }
 
-
-    //TODO no funciona bien lo de volver para atrás
+    //TODO override el onBackPressed con finish, aunq no queda demasiado fluido, si lo dejamos así habría que poner un loader
 
 
     @Override
