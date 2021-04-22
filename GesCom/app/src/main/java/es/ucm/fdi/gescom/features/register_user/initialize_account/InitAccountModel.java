@@ -52,8 +52,19 @@ public class InitAccountModel extends BaseModel {
     public void registerUser(String username, String pss, String dni) {
         SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
         //TODO actualizar los datos en la bbdd
-        //db.rawQuery()
-       // db.execSQL(" UPDATE " + CommunitiesDatabase.User.TABLE_NAME + " SET " + CommunitiesDatabase.User.COLUMN_NAME_PASSWORD + "=" + pss +" WHERE " + CommunitiesDatabase.User.COLUMN_NAME_USERNAME+ " = " + "'"+dni+"'");
-        //db.execSQL(" UPDATE " + CommunitiesDatabase.User.TABLE_NAME + " SET " + CommunitiesDatabase.User.COLUMN_NAME_USERNAME + "=" + username +" WHERE " + CommunitiesDatabase.User.COLUMN_NAME_USERNAME+ " = " + dni);
+
+        ContentValues values = new ContentValues();
+        values.put(CommunitiesDatabase.User.COLUMN_NAME_USERNAME, username);
+        values.put(CommunitiesDatabase.User.COLUMN_NAME_PASSWORD, pss);
+
+        String selection = CommunitiesDatabase.User.COLUMN_NAME_USERNAME + " = ?";
+        String[] selectionArgs = {dni};
+
+        db.update(
+                CommunitiesDatabase.User.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs
+        );
     }
 }
