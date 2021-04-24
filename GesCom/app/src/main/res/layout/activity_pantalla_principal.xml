@@ -119,24 +119,10 @@
                 android:text="No hay incidencias"
                 android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/incidencias_asunto_principañ"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:padding="8dp"
-                android:text=""
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/incidencias_descripcion_pricipal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:padding="8dp"
-                android:text=""
-                android:textSize="12sp" />
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/principal_incidences_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
         </LinearLayout>
 

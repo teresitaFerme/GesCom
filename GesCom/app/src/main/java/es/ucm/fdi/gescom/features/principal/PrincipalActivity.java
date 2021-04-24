@@ -3,6 +3,8 @@ package es.ucm.fdi.gescom.features.principal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,29 +17,26 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
+import es.ucm.fdi.gescom.features.register_comunidad.initialize_users.InitializableUser;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 
-public class PrincipalActivity extends AppCompatActivity {
-    private final String edServidor = "sql11.freemysqlhosting.net";
-    private final String edPuerto = "3306";
-    private final String edUsuario = "sql11401998";
-    private final String edPassword = "Y5hMbgyCqi";
-    private final String baseDatos = "sql11401998";
-
-
+public class PrincipalActivity extends BaseActivity implements PrincipalView{
     private Toolbar toolbar;
     private NavigationView mMenuNavigation;
     private ImageView mMenuIcon;
     private Menu mMenu;
-    private TextView mIncidenciaAsunto;
-    private TextView mIncidenciaDescripcion;
-
+    private RecyclerView mRecyclerIncidences;
+    private ArrayList<Incidencia> mIncidencias = new ArrayList<>();
+    private PrincipalPresenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,20 +47,22 @@ public class PrincipalActivity extends AppCompatActivity {
         toolbar = this.findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        mPresenter = new PrincipalPresenter(this);
 
         mMenuNavigation = findViewById(R.id.navigation_view);
         mMenuIcon = findViewById(R.id.imagen_menu);
         mMenuNavigation.setVisibility(View.GONE);
         mMenu = mMenuNavigation.getMenu();
 
-        mIncidenciaAsunto = findViewById(R.id.incidencias_asunto_principañ);
-        mIncidenciaDescripcion = findViewById(R.id.incidencias_descripcion_pricipal);
+        mRecyclerIncidences = findViewById(R.id.principal_incidences_recyclerView);
+        mIncidencias = mPresenter.getIncidencias();
+        if(mIncidencias.size() != 0){
+            IncidencesAdapter incidencesAdapter = new IncidencesAdapter(this, mIncidencias);
+            mRecyclerIncidences.setAdapter(incidencesAdapter);
 
-        Incidencia inci = GesComApp.getIncidencia();
-        if(inci != null){
-            mIncidenciaAsunto.setText(inci.getAsunto());
-            mIncidenciaDescripcion.setText(inci.getDescripcion());
+            mRecyclerIncidences.setLayoutManager(new LinearLayoutManager(this));
         }
+
 
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
