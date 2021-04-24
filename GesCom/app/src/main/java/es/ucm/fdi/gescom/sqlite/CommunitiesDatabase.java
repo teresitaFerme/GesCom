@@ -25,7 +25,7 @@ public final class CommunitiesDatabase {
         public static final String TABLE_NAME = "incidences";
         public static final String COLUMN_NAME_TITLE = "title";
         public static final String COLUMN_NAME_BODY = "body";
-        public static final String COLUMN_NAME_COMMUNITY = "community";
-        public static final String COLUMN_NAME_USER = "user";
+        public static final String COLUMN_NAME_COMMUNITY_ID = "id_community";
+        public static final String COLUMN_NAME_USER = "id_user";
     }
 }

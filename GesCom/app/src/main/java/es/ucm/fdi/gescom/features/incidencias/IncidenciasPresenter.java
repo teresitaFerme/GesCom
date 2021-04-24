@@ -1,5 +1,7 @@
 package es.ucm.fdi.gescom.features.incidencias;
 
+import android.content.Context;
+
 import es.ucm.fdi.gescom.base.BasePresenter;
 import es.ucm.fdi.gescom.datacache.User;
 
@@ -8,7 +10,7 @@ public class IncidenciasPresenter extends BasePresenter {
     private IncidenciasModel mIncidenciasModel;
 
     IncidenciasPresenter(IncidenciasView view){
-        mIncidenciasModel = new IncidenciasModel();
+        mIncidenciasModel = new IncidenciasModel((Context) view);
         mIncidenciasView = view;
     }
 

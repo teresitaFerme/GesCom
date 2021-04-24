@@ -30,11 +30,11 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + CommunitiesDatabase.Incidences.TABLE_NAME + " (" +
                     CommunitiesDatabase.Incidences._ID + " INTEGER PRIMARY KEY," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE + " TEXT NOT NULL," +
-                    CommunitiesDatabase.Incidences.COLUMN_NAME_BODY + " TEXT, FOREIGN KEY (" +
-                    CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY + ") REFERENCES " +
-                    CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "), FOREIGN KEY (" +
-                    CommunitiesDatabase.Incidences.COLUMN_NAME_USER + ") REFERENCES " +
-                    CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID + "));";
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_BODY + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_USER + " TEXT," +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + " TEXT, FOREIGN KEY (" +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_USER + ") REFERENCES "+ CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID +"), FOREIGN KEY (" +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + ") REFERENCES " + CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "));";
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + CommunitiesDatabase.User.TABLE_NAME;
