@@ -1,7 +1,6 @@
 package es.ucm.fdi.gescom.features.principal;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +23,8 @@ import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
-import es.ucm.fdi.gescom.features.register_comunidad.initialize_users.InitializableUser;
+import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
-import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 
 public class PrincipalActivity extends BaseActivity implements PrincipalView{
@@ -62,6 +60,8 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
+        //TODO comprobar que el menu no sale abierto cuando vuelves de una actividad
+        //TODO añadir una opcion de ver todas las incidencias
 
     }
 
@@ -74,6 +74,9 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
         switch (id){
             case R.id.avisos:
                 nextClass = AvisosActivity.class;
+                break;
+            case R.id.reportar_incidencia:
+                nextClass = ReportarIncidenciaActivity.class;
                 break;
             case R.id.incidencias:
                 nextClass = IncidenciasActivity.class;

@@ -1,8 +1,11 @@
 package es.ucm.fdi.gescom.features.incidencias;
 
-import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.BaseColumns;
+
+import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.base.BaseModel;
 import es.ucm.fdi.gescom.datacache.GesComApp;
@@ -17,16 +20,43 @@ public class IncidenciasModel extends BaseModel {
         mCommunitiesDBHelper = new CommunitiesDatabaseHelper(ctx);
     }
 
-    public boolean saveIncidence(String asunto, String descripcion, int id) {
-        SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+    public ArrayList<Incidencia> getIncidences() {
+        ArrayList<Incidencia> list = new ArrayList<>();
 
-        ContentValues values = new ContentValues();
-        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID, GesComApp.getComunidad().getId());
-        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_USER, GesComApp.getUser().getId());
-        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE, asunto);
-        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_BODY, descripcion);
+        SQLiteDatabase db = mCommunitiesDBHelper.getReadableDatabase();
+        String[] projection = {
+                BaseColumns._ID,
+                CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE,
+                CommunitiesDatabase.Incidences.COLUMN_NAME_BODY,
+                CommunitiesDatabase.Incidences.COLUMN_NAME_USER,
+                CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID
+        };
+        String selection = CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(GesComApp.getComunidad().getId())};
+        Cursor cursor = db.query(
+                CommunitiesDatabase.Incidences.TABLE_NAME,   // The table to query
+                projection,             // The array of columns to return (pass null to get all)
+                selection,              // The columns for the WHERE clause
+                selectionArgs,          // The values for the WHERE clause
+                null,                   // don't group the rows
+                null,                   // don't filter by row groups
+                null               // The sort order
+        );
+        int count = cursor.getCount();
+        for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()) {
+            String title  = cursor.getString(1);
+            String body = cursor.getString(2);
+            long user_id = cursor.getLong(3);
+            long comm_id = cursor.getLong(4);
+            Incidencia incidencia = new Incidencia(title,
+                    body,
+                    user_id,
+                    comm_id);
+            list.add(incidencia);
+        }
 
-        long newRowId = db.insert(CommunitiesDatabase.Incidences.TABLE_NAME, null, values);
-        return newRowId != -1;
+        return list;
     }
+
+
 }
