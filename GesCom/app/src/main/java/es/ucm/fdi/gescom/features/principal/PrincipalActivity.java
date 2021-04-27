@@ -56,16 +56,9 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
         mMenu = mMenuNavigation.getMenu();
 
         mRecyclerIncidences = findViewById(R.id.principal_incidences_recyclerView);
-        mIncidencias = mPresenter.getIncidencias();
         mNoIncidences = findViewById(R.id.principal_incidences_none);
-        if(mIncidencias.size() != 0){
-            mNoIncidences.setVisibility(View.GONE);
-            IncidencesAdapter incidencesAdapter = new IncidencesAdapter(this, mIncidencias);
-            mRecyclerIncidences.setAdapter(incidencesAdapter);
 
-            mRecyclerIncidences.setLayoutManager(new LinearLayoutManager(this));
-        }
-        else mNoIncidences.setVisibility(View.VISIBLE);
+        mPresenter.checkAdmin();
 
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
@@ -124,5 +117,24 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
         super.onSaveInstanceState(outState, outPersistentState);
+    }
+
+    @Override
+    public void drawIncidences() {
+        mIncidencias = mPresenter.getIncidencias();
+        if(mIncidencias.size() != 0){
+            mNoIncidences.setVisibility(View.GONE);
+            IncidencesAdapter incidencesAdapter = new IncidencesAdapter(this, mIncidencias);
+            mRecyclerIncidences.setAdapter(incidencesAdapter);
+
+            mRecyclerIncidences.setLayoutManager(new LinearLayoutManager(this));
+        }
+        else mNoIncidences.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideIncidences() {
+        findViewById(R.id.cardView_incidencias_title).setVisibility(View.GONE);
+        findViewById(R.id.cardView_incidencias).setVisibility(View.GONE);
     }
 }

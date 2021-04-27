@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 
 public class PrincipalPresenter extends BasePresenter {
@@ -19,5 +20,11 @@ public class PrincipalPresenter extends BasePresenter {
     public ArrayList<Incidencia> getIncidencias() {
         ArrayList<Incidencia> list = mModel.getLastIncidences();
         return list;
+    }
+
+    public void checkAdmin() {
+        if (GesComApp.getUser().getLocalizer().equals("Administrador")) {
+            mView.drawIncidences();
+        } else mView.hideIncidences();
     }
 }

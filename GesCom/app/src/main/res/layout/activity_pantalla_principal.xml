@@ -27,6 +27,7 @@
 
     </com.google.android.material.navigation.NavigationView>
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_reservas_title"
         android:layout_width="match_parent"
