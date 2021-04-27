@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".features.avisos.AvisosActivity">
+    android:layout_height="match_parent">
 
     <include android:id="@+id/toolbar" layout="@layout/toolbar_activity"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_avisos"
+        android:id="@+id/recycler_votaciones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,7 +16,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/avisos_admin_fab"
+        android:id="@+id/votaciones_admin_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

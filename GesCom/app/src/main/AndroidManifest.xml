@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_gescom_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
-        <activity android:name=".features.register_user.initialize_account.InitAccountActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
-        <activity android:name=".features.register_user.RegisterUserActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+        <activity android:name=".features.votaciones.VotacionesActivity"></activity>
+        <activity
+            android:name=".features.register_user.initialize_account.InitAccountActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".features.register_user.RegisterUserActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.register_comunidad.initialize_users.UserInitializationActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
