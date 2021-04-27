@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +33,8 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
 
     @Override
     public void onBindViewHolder(VotacionesAdapter.VotacionViewHolder holder, int position) {
+        //holder.title.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getAsunto()));
+        //holder.description.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDescripcion()));
     }
 
 
@@ -47,10 +51,15 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
 
     public class VotacionViewHolder extends RecyclerView.ViewHolder {
         final VotacionesAdapter mAdapter;
+        public final Button mEnviarVoto;
+        public final ImageButton mFavor, mContra;
 
         public VotacionViewHolder(View itemView, VotacionesAdapter adapter) {
             super(itemView);
             mAdapter = adapter;
+            mEnviarVoto = itemView.findViewById(R.id.votacion_button);
+            mFavor = itemView.findViewById(R.id.votacion_button_favor);
+            mContra = itemView.findViewById(R.id.votacion_button_contra);
         }
     }
 }
