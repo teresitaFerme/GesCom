@@ -25,7 +25,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
 
     @Override
     public VotacionesAdapter.VotacionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View votacionView = mInflater.inflate(R.layout.component_incidence_principal, parent, false);
+        View votacionView = mInflater.inflate(R.layout.component_votacion, parent, false);
         return new VotacionesAdapter.VotacionViewHolder(votacionView, this);
     }
 
