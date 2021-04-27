@@ -37,6 +37,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     private RecyclerView mRecyclerIncidences;
     private ArrayList<Incidencia> mIncidencias = new ArrayList<>();
     private PrincipalPresenter mPresenter;
+    private TextView mNoIncidences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +57,15 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         mRecyclerIncidences = findViewById(R.id.principal_incidences_recyclerView);
         mIncidencias = mPresenter.getIncidencias();
+        mNoIncidences = findViewById(R.id.principal_incidences_none);
         if(mIncidencias.size() != 0){
+            mNoIncidences.setVisibility(View.GONE);
             IncidencesAdapter incidencesAdapter = new IncidencesAdapter(this, mIncidencias);
             mRecyclerIncidences.setAdapter(incidencesAdapter);
 
             mRecyclerIncidences.setLayoutManager(new LinearLayoutManager(this));
         }
-
+        else mNoIncidences.setVisibility(View.VISIBLE);
 
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu

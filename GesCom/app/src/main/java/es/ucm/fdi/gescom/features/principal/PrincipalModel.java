@@ -43,24 +43,20 @@ public class PrincipalModel extends BaseModel {
                 null               // The sort order
         );
         int i = 0;
-        if(cursor.moveToFirst()){
-            while(i < 5 && i < cursor.getCount()){
-                String title  = cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE));
-                String body = cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.Incidences.COLUMN_NAME_BODY));
-                long user_id = cursor.getLong(cursor.getColumnIndex(CommunitiesDatabase.Incidences.COLUMN_NAME_USER));
-                long comm_id = cursor.getLong(cursor.getColumnIndex(CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID));
-                Incidencia incidencia = new Incidencia(title,
-                        body,
-                        user_id,
-                        comm_id);
-                list.add(incidencia);
-                if(cursor.moveToNext()){
-                    cursor.move(1);
-                    i++;
-                }
-                else break;
-            }
+        int count = cursor.getCount();
+        for (cursor.moveToLast(); !cursor.isBeforeFirst() && i < 5; cursor.moveToPrevious()) {
+            String title  = cursor.getString(1);
+            String body = cursor.getString(2);
+            long user_id = cursor.getLong(3);
+            long comm_id = cursor.getLong(4);
+            Incidencia incidencia = new Incidencia(title,
+                    body,
+                    user_id,
+                    comm_id);
+            list.add(incidencia);
+            i++;
         }
+
         return list;
     }
 }
