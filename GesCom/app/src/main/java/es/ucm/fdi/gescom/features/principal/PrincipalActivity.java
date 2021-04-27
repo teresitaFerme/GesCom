@@ -35,7 +35,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     private RecyclerView mRecyclerIncidences;
     private ArrayList<Incidencia> mIncidencias = new ArrayList<>();
     private PrincipalPresenter mPresenter;
-    private TextView mNoIncidences;
+    private TextView mNoIncidences, mViewAllIncidences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,14 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         mRecyclerIncidences = findViewById(R.id.principal_incidences_recyclerView);
         mNoIncidences = findViewById(R.id.principal_incidences_none);
+        mViewAllIncidences = findViewById(R.id.principal_view_all_incidences);
+
+        mViewAllIncidences.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchAllIncidences();
+            }
+        });
 
         mPresenter.checkAdmin();
 
@@ -66,6 +74,11 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     }
 
     //TODO hay que hacer override de onResume o onRestart para que actualice las incidencias
+
+    public void launchAllIncidences(){
+        Intent intent = new Intent(this, IncidenciasActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
