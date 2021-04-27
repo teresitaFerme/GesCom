@@ -2,9 +2,11 @@ package es.ucm.fdi.gescom.datacache;
 
 public class Votacion {
     private String title, description;
+    private String id;
     private int votosFavor, votosContra;
 
-    Votacion(String title, String description, int votosFavor, int votosContra){
+    Votacion(String id, String title, String description, int votosFavor, int votosContra){
+        this.id = id;
         this.title = title;
         this.description = description;
         this.votosFavor = votosFavor;
@@ -25,6 +27,14 @@ public class Votacion {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setDescription(String description) {

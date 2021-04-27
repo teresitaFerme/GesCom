@@ -78,5 +78,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/votacion_description" />
 
+    <Button
+        android:id="@+id/votacion_cerrar_admin_button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="4dp"
+        android:text="Cerrar votación"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/teal_700"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/votacion_button" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
 import es.ucm.fdi.gescom.datacache.Votacion;
-import es.ucm.fdi.gescom.features.principal.IncidencesAdapter;
 
 public class VotacionesPresenter extends BasePresenter {
     private VotacionesView mView;

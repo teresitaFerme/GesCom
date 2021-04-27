@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,9 +21,9 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
     private final ArrayList<Votacion> mVotaciones;
     private final LayoutInflater mInflater;
 
-    public VotacionesAdapter(Context context, ArrayList<Votacion> users) {
+    public VotacionesAdapter(Context context, ArrayList<Votacion> votaciones) {
         mInflater = LayoutInflater.from(context);
-        mVotaciones = users;
+        mVotaciones = votaciones;
     }
 
     @Override
@@ -33,8 +34,10 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
 
     @Override
     public void onBindViewHolder(VotacionesAdapter.VotacionViewHolder holder, int position) {
-        //holder.title.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getAsunto()));
-        //holder.description.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDescripcion()));
+        holder.titulo.setText(String.valueOf( mVotaciones.get(holder.getAbsoluteAdapterPosition()).getTitle()));
+        holder.description.setText(String.valueOf( mVotaciones.get(holder.getAbsoluteAdapterPosition()).getDescription()));
+        holder.mVotosContra.setText(String.valueOf( mVotaciones.get(holder.getAbsoluteAdapterPosition()).getVotosContra()));
+        holder.mVotosFavor.setText(String.valueOf( mVotaciones.get(holder.getAbsoluteAdapterPosition()).getVotosFavor()));
     }
 
 
@@ -53,6 +56,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
         final VotacionesAdapter mAdapter;
         public final Button mEnviarVoto;
         public final ImageButton mFavor, mContra;
+        public final TextView mVotosFavor, mVotosContra, titulo, description;
 
         public VotacionViewHolder(View itemView, VotacionesAdapter adapter) {
             super(itemView);
@@ -60,6 +64,10 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
             mEnviarVoto = itemView.findViewById(R.id.votacion_button);
             mFavor = itemView.findViewById(R.id.votacion_button_favor);
             mContra = itemView.findViewById(R.id.votacion_button_contra);
+            mVotosFavor = itemView.findViewById(R.id.votacion_votos_a_favor);
+            mVotosContra = itemView.findViewById(R.id.votacion_votos_en_contra);
+            titulo = itemView.findViewById(R.id.votacion_title);
+            description = itemView.findViewById(R.id.votacion_description);
         }
     }
 }

@@ -53,5 +53,7 @@ public class VotacionesActivity extends BaseActivity implements VotacionesView{
 
             mVotacionesAnteriores.setLayoutManager(new LinearLayoutManager(this));
         }
+
+        //TODO el admin debe poder cerrar las votaciones
     }
 }
