@@ -20,7 +20,7 @@
         android:onClick="onOptionsItemSelected"
         />
     <item android:id="@+id/votaciones"
-        android:title="Votaciones en curso"
+        android:title="Votaciones"
         android:onClick="onOptionsItemSelected"
         />
     <item android:id="@+id/ajustes"

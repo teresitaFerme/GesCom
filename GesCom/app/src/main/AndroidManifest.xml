@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
         <activity android:name=".features.incidencias.IncidenciasActivity"
+            android:parentActivityName=".features.principal.PrincipalActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity android:name=".features.votaciones.VotacionesActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>

@@ -1,11 +1,13 @@
 package es.ucm.fdi.gescom.features.incidencias;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,13 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_incidencias_admin);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //TODO arreglar que vuelva atrás
+        TextView tv = toolbar.findViewById(R.id.title);
+        tv.setText("Incidencias");
 
         mPresenter = new IncidenciasPresenter(this);
         mIncidencias = findViewById(R.id.incidencias_recycler_view);

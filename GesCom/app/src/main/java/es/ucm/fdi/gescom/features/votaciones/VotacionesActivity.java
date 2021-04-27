@@ -1,10 +1,12 @@
 package es.ucm.fdi.gescom.features.votaciones;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -23,12 +25,17 @@ public class VotacionesActivity extends BaseActivity implements VotacionesView{
     private ArrayList<Votacion> mVotacionesPendientesList = new ArrayList<>();
     private ArrayList<Votacion> mVotacionesAnterioresList = new ArrayList<>();
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_votaciones);
+        getIntent();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView tv = toolbar.findViewById(R.id.title);
+        tv.setText("Votaciones");
 
         mPresenter = new VotacionesPresenter(this);
 

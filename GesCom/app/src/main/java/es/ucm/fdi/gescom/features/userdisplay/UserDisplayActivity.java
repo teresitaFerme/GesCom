@@ -28,10 +28,9 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
 
         mPresenter = new UserDisplayPresenter(this);
 
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TextView tv = toolbar.findViewById(R.id.title);
         tv.setText("Tu cuenta");
         //TODO poner a la derecha del toolbar el logout

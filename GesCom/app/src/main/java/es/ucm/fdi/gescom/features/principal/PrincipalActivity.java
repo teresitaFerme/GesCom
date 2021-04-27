@@ -26,6 +26,7 @@ import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
 import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 import es.ucm.fdi.gescom.datacache.Incidencia;
+import es.ucm.fdi.gescom.features.votaciones.VotacionesActivity;
 
 public class PrincipalActivity extends BaseActivity implements PrincipalView{
     private Toolbar toolbar;
@@ -68,9 +69,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
-        //TODO comprobar que el menu no sale abierto cuando vuelves de una actividad
         //TODO añadir una opcion de ver todas las incidencias
-
     }
 
     //TODO hay que hacer override de onResume o onRestart para que actualice las incidencias
@@ -78,6 +77,15 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     public void launchAllIncidences(){
         Intent intent = new Intent(this, IncidenciasActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (mMenuNavigation.getVisibility() == View.VISIBLE) {
+            mMenuNavigation.setVisibility(View.GONE);
+            mMenuIcon.setImageResource(R.drawable.ic_menu_closed);
+        }
     }
 
     @Override
@@ -98,7 +106,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
                 //nextClass = ReservasActivity.class;
                 break;
             case R.id.votaciones:
-                //nextClass = VotacionesActivity.class;
+                nextClass = VotacionesActivity.class;
                 break;
             case R.id.ajustes:
                 nextClass = AjustesActivity.class;

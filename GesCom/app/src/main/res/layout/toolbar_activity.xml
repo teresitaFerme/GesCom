@@ -16,16 +16,6 @@
         android:orientation="horizontal"
         android:weightSum="4">
 
-        <ImageButton
-            android:id="@+id/imagen_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:onClick="goBack"
-            android:background="@color/purple_500"
-            android:src="@drawable/abc_vector_test" />
-        <!-- TODO no funciona bien la flecha para atrás -->
-
         <TextView
             android:fontFamily="cursive"
             android:id="@+id/title"

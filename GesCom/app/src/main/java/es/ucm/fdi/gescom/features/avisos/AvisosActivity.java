@@ -1,12 +1,14 @@
 package es.ucm.fdi.gescom.features.avisos;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,6 +28,12 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_avisos);
+
+        Toolbar mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView title = mToolbar.findViewById(R.id.title);
+        title.setText("Avisos");
 
         mPresenter = new AvisosPresenter(this);
 

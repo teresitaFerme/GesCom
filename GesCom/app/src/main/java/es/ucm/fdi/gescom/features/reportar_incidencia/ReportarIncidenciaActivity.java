@@ -28,6 +28,8 @@ public class ReportarIncidenciaActivity extends BaseActivity implements Reportar
         mIncidenciasPresenter = new ReportarIncidenciaPresenter(this);
 
         mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TextView title = mToolbar.findViewById(R.id.title);
         title.setText("Reportar incidencia");
 
