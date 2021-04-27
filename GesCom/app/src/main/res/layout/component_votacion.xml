@@ -1,36 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/votacion_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="VOTACION TITLE"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/votacion_container_buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/votacion_title"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/votacion_title">
 
-        <ImageButton
+        <TextView
+            android:id="@+id/votacion_votos_a_favor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_thumb_up"/>
+            android:text="57"
+            android:textSize="50sp" />
 
         <ImageButton
+            android:id="@+id/votacion_button_favor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/ic_thumb_up" />
+
+        <ImageButton
+            android:id="@+id/votacion_button_contra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:src="@drawable/ic_thumb_down" />
+
+        <TextView
+            android:id="@+id/votacion_votos_en_contra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25"
+            android:textSize="50sp" />
 
     </LinearLayout>
 
@@ -38,26 +58,25 @@
         android:id="@+id/votacion_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Votacion description"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/votacion_container_buttons"
+        android:text="Votacion description"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintTop_toBottomOf="@id/votacion_container_buttons" />
 
     <Button
         android:id="@+id/votacion_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="4dp"
-        android:text="Votar"
         android:layout_margin="8dp"
+        android:layout_marginBottom="4dp"
+        android:text="Enviar mi voto"
         android:textColor="@color/white"
         app:backgroundTint="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/votacion_description"/>
+        app:layout_constraintTop_toBottomOf="@id/votacion_description" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
