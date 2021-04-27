@@ -1,9 +1,6 @@
 package es.ucm.fdi.gescom.features.votaciones;
 
 import android.content.Context;
-import android.view.View;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 

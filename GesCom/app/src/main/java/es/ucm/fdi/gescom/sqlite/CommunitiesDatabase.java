@@ -28,4 +28,15 @@ public final class CommunitiesDatabase {
         public static final String COLUMN_NAME_COMMUNITY_ID = "id_community";
         public static final String COLUMN_NAME_USER = "id_user";
     }
+
+    public static class Votes implements BaseColumns{
+        public static final String TABLE_NAME = "votes";
+        public static final String COLUMN_NAME_TITLE = "title";
+        public static final String COLUMN_NAME_DESCRIPTION = "description";
+        public static final String COLUMN_NAME_COMMUNITY_ID = "id_community";
+        public static final String COLUMN_NAME_VOTOS_FAVOR = "votos_favor";
+        public static final String COLUMN_NAME_VOTOS_CONTRA = "votos_contra";
+        public static final String COLUMN_NAME_OPENED = "opened";
+        public static final String COLUMN_NAME_ALREADY_VOTED = "usuarios_voto";
+    }
 }

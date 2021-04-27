@@ -36,6 +36,20 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
                     CommunitiesDatabase.Incidences.COLUMN_NAME_USER + ") REFERENCES "+ CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID +"), FOREIGN KEY (" +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + ") REFERENCES " + CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "));";
 
+    private static final String SQL_CREATE_VOTES_TABLE =
+            "CREATE TABLE " + CommunitiesDatabase.Votes.TABLE_NAME + " (" +
+                    CommunitiesDatabase.Votes._ID + " INTEGER PRIMARY KEY," +
+                    CommunitiesDatabase.Votes.COLUMN_NAME_TITLE + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Votes.COLUMN_NAME_DESCRIPTION + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Votes.COLUMN_NAME_VOTOS_CONTRA + " INT NOT NULL," +
+                    CommunitiesDatabase.Votes.COLUMN_NAME_VOTOS_FAVOR + " INT NOT NULL," +
+                    CommunitiesDatabase.Votes.COLUMN_NAME_ALREADY_VOTED + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Votes.COLUMN_NAME_OPENED + " BOOLEAN NOT NULL," +
+                    CommunitiesDatabase.Votes.COLUMN_NAME_COMMUNITY_ID + " TEXT, FOREIGN KEY (" +
+                    CommunitiesDatabase.Votes.COLUMN_NAME_COMMUNITY_ID + ") REFERENCES " + CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "));";
+
+    //TODO revisar los types en votes
+
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + CommunitiesDatabase.User.TABLE_NAME;
 
