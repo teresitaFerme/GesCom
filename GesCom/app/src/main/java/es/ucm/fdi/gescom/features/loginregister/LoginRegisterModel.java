@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.features.login;
+package es.ucm.fdi.gescom.features.loginregister;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -11,10 +11,10 @@ import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
-public class LoginModel extends BaseModel {
+public class LoginRegisterModel extends BaseModel {
     private final CommunitiesDatabaseHelper mCommunitiesDBHelper;
 
-    LoginModel(Context ctx){
+    LoginRegisterModel(Context ctx){
         mCommunitiesDBHelper = new CommunitiesDatabaseHelper(ctx);
     }
 
@@ -76,3 +76,4 @@ public class LoginModel extends BaseModel {
         } else return false;
     }
 }
+
