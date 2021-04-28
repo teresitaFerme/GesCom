@@ -40,7 +40,10 @@ public class VotacionesActivity extends BaseActivity implements VotacionesView{
         mPresenter = new VotacionesPresenter(this);
 
         mFab = findViewById(R.id.votaciones_admin_fab);
-
+        if(mPresenter.checkAdmin()){
+            mFab.setVisibility(View.VISIBLE);
+        }
+        //TODO hacer que si el admin le da aquí pueda añadir una nueva votacion
         mVotacionesPendientes = findViewById(R.id.recycler_votaciones_pendientes);
         mVotacionesAnteriores = findViewById(R.id.recycler_votaciones_anteriores);
 

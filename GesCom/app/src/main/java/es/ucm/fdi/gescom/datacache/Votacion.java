@@ -5,7 +5,7 @@ public class Votacion {
     private String id;
     private int votosFavor, votosContra;
 
-    Votacion(String id, String title, String description, int votosFavor, int votosContra){
+    public Votacion(String id, String title, String description, int votosFavor, int votosContra){
         this.id = id;
         this.title = title;
         this.description = description;
