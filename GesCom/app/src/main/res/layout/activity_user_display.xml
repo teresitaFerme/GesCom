@@ -30,7 +30,7 @@
 
 
             <TextView
-                android:id="@+id/textView_username"
+                android:id="@+id/userDisplay_username"
                 style="@style/TextAppearance.AppCompat.Display1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,14 +41,25 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView_role"
+                android:id="@+id/userDisplay_role"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tipo: "
                 android:textSize="20dp"
                 android:layout_marginBottom="16dp"
-                app:layout_constraintStart_toStartOf="@+id/textView_username"
-                app:layout_constraintTop_toBottomOf="@+id/textView_username"
+                app:layout_constraintStart_toStartOf="@+id/userDisplay_username"
+                app:layout_constraintTop_toBottomOf="@+id/userDisplay_username"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/userDisplay_community"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comunidad: "
+                android:textSize="20dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintStart_toStartOf="@+id/userDisplay_username"
+                app:layout_constraintTop_toBottomOf="@+id/userDisplay_role"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -81,6 +92,49 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Preferencias"
+                android:padding="16dp"
+                android:clickable="true"/>
+
+
+            <TextView
+                android:id="@+id/userDisplay_cerrar_sesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cerrar Sesión"
+                android:padding="16dp"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/userDisplay_admin_functionalities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/purple_200"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_body">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gestionar usuarios de la comunidad"
+                android:padding="16dp"
+                android:clickable="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hacer algo de admin"
                 android:padding="16dp"
                 android:clickable="true"/>
         </LinearLayout>

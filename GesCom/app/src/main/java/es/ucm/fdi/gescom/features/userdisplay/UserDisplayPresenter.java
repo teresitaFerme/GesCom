@@ -16,5 +16,10 @@ public class UserDisplayPresenter extends BasePresenter {
     public void getUser() {
         User user = GesComApp.getUser();
         mView.setUserInfo(String.valueOf(user.getUserName()) , String.valueOf(user.getLocalizer()) );
+        //TODO coger tambien la comunidad a la que pertence
+    }
+
+    public void logOut() {
+        mView.logOut();
     }
 }

@@ -1,15 +1,10 @@
 package es.ucm.fdi.gescom.features.userdisplay;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
-import es.ucm.fdi.gescom.base.BasePresenter;
-import es.ucm.fdi.gescom.features.principal.PrincipalActivity;
+import es.ucm.fdi.gescom.features.loginregister.LoginRegisterActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +14,7 @@ import android.widget.TextView;
 public class UserDisplayActivity extends BaseActivity implements UserDisplayView {
     private UserDisplayPresenter mPresenter;
     private Toolbar toolbar;
-    private TextView mUsername, mUserRole;
+    private TextView mUsername, mUserRole, mCerrarSesion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +31,16 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
         //TODO poner a la derecha del toolbar el logout
 
 
-        mUsername = findViewById(R.id.textView_username);
-        mUserRole = findViewById(R.id.textView_role);
+        mUsername = findViewById(R.id.userDisplay_username);
+        mUserRole = findViewById(R.id.userDisplay_role);
+        mCerrarSesion = findViewById(R.id.userDisplay_cerrar_sesion);
+
+        mCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.logOut();
+            }
+        });
 
         mPresenter.getUser();
     }
@@ -53,6 +56,12 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
     public void setUserInfo(String username, String role) {
         mUsername.setText(username);
         mUserRole.append(role);
+    }
+
+    @Override
+    public void logOut() {
+        Intent intent = new Intent(this, LoginRegisterActivity.class);
+        startActivity(intent);
     }
 
 }

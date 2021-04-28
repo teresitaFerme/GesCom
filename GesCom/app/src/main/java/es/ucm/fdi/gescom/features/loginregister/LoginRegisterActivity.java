@@ -88,4 +88,9 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
         Toast toast = Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_LONG);
         toast.show();
     }
+
+    @Override
+    public void onBackPressed() {
+        
+    }
 }
