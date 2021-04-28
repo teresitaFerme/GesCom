@@ -3,6 +3,7 @@ package es.ucm.fdi.gescom.features.votaciones.add_votacion;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
+import es.ucm.fdi.gescom.features.votaciones.VotacionesActivity;
 
 public class AddVotacionActivity extends BaseActivity implements AddVotacionView{
     private AddVotacionPresenter mPresenter;
@@ -48,7 +50,7 @@ public class AddVotacionActivity extends BaseActivity implements AddVotacionView
 
     @Override
     public void addSuccessful() {
-        Toast toast = Toast.makeText(this, "SUCCESSFUL", Toast.LENGTH_LONG);
-        toast.show();
+        Intent intent = new Intent(this, VotacionesActivity.class);
+        startActivity(intent);
     }
 }
