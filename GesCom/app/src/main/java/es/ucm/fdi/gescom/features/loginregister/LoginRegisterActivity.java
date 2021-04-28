@@ -90,7 +90,5 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
     }
 
     @Override
-    public void onBackPressed() {
-        
-    }
+    public void onBackPressed() {}
 }
