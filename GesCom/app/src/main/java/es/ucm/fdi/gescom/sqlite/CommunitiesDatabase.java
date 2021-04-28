@@ -37,7 +37,6 @@ public final class CommunitiesDatabase {
         public static final String COLUMN_NAME_VOTOS_FAVOR = "votos_favor";
         public static final String COLUMN_NAME_VOTOS_CONTRA = "votos_contra";
         public static final String COLUMN_NAME_OPENED = "opened";
-        public static final String COLUMN_NAME_ALREADY_VOTED = "usuarios_voto";
     }
 
     public static class VotesRegister implements BaseColumns{

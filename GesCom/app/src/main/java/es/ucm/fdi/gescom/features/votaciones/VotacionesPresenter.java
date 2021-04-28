@@ -33,4 +33,8 @@ public class VotacionesPresenter extends BasePresenter {
             return true;
         } else return false;
     }
+
+    public void addVotacion() {
+        mView.launchAddVotacion();
+    }
 }

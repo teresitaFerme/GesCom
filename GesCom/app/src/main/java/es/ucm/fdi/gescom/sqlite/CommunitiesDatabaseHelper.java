@@ -43,7 +43,6 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
                     CommunitiesDatabase.Votes.COLUMN_NAME_DESCRIPTION + " TEXT NOT NULL," +
                     CommunitiesDatabase.Votes.COLUMN_NAME_VOTOS_CONTRA + " INT NOT NULL," +
                     CommunitiesDatabase.Votes.COLUMN_NAME_VOTOS_FAVOR + " INT NOT NULL," +
-                    CommunitiesDatabase.Votes.COLUMN_NAME_ALREADY_VOTED + " TEXT NOT NULL," +
                     CommunitiesDatabase.Votes.COLUMN_NAME_OPENED + " BOOLEAN NOT NULL," +
                     CommunitiesDatabase.Votes.COLUMN_NAME_COMMUNITY_ID + " TEXT, FOREIGN KEY (" +
                     CommunitiesDatabase.Votes.COLUMN_NAME_COMMUNITY_ID + ") REFERENCES " + CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "));";

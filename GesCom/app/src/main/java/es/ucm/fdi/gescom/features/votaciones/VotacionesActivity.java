@@ -4,6 +4,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.datacache.Votacion;
 import es.ucm.fdi.gescom.features.principal.IncidencesAdapter;
+import es.ucm.fdi.gescom.features.votaciones.add_votacion.AddVotacionActivity;
 
 public class VotacionesActivity extends BaseActivity implements VotacionesView{
     private VotacionesPresenter mPresenter;
@@ -43,6 +45,12 @@ public class VotacionesActivity extends BaseActivity implements VotacionesView{
         if(mPresenter.checkAdmin()){
             mFab.setVisibility(View.VISIBLE);
         }
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.addVotacion();
+            }
+        });
         //TODO hacer que si el admin le da aquí pueda añadir una nueva votacion
         mVotacionesPendientes = findViewById(R.id.recycler_votaciones_pendientes);
         mVotacionesAnteriores = findViewById(R.id.recycler_votaciones_anteriores);
@@ -65,5 +73,11 @@ public class VotacionesActivity extends BaseActivity implements VotacionesView{
         }
 
         //TODO el admin debe poder cerrar las votaciones
+    }
+
+    @Override
+    public void launchAddVotacion() {
+        Intent intent = new Intent(this, AddVotacionActivity.class);
+        startActivity(intent);
     }
 }
