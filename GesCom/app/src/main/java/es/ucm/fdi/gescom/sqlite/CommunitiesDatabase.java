@@ -39,4 +39,10 @@ public final class CommunitiesDatabase {
         public static final String COLUMN_NAME_OPENED = "opened";
         public static final String COLUMN_NAME_ALREADY_VOTED = "usuarios_voto";
     }
+
+    public static class VotesRegister implements BaseColumns{
+        public static final String TABLE_NAME = "votes_register";
+        public static final String COLUMN_NAME_VOTE = "votacion";
+        public static final String COLUMN_NAME_USER = "usuario";
+    }
 }

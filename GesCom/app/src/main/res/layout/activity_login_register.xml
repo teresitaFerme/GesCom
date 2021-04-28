@@ -127,7 +127,7 @@
                 android:clickable="true"
                 android:text="@string/registra_tu_comunidad"
                 android:textColor="@color/white" />
-            
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

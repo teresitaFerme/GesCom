@@ -48,6 +48,13 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
                     CommunitiesDatabase.Votes.COLUMN_NAME_COMMUNITY_ID + " TEXT, FOREIGN KEY (" +
                     CommunitiesDatabase.Votes.COLUMN_NAME_COMMUNITY_ID + ") REFERENCES " + CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "));";
 
+    private static final String SQL_CREATE_VOTE_REGISTER_TABLE =
+            "CREATE TABLE " + CommunitiesDatabase.VotesRegister.TABLE_NAME + " (" +
+                    CommunitiesDatabase.VotesRegister.COLUMN_NAME_USER + " TEXT," +
+                    CommunitiesDatabase.VotesRegister.COLUMN_NAME_VOTE + " TEXT, FOREIGN KEY (" +
+                    CommunitiesDatabase.VotesRegister.COLUMN_NAME_USER + ") REFERENCES "+ CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID +"), FOREIGN KEY (" +
+                    CommunitiesDatabase.VotesRegister.COLUMN_NAME_VOTE + ") REFERENCES " + CommunitiesDatabase.Votes.TABLE_NAME + "(" + CommunitiesDatabase.Votes._ID + "));";
+
     //TODO revisar los types en votes
 
     private static final String SQL_DELETE_ENTRIES =
@@ -60,6 +67,8 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_USER_TABLE);
         db.execSQL(SQL_CREATE_COMMUNITIES_TABLE);
         db.execSQL(SQL_CREATE_INCIDENCES_TABLE);
+        db.execSQL(SQL_CREATE_VOTES_TABLE);
+        db.execSQL(SQL_CREATE_VOTE_REGISTER_TABLE);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(SQL_DELETE_ENTRIES);
