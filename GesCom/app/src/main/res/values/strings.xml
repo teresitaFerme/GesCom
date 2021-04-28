@@ -6,6 +6,8 @@
     <string name="gescom">GesCom</string>
     <string name="registrar_comunidad">Registra tu comunidad</string>
     <string name="inicia_sesion">Inicia Sesión</string>
+    <string name="registrate"><u>Regístrate</u></string>
+    <string name="registra_tu_comunidad"><u>Regístra tu comunidad</u></string>
 
 
     <string-array name="valores_spinner_numero_edificios">
