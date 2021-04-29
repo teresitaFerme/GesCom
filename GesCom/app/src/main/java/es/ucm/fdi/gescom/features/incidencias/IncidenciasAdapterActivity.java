@@ -34,6 +34,8 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
     public void onBindViewHolder(IncidenciasAdapterActivity.IncidenceViewHolder holder, int position) {
         holder.titulo.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getAsunto()));
         holder.descripcion.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDescripcion()));
+        holder.date.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDate()));
+        holder.user.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getmUsuario()));
     }
 
 
@@ -49,7 +51,7 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
 
 
     public class IncidenceViewHolder extends RecyclerView.ViewHolder {
-        public final TextView titulo, descripcion;
+        public final TextView titulo, descripcion, date, user;
         final IncidenciasAdapterActivity mAdapter;
 
         public IncidenceViewHolder(View itemView, IncidenciasAdapterActivity usersAdapter) {
@@ -57,6 +59,8 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
             mAdapter = usersAdapter;
             titulo = itemView.findViewById(R.id.component_incidence_principal_title);
             descripcion = itemView.findViewById(R.id.component_incidence_principal_body);
+            date = itemView.findViewById(R.id.component_incidence_principal_date);
+            user = itemView.findViewById(R.id.component_incidence_principal_user);
         }
     }
 }

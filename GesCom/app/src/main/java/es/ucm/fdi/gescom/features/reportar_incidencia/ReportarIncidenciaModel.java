@@ -21,9 +21,11 @@ public class ReportarIncidenciaModel extends BaseModel {
 
         ContentValues values = new ContentValues();
         values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID, GesComApp.getComunidad().getId());
-        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_USER, GesComApp.getUser().getId());
+        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_USER, id);
         values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE, asunto);
         values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_BODY, descripcion);
+        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_DATE, "date");
+        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_HOUR, "hour");
 
         long newRowId = db.insert(CommunitiesDatabase.Incidences.TABLE_NAME, null, values);
         return newRowId != -1;

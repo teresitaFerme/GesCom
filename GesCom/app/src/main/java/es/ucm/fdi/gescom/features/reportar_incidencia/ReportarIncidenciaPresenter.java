@@ -3,6 +3,7 @@ package es.ucm.fdi.gescom.features.reportar_incidencia;
 import android.content.Context;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.User;
 
 public class ReportarIncidenciaPresenter extends BasePresenter {
@@ -16,7 +17,7 @@ public class ReportarIncidenciaPresenter extends BasePresenter {
 
     public void validateIncidence(String asunto, String descripcion) {
         if(asunto.length() != 0 && descripcion.length() != 0){
-            if(mIncidenciasModel.saveIncidence(asunto, descripcion, User.getUser(null,null, null).getId())){
+            if(mIncidenciasModel.saveIncidence(asunto, descripcion, GesComApp.getUser().getId())){
                 mIncidenciasView.reportSuccessful();
             }
             else{

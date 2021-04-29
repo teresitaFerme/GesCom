@@ -32,6 +32,8 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
                     CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE + " TEXT NOT NULL," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_BODY + " TEXT NOT NULL," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_USER + " TEXT," +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_DATE + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_HOUR + " TEXT NOT NULL," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + " TEXT, FOREIGN KEY (" +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_USER + ") REFERENCES "+ CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID +"), FOREIGN KEY (" +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + ") REFERENCES " + CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "));";
@@ -54,7 +56,15 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
                     CommunitiesDatabase.VotesRegister.COLUMN_NAME_USER + ") REFERENCES "+ CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID +"), FOREIGN KEY (" +
                     CommunitiesDatabase.VotesRegister.COLUMN_NAME_VOTE + ") REFERENCES " + CommunitiesDatabase.Votes.TABLE_NAME + "(" + CommunitiesDatabase.Votes._ID + "));";
 
-    //TODO revisar los types en votes
+    private static final String SQL_CREATE_AVISOS_TABLE =
+            "CREATE TABLE " + CommunitiesDatabase.Avisos.TABLE_NAME + " (" +
+                    CommunitiesDatabase.Avisos._ID + " INTEGER PRIMARY KEY," +
+                    CommunitiesDatabase.Avisos.COLUMN_NAME_TITLE + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Avisos.COLUMN_NAME_BODY + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Avisos.COLUMN_NAME_DATE + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Avisos.COLUMN_NAME_HOUR + " TEXT NOT NULL," +
+                    CommunitiesDatabase.Avisos.COLUMN_NAME_COMMUNITY_ID + " TEXT, FOREIGN KEY (" +
+                    CommunitiesDatabase.Avisos.COLUMN_NAME_COMMUNITY_ID + ") REFERENCES " + CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "));";
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + CommunitiesDatabase.User.TABLE_NAME;
@@ -68,6 +78,7 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_INCIDENCES_TABLE);
         db.execSQL(SQL_CREATE_VOTES_TABLE);
         db.execSQL(SQL_CREATE_VOTE_REGISTER_TABLE);
+        db.execSQL(SQL_CREATE_AVISOS_TABLE);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(SQL_DELETE_ENTRIES);

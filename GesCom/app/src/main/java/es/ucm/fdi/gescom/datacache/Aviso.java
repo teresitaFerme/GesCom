@@ -1,16 +1,14 @@
 package es.ucm.fdi.gescom.datacache;
 
-public class Incidencia {
+public class Aviso {
     private String mAsunto;
     private String mDescripcion;
-    private long mUsuario;
-    private long mComunidad;
     private String date, hour;
+    private long mComunidad;
 
-    public Incidencia(String asunto, String descripcion, long usuario, long comunidad, String date, String hour){
+    public Aviso(String asunto, String descripcion, long comunidad, String date, String hour){
         mAsunto = asunto;
         mDescripcion = descripcion;
-        mUsuario = usuario;
         mComunidad = comunidad;
         this.date = date;
         this.hour = hour;
@@ -20,15 +18,13 @@ public class Incidencia {
 
     public String getDescripcion(){return mDescripcion;}
 
-    public long getmUsuario(){return mUsuario;}
-
     public long getmComunidad(){return mComunidad;}
-
-    public String getHour() {
-        return hour;
-    }
 
     public String getDate() {
         return date;
+    }
+
+    public String getHour() {
+        return hour;
     }
 }

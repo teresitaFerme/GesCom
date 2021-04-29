@@ -29,7 +29,9 @@ public class PrincipalModel extends BaseModel {
                 CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE,
                 CommunitiesDatabase.Incidences.COLUMN_NAME_BODY,
                 CommunitiesDatabase.Incidences.COLUMN_NAME_USER,
-                CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID
+                CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID,
+                CommunitiesDatabase.Incidences.COLUMN_NAME_DATE,
+                CommunitiesDatabase.Incidences.COLUMN_NAME_HOUR
         };
         String selection = CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + " = ?";
         String[] selectionArgs = {String.valueOf(GesComApp.getComunidad().getId())};
@@ -49,10 +51,14 @@ public class PrincipalModel extends BaseModel {
             String body = cursor.getString(2);
             long user_id = cursor.getLong(3);
             long comm_id = cursor.getLong(4);
+            String date = cursor.getString(5);
+            String hour = cursor.getString(6);
             Incidencia incidencia = new Incidencia(title,
                     body,
                     user_id,
-                    comm_id);
+                    comm_id,
+                    date,
+                    hour);
             list.add(incidencia);
             i++;
         }

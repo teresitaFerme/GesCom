@@ -27,6 +27,8 @@ public final class CommunitiesDatabase {
         public static final String COLUMN_NAME_BODY = "body";
         public static final String COLUMN_NAME_COMMUNITY_ID = "id_community";
         public static final String COLUMN_NAME_USER = "id_user";
+        public static final String COLUMN_NAME_DATE = "date";
+        public static final String COLUMN_NAME_HOUR = "hour";
     }
 
     public static class Votes implements BaseColumns{
@@ -44,4 +46,14 @@ public final class CommunitiesDatabase {
         public static final String COLUMN_NAME_VOTE = "votacion";
         public static final String COLUMN_NAME_USER = "usuario";
     }
+
+    public static class Avisos implements BaseColumns{
+        public static final String TABLE_NAME = "avisos";
+        public static final String COLUMN_NAME_TITLE = "title";
+        public static final String COLUMN_NAME_BODY = "body";
+        public static final String COLUMN_NAME_COMMUNITY_ID = "id_community";
+        public static final String COLUMN_NAME_DATE = "date";
+        public static final String COLUMN_NAME_HOUR = "hour";
+    }
+
 }
