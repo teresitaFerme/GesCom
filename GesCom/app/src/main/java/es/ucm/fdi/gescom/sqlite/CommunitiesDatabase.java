@@ -29,6 +29,7 @@ public final class CommunitiesDatabase {
         public static final String COLUMN_NAME_USER = "id_user";
         public static final String COLUMN_NAME_DATE = "date";
         public static final String COLUMN_NAME_HOUR = "hour";
+        public static final String COLUMN_NAME_SEEN = "seen";
     }
 
     public static class Votes implements BaseColumns{

@@ -6,14 +6,16 @@ public class Incidencia {
     private long mUsuario;
     private long mComunidad;
     private String date, hour;
+    private boolean seen;
 
-    public Incidencia(String asunto, String descripcion, long usuario, long comunidad, String date, String hour){
+    public Incidencia(String asunto, String descripcion, long usuario, long comunidad, String date, String hour, String seen){
         mAsunto = asunto;
         mDescripcion = descripcion;
         mUsuario = usuario;
         mComunidad = comunidad;
         this.date = date;
         this.hour = hour;
+        this.seen = Boolean.parseBoolean(seen);
     }
 
     public String getAsunto(){return mAsunto;}
@@ -31,4 +33,6 @@ public class Incidencia {
     public String getDate() {
         return date;
     }
+
+    public boolean getSeen(){return seen;}
 }

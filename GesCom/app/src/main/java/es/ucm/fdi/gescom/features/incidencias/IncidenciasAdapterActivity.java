@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,11 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
         holder.descripcion.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDescripcion()));
         holder.date.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDate()));
         holder.user.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getmUsuario()));
+        if(mIncidences.get(holder.getAbsoluteAdapterPosition()).getSeen()){
+            holder.mSeen.setImageDrawable(holder.mSeen.getResources().getDrawable(R.drawable.ic_seen));
+        }else{
+            holder.mSeen.setImageDrawable(holder.mSeen.getResources().getDrawable(R.drawable.ic_not_seen));
+        }
     }
 
 
@@ -53,6 +59,7 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
     public class IncidenceViewHolder extends RecyclerView.ViewHolder {
         public final TextView titulo, descripcion, date, user;
         final IncidenciasAdapterActivity mAdapter;
+        public final ImageButton mSeen;
 
         public IncidenceViewHolder(View itemView, IncidenciasAdapterActivity usersAdapter) {
             super(itemView);
@@ -61,6 +68,7 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
             descripcion = itemView.findViewById(R.id.component_incidence_principal_body);
             date = itemView.findViewById(R.id.component_incidence_principal_date);
             user = itemView.findViewById(R.id.component_incidence_principal_user);
+            mSeen = itemView.findViewById(R.id.incidencia_seen);
         }
     }
 }

@@ -26,6 +26,7 @@ public class ReportarIncidenciaModel extends BaseModel {
         values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_BODY, descripcion);
         values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_DATE, "date");
         values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_HOUR, "hour");
+        values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_SEEN, "0");
 
         long newRowId = db.insert(CommunitiesDatabase.Incidences.TABLE_NAME, null, values);
         return newRowId != -1;

@@ -27,6 +27,27 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content" />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_edit"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:src="@drawable/ic_delete"
+                    android:layout_gravity="right"/>
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/component_aviso_principal_body"
                 android:text="Descripción "
