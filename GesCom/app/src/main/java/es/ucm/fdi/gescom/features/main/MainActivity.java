@@ -1,15 +1,13 @@
 package es.ucm.fdi.gescom.features.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 
-import es.ucm.fdi.gescom.R;
-import es.ucm.fdi.gescom.features.loginregister.LoginRegisterActivity;
-import es.ucm.fdi.gescom.datacache.GesComApp;
+import androidx.appcompat.app.AppCompatActivity;
 
-import static java.lang.Thread.sleep;
+import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.datacache.GesComApp;
+import es.ucm.fdi.gescom.features.loginregister.LoginRegisterActivity;
 
 public class MainActivity extends AppCompatActivity {
     private GesComApp mApp;

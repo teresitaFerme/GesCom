@@ -15,7 +15,7 @@ import es.ucm.fdi.gescom.features.userdisplay.change_password.ChangePasswordActi
 public class UserDisplayActivity extends BaseActivity implements UserDisplayView {
     private UserDisplayPresenter mPresenter;
     private Toolbar toolbar;
-    private TextView mUsername, mUserRole, mCerrarSesion, mChangePassword;
+    private TextView mUsername, mUserRole, mCerrarSesion, mChangePassword, mComunidad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,7 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
 
         mUsername = findViewById(R.id.userDisplay_username);
         mUserRole = findViewById(R.id.userDisplay_role);
+        mComunidad = findViewById(R.id.userDisplay_community);
 
         mChangePassword = findViewById(R.id.userDisplay_change_password);
         mChangePassword.setOnClickListener(new View.OnClickListener() {
@@ -63,9 +64,10 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
 
 
     @Override
-    public void setUserInfo(String username, String role) {
+    public void setUserInfo(String username, String role, String comunidad) {
         mUsername.setText(username);
         mUserRole.append(role);
+        mComunidad.setText("Comunidad: " + comunidad);
     }
 
     @Override

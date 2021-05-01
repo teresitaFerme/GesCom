@@ -120,7 +120,6 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
         });
 
 
-
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
         //TODO añadir una opcion de ver todas las incidencias
@@ -128,7 +127,6 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
     @Override
     protected void bindViews() {
-        super.bindViews();
         toolbar = this.findViewById(R.id.toolbar);
         mMenuNavigation = findViewById(R.id.navigation_view);
         mMenuIcon = findViewById(R.id.imagen_menu);

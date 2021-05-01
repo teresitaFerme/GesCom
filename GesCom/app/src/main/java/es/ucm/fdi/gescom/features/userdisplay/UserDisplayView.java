@@ -3,7 +3,7 @@ package es.ucm.fdi.gescom.features.userdisplay;
 import es.ucm.fdi.gescom.base.BaseView;
 
 public interface UserDisplayView extends BaseView {
-    void setUserInfo(String username, String role);
+    void setUserInfo(String username, String role, String comunidad);
 
     void logOut();
 

@@ -66,7 +66,7 @@ public class PrincipalModel extends BaseModel {
             list.add(incidencia);
             i++;
         }
-
+        cursor.close();
         return list;
     }
 }
