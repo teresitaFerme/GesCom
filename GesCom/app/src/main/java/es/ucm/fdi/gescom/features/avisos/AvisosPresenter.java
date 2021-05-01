@@ -13,7 +13,7 @@ public class AvisosPresenter extends BasePresenter {
     private AvisosView  mView;
     private AvisosModel mModel;
 
-    AvisosPresenter(AvisosView view){
+    public AvisosPresenter(AvisosView view){
         mView = view;
         mModel = new AvisosModel((Context) view);
     }

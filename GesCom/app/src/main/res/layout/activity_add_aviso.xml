@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".features.avisos.add_aviso.AddAvisoActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_activity" />
+
+    <TextView
+        android:id="@+id/add_aviso_label_asunto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:layout_marginStart="20dp"
+        android:text="Asunto"
+        android:textSize="18sp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <EditText
+        android:id="@+id/add_aviso_asunto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="-1dp"
+        android:padding="14dp"
+        android:textSize="15sp"
+        android:hint="Introduce el asunto de la votación."
+        android:background="@drawable/card_stroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/add_aviso_label_asunto"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+
+    <TextView
+        android:id="@+id/add_aviso_label_descripcion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Descripción"
+        android:textSize="18sp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_aviso_asunto" />
+
+    <EditText
+        android:id="@+id/add_aviso_descripcion"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/card_stroke"
+        android:elevation="-1dp"
+        android:gravity="start"
+        android:hint="Introduce una descripción de la votación."
+        android:padding="14dp"
+        android:textAlignment="gravity"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_add_aviso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_aviso_asunto"
+        android:layout_width="match_parent" />
+
+
+    <Button
+        android:id="@+id/button_add_aviso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_700"
+        android:layout_margin="8dp"
+        android:padding="16dp"
+        android:textColor="@color/white"
+        android:text="Crear nueva votación"
+        app:layout_constraintTop_toBottomOf="@id/add_aviso_descripcion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
