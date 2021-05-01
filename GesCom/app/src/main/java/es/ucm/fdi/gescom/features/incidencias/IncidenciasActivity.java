@@ -7,9 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
@@ -20,6 +25,7 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
     private IncidenciasPresenter mPresenter;
     private RecyclerView mIncidencias;
     private ArrayList<Incidencia> mIncidenciasList;
+    private Spinner mFilterSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +48,7 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
 
             mIncidencias.setLayoutManager(new LinearLayoutManager(this));
         }
+
     }
 
 }
