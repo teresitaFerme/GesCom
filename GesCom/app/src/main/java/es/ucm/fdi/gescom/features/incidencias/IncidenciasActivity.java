@@ -46,6 +46,6 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
     @Override
     protected void bindViews() {
         toolbar = findViewById(R.id.toolbar);
-        mIncidencias = findViewById(R.id.incidencias_recycler_view);
+        mIncidencias = findViewById(R.id.incidencias_recycler_view_pendientes);
     }
 }

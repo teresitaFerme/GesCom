@@ -1,18 +1,20 @@
 package es.ucm.fdi.gescom.features.principal;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -20,12 +22,12 @@ import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
+import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
 import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
-import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.features.votaciones.VotacionesActivity;
 
 public class PrincipalActivity extends BaseActivity implements PrincipalView{
@@ -33,10 +35,12 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     private NavigationView mMenuNavigation;
     private ImageView mMenuIcon;
     private Menu mMenu;
-    private RecyclerView mRecyclerIncidences;
+    private RecyclerView mRecyclerIncidences, mRecyclerVotaciones, mRecyclerAvisos, mRecyclerReservas;
     private ArrayList<Incidencia> mIncidencias = new ArrayList<>();
     private PrincipalPresenter mPresenter;
     private TextView mNoIncidences, mViewAllIncidences;
+    private CardView mCardViewIncidences, mVotaciones, mReservas, mAvisos;
+    private ImageButton mShowReservas, mShowIncidencias, mShowAvisos, mShowVotaciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,19 +48,15 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         setContentView(R.layout.activity_pantalla_principal);
         getIntent();
-        toolbar = this.findViewById(R.id.toolbar);
+        bindViews();
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         mPresenter = new PrincipalPresenter(this);
 
-        mMenuNavigation = findViewById(R.id.navigation_view);
-        mMenuIcon = findViewById(R.id.imagen_menu);
+
         mMenuNavigation.setVisibility(View.GONE);
         mMenu = mMenuNavigation.getMenu();
-
-        mRecyclerIncidences = findViewById(R.id.principal_incidences_recyclerView);
-        mNoIncidences = findViewById(R.id.principal_incidences_none);
-        mViewAllIncidences = findViewById(R.id.principal_view_all_incidences);
 
         mViewAllIncidences.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +67,82 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         mPresenter.checkAdmin();
 
+        mShowVotaciones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mVotaciones.getVisibility() == View.GONE){
+                    mVotaciones.setVisibility(View.VISIBLE);
+                    mShowVotaciones.setBackground(getDrawable(R.drawable.ic_desplegado));
+                }else{
+                    mVotaciones.setVisibility(View.GONE);
+                    mShowVotaciones.setBackground(getDrawable(R.drawable.ic_no_desplegado));
+                }
+            }
+        });
+
+        mShowAvisos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mAvisos.getVisibility() == View.GONE){
+                    mAvisos.setVisibility(View.VISIBLE);
+                    mShowAvisos.setBackground(getDrawable(R.drawable.ic_desplegado));
+                }else{
+                    mAvisos.setVisibility(View.GONE);
+                    mShowAvisos.setBackground(getDrawable(R.drawable.ic_no_desplegado));
+                }
+            }
+        });
+
+        mShowIncidencias.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mCardViewIncidences.getVisibility() == View.GONE){
+                    mCardViewIncidences.setVisibility(View.VISIBLE);
+                    mShowIncidencias.setBackground(getDrawable(R.drawable.ic_desplegado));
+                }else{
+                    mCardViewIncidences.setVisibility(View.GONE);
+                    mShowIncidencias.setBackground(getDrawable(R.drawable.ic_no_desplegado));
+                }
+            }
+        });
+
+        mShowReservas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mReservas.getVisibility() == View.GONE){
+                    mReservas.setVisibility(View.VISIBLE);
+                    mShowReservas.setBackground(getDrawable(R.drawable.ic_desplegado));
+                }else{
+                    mReservas.setVisibility(View.GONE);
+                    mShowReservas.setBackground(getDrawable(R.drawable.ic_no_desplegado));
+                }
+            }
+        });
+
+
+
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
         //TODO añadir una opcion de ver todas las incidencias
+    }
+
+    @Override
+    protected void bindViews() {
+        super.bindViews();
+        toolbar = this.findViewById(R.id.toolbar);
+        mMenuNavigation = findViewById(R.id.navigation_view);
+        mMenuIcon = findViewById(R.id.imagen_menu);
+        mRecyclerIncidences = findViewById(R.id.principal_incidences_recyclerView);
+        mNoIncidences = findViewById(R.id.principal_incidences_none);
+        mViewAllIncidences = findViewById(R.id.principal_view_all_incidences);
+        mShowAvisos = findViewById(R.id.principal_avisos_no_desplegadas);
+        mShowIncidencias = findViewById(R.id.principal_incidencias_no_desplegadas);
+        mShowReservas = findViewById(R.id.principal_reservas_no_desplegadas);
+        mShowVotaciones = findViewById(R.id.principal_votaciones_no_desplegadas);
+        mCardViewIncidences = findViewById(R.id.cardView_incidencias);
+        mReservas = findViewById(R.id.cardView_reservas);
+        mAvisos = findViewById(R.id.cardView_avisos);
+        mVotaciones = findViewById(R.id.cardView_votaciones);
     }
 
     //TODO hay que hacer override de onResume o onRestart para que actualice las incidencias
