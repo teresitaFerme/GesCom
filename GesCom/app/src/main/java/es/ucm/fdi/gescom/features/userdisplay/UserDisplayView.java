@@ -6,4 +6,6 @@ public interface UserDisplayView extends BaseView {
     void setUserInfo(String username, String role);
 
     void logOut();
+
+    void changePassword();
 }

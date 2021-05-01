@@ -22,4 +22,8 @@ public class UserDisplayPresenter extends BasePresenter {
     public void logOut() {
         mView.logOut();
     }
+
+    public void changePassword() {
+        mView.changePassword();
+    }
 }
