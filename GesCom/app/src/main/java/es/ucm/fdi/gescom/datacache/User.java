@@ -37,4 +37,7 @@ public class User {
         return mLocalizer;
     }
 
+    public void setmPassword(String mPassword) {
+        this.mPassword = mPassword;
+    }
 }

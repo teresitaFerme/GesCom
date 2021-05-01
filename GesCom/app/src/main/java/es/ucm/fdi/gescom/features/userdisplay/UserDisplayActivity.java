@@ -1,20 +1,21 @@
 package es.ucm.fdi.gescom.features.userdisplay;
 
-import androidx.appcompat.widget.Toolbar;
-
-import es.ucm.fdi.gescom.R;
-import es.ucm.fdi.gescom.base.BaseActivity;
-import es.ucm.fdi.gescom.features.loginregister.LoginRegisterActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+
+import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.base.BaseActivity;
+import es.ucm.fdi.gescom.features.loginregister.LoginRegisterActivity;
+import es.ucm.fdi.gescom.features.userdisplay.change_password.ChangePasswordActivity;
+
 public class UserDisplayActivity extends BaseActivity implements UserDisplayView {
     private UserDisplayPresenter mPresenter;
     private Toolbar toolbar;
-    private TextView mUsername, mUserRole, mCerrarSesion;
+    private TextView mUsername, mUserRole, mCerrarSesion, mChangePassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,15 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
 
         mUsername = findViewById(R.id.userDisplay_username);
         mUserRole = findViewById(R.id.userDisplay_role);
+
+        mChangePassword = findViewById(R.id.userDisplay_change_password);
+        mChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.changePassword();
+            }
+        });
+
         mCerrarSesion = findViewById(R.id.userDisplay_cerrar_sesion);
 
         mCerrarSesion.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +71,12 @@ public class UserDisplayActivity extends BaseActivity implements UserDisplayView
     @Override
     public void logOut() {
         Intent intent = new Intent(this, LoginRegisterActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void changePassword() {
+        Intent intent = new Intent(this, ChangePasswordActivity.class);
         startActivity(intent);
     }
 

@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_gescom_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
-        <activity android:name=".features.votaciones.add_votacion.AddVotacionActivity"
+        <activity android:name=".features.userdisplay.change_password.ChangePasswordActivity"
+            android:parentActivityName=".features.userdisplay.UserDisplayActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".features.votaciones.add_votacion.AddVotacionActivity"
             android:parentActivityName=".features.votaciones.VotacionesActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.incidencias.IncidenciasActivity"
             android:parentActivityName=".features.principal.PrincipalActivity"
