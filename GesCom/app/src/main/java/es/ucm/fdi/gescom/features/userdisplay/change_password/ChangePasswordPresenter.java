@@ -15,11 +15,14 @@ public class ChangePasswordPresenter extends BasePresenter {
 
     public void validateData(String pass, String newPass, String newPassRepeat) {
         if(pass.length() != 0 && newPass.length() != 0 && newPassRepeat.length() != 0){
-            if(newPass.equals(newPassRepeat)){
-                if(mModel.changePassword(pass, newPass)){
-                    mView.launchUserDisplay();
-                } else mView.notActualPassword();
-            }else mView.noMatchingPasswords();
+            if(!pass.equals(newPass)){
+                if(newPass.equals(newPassRepeat)){
+                    if(mModel.changePassword(pass, newPass)){
+                        mView.launchUserDisplay();
+                    } else mView.notActualPassword();
+                }else mView.noMatchingPasswords();
+            }else mView.samePassword();
+
         }else mView.fillingFailure();
     }
 }

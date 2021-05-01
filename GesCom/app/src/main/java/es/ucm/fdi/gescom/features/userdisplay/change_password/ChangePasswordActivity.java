@@ -73,4 +73,9 @@ public class ChangePasswordActivity extends BaseActivity implements ChangePasswo
         Intent intent = new Intent(this, UserDisplayActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void samePassword() {
+        Toast.makeText(this, "La nueva contraseña debe ser diferente a la actual", Toast.LENGTH_SHORT).show();
+    }
 }

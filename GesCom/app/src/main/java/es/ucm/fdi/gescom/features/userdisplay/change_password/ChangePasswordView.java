@@ -10,4 +10,6 @@ public interface ChangePasswordView extends BaseView {
     void notActualPassword();
 
     void launchUserDisplay();
+
+    void samePassword();
 }
