@@ -27,8 +27,8 @@ public final class CommunitiesDatabase {
         public static final String COLUMN_NAME_BODY = "body";
         public static final String COLUMN_NAME_COMMUNITY_ID = "id_community";
         public static final String COLUMN_NAME_USER = "id_user";
+        public static final String COLUMN_NAME_USERNAME = "username";
         public static final String COLUMN_NAME_DATE = "date";
-        public static final String COLUMN_NAME_HOUR = "hour";
         public static final String COLUMN_NAME_SEEN = "seen";
     }
 

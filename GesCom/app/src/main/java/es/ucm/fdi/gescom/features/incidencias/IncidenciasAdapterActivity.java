@@ -1,6 +1,8 @@
 package es.ucm.fdi.gescom.features.incidencias;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.features.principal.IncidencesAdapter;
+import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
+import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
 public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<IncidenciasAdapterActivity.IncidenceViewHolder> {
     private final ArrayList<Incidencia> mIncidences;
@@ -36,12 +40,65 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
         holder.titulo.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getAsunto()));
         holder.descripcion.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDescripcion()));
         holder.date.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDate()));
-        holder.user.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getmUsuario()));
+        holder.user.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getUsername()));
         if(mIncidences.get(holder.getAbsoluteAdapterPosition()).getSeen()){
-            holder.mSeen.setImageDrawable(holder.mSeen.getResources().getDrawable(R.drawable.ic_seen));
+            holder.mNotSeen.setVisibility(View.GONE);
+            holder.mSeen.setVisibility(View.VISIBLE);
         }else{
-            holder.mSeen.setImageDrawable(holder.mSeen.getResources().getDrawable(R.drawable.ic_not_seen));
+            holder.mSeen.setVisibility(View.GONE);
+            holder.mNotSeen.setVisibility(View.VISIBLE);
         }
+
+        holder.mSeen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIncidences.get(holder.getAbsoluteAdapterPosition()).setSeen(false);
+                holder.mSeen.setVisibility(View.GONE);
+                holder.mNotSeen.setVisibility(View.VISIBLE);
+                CommunitiesDatabaseHelper mCommunitiesDBHelper = new CommunitiesDatabaseHelper(v.getContext());
+
+                SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+
+                ContentValues values = new ContentValues();
+                values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_SEEN, "0");
+
+                String selection = CommunitiesDatabase.Incidences._ID + " = ?";
+                String[] selectionArgs = {String.valueOf(mIncidences.get(holder.getAbsoluteAdapterPosition()).get_id())};
+
+                db.update(
+                        CommunitiesDatabase.Incidences.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs
+                );
+            }
+        });
+
+        holder.mNotSeen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mIncidences.get(holder.getAbsoluteAdapterPosition()).setSeen(true);
+                holder.mNotSeen.setVisibility(View.GONE);
+                holder.mSeen.setVisibility(View.VISIBLE);
+                CommunitiesDatabaseHelper mCommunitiesDBHelper = new CommunitiesDatabaseHelper(v.getContext());
+
+                SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+
+                ContentValues values = new ContentValues();
+                values.put(CommunitiesDatabase.Incidences.COLUMN_NAME_SEEN, "1");
+
+                String selection = CommunitiesDatabase.Incidences._ID + " = ?";
+                String[] selectionArgs = {String.valueOf(mIncidences.get(holder.getAbsoluteAdapterPosition()).get_id())};
+
+                db.update(
+                        CommunitiesDatabase.Incidences.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs
+                );
+            }
+        });
+
     }
 
 
@@ -59,7 +116,7 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
     public class IncidenceViewHolder extends RecyclerView.ViewHolder {
         public final TextView titulo, descripcion, date, user;
         final IncidenciasAdapterActivity mAdapter;
-        public final ImageButton mSeen;
+        public final ImageButton mSeen, mNotSeen;
 
         public IncidenceViewHolder(View itemView, IncidenciasAdapterActivity usersAdapter) {
             super(itemView);
@@ -69,6 +126,26 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
             date = itemView.findViewById(R.id.component_incidence_principal_date);
             user = itemView.findViewById(R.id.component_incidence_principal_user);
             mSeen = itemView.findViewById(R.id.incidencia_seen);
+            mNotSeen = itemView.findViewById(R.id.incidencia_not_seen);
+
+
+            mSeen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mSeen.setVisibility(View.GONE);
+                    mNotSeen.setVisibility(View.VISIBLE);
+                }
+            });
+
+            mNotSeen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mNotSeen.setVisibility(View.GONE);
+                    mSeen.setVisibility(View.VISIBLE);
+
+                }
+            });
+
         }
     }
 }

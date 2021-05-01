@@ -32,9 +32,9 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
                     CommunitiesDatabase.Incidences.COLUMN_NAME_TITLE + " TEXT NOT NULL," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_BODY + " TEXT NOT NULL," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_USER + " TEXT," +
+                    CommunitiesDatabase.Incidences.COLUMN_NAME_USERNAME + " TEXT NOT NULL," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_SEEN + " BOOLEAN NOT NULL," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_DATE + " TEXT NOT NULL," +
-                    CommunitiesDatabase.Incidences.COLUMN_NAME_HOUR + " TEXT NOT NULL," +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + " TEXT, FOREIGN KEY (" +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_USER + ") REFERENCES "+ CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID +"), FOREIGN KEY (" +
                     CommunitiesDatabase.Incidences.COLUMN_NAME_COMMUNITY_ID + ") REFERENCES " + CommunitiesDatabase.Communities.TABLE_NAME + "(" + CommunitiesDatabase.Communities._ID + "));";

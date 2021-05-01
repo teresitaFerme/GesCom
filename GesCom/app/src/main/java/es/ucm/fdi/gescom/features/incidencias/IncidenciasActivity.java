@@ -29,7 +29,6 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //TODO arreglar que vuelva atrás
         TextView tv = toolbar.findViewById(R.id.title);
         tv.setText("Incidencias");
 
@@ -44,4 +43,5 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
             mIncidencias.setLayoutManager(new LinearLayoutManager(this));
         }
     }
+
 }

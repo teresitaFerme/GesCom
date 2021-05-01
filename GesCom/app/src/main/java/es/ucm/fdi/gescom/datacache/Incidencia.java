@@ -5,17 +5,22 @@ public class Incidencia {
     private String mDescripcion;
     private long mUsuario;
     private long mComunidad;
-    private String date, hour;
+    private String date;
     private boolean seen;
+    private String username;
+    private int _id;
 
-    public Incidencia(String asunto, String descripcion, long usuario, long comunidad, String date, String hour, String seen){
+    public Incidencia(String asunto, String descripcion, long usuario, long comunidad, String date, String seen, String username, int _id){
         mAsunto = asunto;
         mDescripcion = descripcion;
         mUsuario = usuario;
         mComunidad = comunidad;
         this.date = date;
-        this.hour = hour;
-        this.seen = Boolean.parseBoolean(seen);
+        if(seen.equals("0")){
+            this.seen = false;
+        } this.seen = true;
+        this.username = username;
+        this._id = _id;
     }
 
     public String getAsunto(){return mAsunto;}
@@ -26,13 +31,21 @@ public class Incidencia {
 
     public long getmComunidad(){return mComunidad;}
 
-    public String getHour() {
-        return hour;
-    }
-
     public String getDate() {
         return date;
     }
 
     public boolean getSeen(){return seen;}
+
+    public void setSeen(boolean seen) {
+        this.seen = seen;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public int get_id() {
+        return _id;
+    }
 }
