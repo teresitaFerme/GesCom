@@ -5,6 +5,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +22,9 @@ import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.datacache.Aviso;
 import es.ucm.fdi.gescom.datacache.Incidencia;
+import es.ucm.fdi.gescom.features.avisos.add_aviso.AddAvisoActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasAdapterActivity;
+import es.ucm.fdi.gescom.features.principal.PrincipalActivity;
 
 import static androidx.recyclerview.widget.RecyclerView.*;
 
@@ -64,7 +68,6 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
         if(mAvisosList.size() != 0){
             AvisosAdapter avisosAdapter = new AvisosAdapter(this, mAvisosList);
             mRecyclerAvisos.setAdapter(avisosAdapter);
-
             mRecyclerAvisos.setLayoutManager(new LinearLayoutManager(this));
         }
         //TODO que los avisos puedan filtrarse por dias, semanas o meses
@@ -73,6 +76,7 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
 
     @Override
     public void launchAddAviso() {
-        //TODO crear pantalla de add aviso SOLO para el admin
+        Intent intent = new Intent(this, AddAvisoActivity.class);
+        startActivity(intent);
     }
 }

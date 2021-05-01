@@ -33,6 +33,7 @@ public class AvisosAdapter extends RecyclerView.Adapter<AvisosAdapter.AvisoViewH
     public void onBindViewHolder(AvisosAdapter.AvisoViewHolder holder, int position) {
         holder.titulo.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).getAsunto()));
         holder.descripcion.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).getDescripcion()));
+        holder.date.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).getDate()));
     }
 
 
@@ -48,14 +49,15 @@ public class AvisosAdapter extends RecyclerView.Adapter<AvisosAdapter.AvisoViewH
 
 
     public class AvisoViewHolder extends RecyclerView.ViewHolder {
-        public final TextView titulo, descripcion;
+        public final TextView titulo, descripcion, date;
         final AvisosAdapter mAdapter;
 
         public AvisoViewHolder(View itemView, AvisosAdapter avisosAdapter) {
             super(itemView);
             mAdapter = avisosAdapter;
-            titulo = itemView.findViewById(R.id.component_incidence_principal_title);
-            descripcion = itemView.findViewById(R.id.component_incidence_principal_body);
+            titulo = itemView.findViewById(R.id.component_aviso_principal_title);
+            descripcion = itemView.findViewById(R.id.component_aviso_principal_body);
+            date = itemView.findViewById(R.id.component_aviso_principal_date);
         }
     }
 }
