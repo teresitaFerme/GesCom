@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".features.reportar_incidencia.ReportarIncidenciaActivity">
 
     <include
@@ -16,75 +17,74 @@
         android:id="@+id/incidencias_label_asunto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Asunto: "
-        android:textSize="16sp"
+        android:padding="2dp"
+        android:layout_marginStart="20dp"
+        android:text="Asunto"
+        android:textSize="18sp"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
+    <EditText
+        android:id="@+id/incidencias_asunto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="-1dp"
+        android:padding="14dp"
+        android:textSize="15sp"
+        android:hint="Introduce el asunto de la incidencia."
         android:background="@drawable/card_stroke"
-        android:padding="16dp"
-        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/incidencias_label_asunto"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        >
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
-        <EditText
-            android:id="@+id/incidencias_asunto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-             />
-
-    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/incidencias_label_descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Descripcion: "
-        android:textSize="16sp"
+        android:padding="2dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Descripción"
+        android:textSize="18sp"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/incidencias_label_asunto" />
+        app:layout_constraintTop_toBottomOf="@+id/incidencias_asunto" />
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="0dp"
+    <EditText
+        android:id="@+id/incidencias_descripcion"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/card_stroke"
-        android:padding="16dp"
-        app:cardCornerRadius="8dp"
+        android:elevation="-1dp"
+        android:hint="Introduce la descripción de la incidencia."
+        android:padding="14dp"
+        android:textSize="15sp"
+        android:gravity="start"
+        android:textAlignment="gravity"
         app:layout_constraintBottom_toTopOf="@+id/button_incidencias"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/incidencias_label_descripcion">
+        app:layout_constraintStart_toEndOf="@id/incidencias_label_asunto"
+        app:layout_constraintTop_toBottomOf="@id/incidencias_asunto" />
 
-        <EditText
-            android:id="@+id/incidencias_descripcion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:gravity="start|top"
-            android:inputType="textMultiLine|textImeMultiLine"
-            android:textAlignment="viewStart" />
-
-    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/button_incidencias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/teal_700"
+        android:layout_margin="8dp"
         android:padding="16dp"
+        android:textColor="@color/white"
         android:text="Reportar nueva incidencia"
+        app:layout_constraintTop_toBottomOf="@id/incidencias_descripcion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="parent" />
