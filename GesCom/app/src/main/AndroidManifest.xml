@@ -41,7 +41,7 @@
             android:parentActivityName=".features.principal.PrincipalActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".features.reportar_incidencia.ReportarIncidenciaActivity"
+            android:name=".features.incidencias.reportar_incidencia.ReportarIncidenciaActivity"
             android:parentActivityName=".features.incidencias.IncidenciasActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".base.BaseActivity" />

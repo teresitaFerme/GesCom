@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.datacache.Incidencia;
-import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaActivity;
+import es.ucm.fdi.gescom.features.incidencias.reportar_incidencia.ReportarIncidenciaActivity;
 
 public class IncidenciasActivity extends BaseActivity implements IncidenciasView {
     private IncidenciasPresenter mPresenter;

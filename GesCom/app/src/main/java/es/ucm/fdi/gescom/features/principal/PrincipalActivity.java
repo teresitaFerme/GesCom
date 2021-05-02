@@ -26,7 +26,7 @@ import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
-import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaActivity;
+import es.ucm.fdi.gescom.features.incidencias.reportar_incidencia.ReportarIncidenciaActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 import es.ucm.fdi.gescom.features.votaciones.VotacionesActivity;
 

@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.features.reportar_incidencia;
+package es.ucm.fdi.gescom.features.incidencias.reportar_incidencia;
 
 import android.content.Intent;
 import android.os.Bundle;

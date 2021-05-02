@@ -1,6 +1,5 @@
 package es.ucm.fdi.gescom.features.avisos.add_aviso;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
@@ -14,8 +13,6 @@ import android.widget.Toast;
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
-import es.ucm.fdi.gescom.features.principal.PrincipalActivity;
-import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaPresenter;
 
 public class AddAvisoActivity extends BaseActivity implements AddAvisoView {
     private AddAvisoPresenter mAddAvisoPresenter;

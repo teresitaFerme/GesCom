@@ -3,11 +3,8 @@ package es.ucm.fdi.gescom.features.avisos.add_aviso;
 
 import android.content.Context;
 
-import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.base.BasePresenter;
 import es.ucm.fdi.gescom.datacache.GesComApp;
-import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaModel;
-import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaView;
 
 public class AddAvisoPresenter extends BasePresenter {
     private AddAvisoView mAddAvisoView;

@@ -50,8 +50,16 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
                 holder.mNotSeen.setVisibility(View.VISIBLE);
             }
         }else{
+            holder.mEdit.setVisibility(View.VISIBLE);
             holder.mSeen.setVisibility(View.GONE);
             holder.mNotSeen.setVisibility(View.GONE);
+
+            holder.mEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   // editIncidence();
+                }
+            });
         }
 
         holder.mSeen.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +114,6 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
 
     }
 
-
     @Override
     public void onViewRecycled(@NonNull IncidenciasAdapterActivity.IncidenceViewHolder holder) {
 
@@ -121,7 +128,7 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
     public class IncidenceViewHolder extends RecyclerView.ViewHolder {
         public final TextView titulo, descripcion, date, user;
         final IncidenciasAdapterActivity mAdapter;
-        public final ImageButton mSeen, mNotSeen;
+        public final ImageButton mSeen, mNotSeen, mEdit;
 
         public IncidenceViewHolder(View itemView, IncidenciasAdapterActivity usersAdapter) {
             super(itemView);
@@ -132,6 +139,7 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
             user = itemView.findViewById(R.id.component_incidence_principal_user);
             mSeen = itemView.findViewById(R.id.incidencia_seen);
             mNotSeen = itemView.findViewById(R.id.incidencia_not_seen);
+            mEdit = itemView.findViewById(R.id.incidencia_edit);
 
 
             mSeen.setOnClickListener(new View.OnClickListener() {

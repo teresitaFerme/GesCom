@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.features.reportar_incidencia;
+package es.ucm.fdi.gescom.features.incidencias.reportar_incidencia;
 
 import es.ucm.fdi.gescom.base.BaseView;
 

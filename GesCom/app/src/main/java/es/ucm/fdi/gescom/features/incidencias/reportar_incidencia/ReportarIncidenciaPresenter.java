@@ -1,10 +1,9 @@
-package es.ucm.fdi.gescom.features.reportar_incidencia;
+package es.ucm.fdi.gescom.features.incidencias.reportar_incidencia;
 
 import android.content.Context;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
 import es.ucm.fdi.gescom.datacache.GesComApp;
-import es.ucm.fdi.gescom.datacache.User;
 
 public class ReportarIncidenciaPresenter extends BasePresenter {
     private ReportarIncidenciaView mIncidenciasView;
