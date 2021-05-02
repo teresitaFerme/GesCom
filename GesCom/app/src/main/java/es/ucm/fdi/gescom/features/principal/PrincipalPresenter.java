@@ -25,6 +25,14 @@ public class PrincipalPresenter extends BasePresenter {
     public void checkAdmin() {
         if (GesComApp.getUser().getLocalizer().equals("Administrador")) {
             mView.drawIncidences();
-        } else mView.hideIncidences();
+            mView.hideUserShortcuts();
+        } else{
+            mView.hideIncidences();
+            mView.bindUserShortcuts();
+        }
+    }
+
+    public void launchAddIncidence() {
+        mView.launchAddIncidence();
     }
 }

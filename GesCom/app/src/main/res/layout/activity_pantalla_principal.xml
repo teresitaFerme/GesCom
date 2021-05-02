@@ -33,8 +33,42 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/principal_user_shortcuts_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <Button
+                    android:id="@+id/principal_new_incidence_shortcut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nueva incidencia"
+                    android:layout_weight="1"
+                    android:textColor="@color/teal_700"
+                    android:textSize="12sp"
+                    android:layout_margin="16dp"
+                    />
+
+                <Button
+                    android:id="@+id/principal_new_reserva_shortcut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nueva reserva"
+                    android:layout_weight="1"
+                    android:textColor="@color/teal_700"
+                    android:textSize="12sp"
+                    android:layout_margin="16dp"
+                    />
+            </LinearLayout>
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_reservas_title"

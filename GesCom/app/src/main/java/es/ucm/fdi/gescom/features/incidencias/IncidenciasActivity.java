@@ -3,6 +3,7 @@ package es.ucm.fdi.gescom.features.incidencias;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -45,7 +46,7 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
             IncidenciasAdapterActivity incidencesAdapter = new IncidenciasAdapterActivity(this, mIncidenciasList);
             mIncidencias.setAdapter(incidencesAdapter);
             mIncidencias.setLayoutManager(new LinearLayoutManager(this));
-        }
+        }else findViewById(R.id.incidencias_no_incidencias).setVisibility(View.VISIBLE);
 
         if (mPresenter.checkAdmin()) {
             mButton.setVisibility(View.GONE);
@@ -56,6 +57,11 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
                 mPresenter.launchNewIncidence();
             }
         });
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.valores_filtros_incidencias, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mFilterSpinner.setAdapter(adapter);
     }
 
     @Override
@@ -63,6 +69,7 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
         toolbar = findViewById(R.id.toolbar);
         mIncidencias = findViewById(R.id.incidencias_recycler_view_pendientes);
         mButton = findViewById(R.id.button_incidencias);
+        mFilterSpinner = findViewById(R.id.incidencias_filter_spinner);
     }
 
     @Override

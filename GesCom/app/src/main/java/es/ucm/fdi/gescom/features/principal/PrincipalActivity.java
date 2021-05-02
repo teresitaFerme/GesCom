@@ -26,6 +26,7 @@ import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
+import es.ucm.fdi.gescom.features.reportar_incidencia.ReportarIncidenciaActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 import es.ucm.fdi.gescom.features.votaciones.VotacionesActivity;
 
@@ -190,7 +191,10 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
     @Override
     public void onBackPressed() {
-        //esto está vacío para que si el usuario da hacia atrás, no se vaya a la pantalla de login
+        if (mMenuNavigation.getVisibility() == View.VISIBLE) {
+            mMenuNavigation.setVisibility(View.GONE);
+            mMenuIcon.setImageResource(R.drawable.ic_menu_closed);
+        }
     }
 
     public void inflateMenu(View view) {
@@ -230,5 +234,28 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     public void hideIncidences() {
         findViewById(R.id.cardView_incidencias_title).setVisibility(View.GONE);
         findViewById(R.id.cardView_incidencias).setVisibility(View.GONE);
+    }
+
+    @Override
+    public void hideUserShortcuts() {
+        findViewById(R.id.principal_user_shortcuts_container).setVisibility(View.GONE);
+    }
+
+    @Override
+    public void bindUserShortcuts() {
+        findViewById(R.id.principal_new_incidence_shortcut).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.launchAddIncidence();
+            }
+        });
+
+        //TODO añadir el listener al shortcut de hacer reserva
+    }
+
+    @Override
+    public void launchAddIncidence() {
+        Intent intent = new Intent(this, ReportarIncidenciaActivity.class);
+        startActivity(intent);
     }
 }

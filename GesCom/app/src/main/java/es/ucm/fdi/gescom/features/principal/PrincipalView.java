@@ -5,4 +5,10 @@ import es.ucm.fdi.gescom.base.BaseView;
 public interface PrincipalView extends BaseView {
     void drawIncidences();
     void hideIncidences();
+
+    void hideUserShortcuts();
+
+    void bindUserShortcuts();
+
+    void launchAddIncidence();
 }
