@@ -38,7 +38,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     private ArrayList<Incidencia> mIncidencias = new ArrayList<>();
     private PrincipalPresenter mPresenter;
     private TextView mNoIncidences, mViewAllIncidences;
-    private CardView mCardViewIncidences, mVotaciones, mReservas, mAvisos;
+    private CardView mCardViewIncidences, mVotaciones, mReservas, mAvisos, mIncidenciasTitle, mAvisosTitle, mVotacionesTitle, mReservasTitle;
     private ImageButton mShowReservas, mShowIncidencias, mShowAvisos, mShowVotaciones;
 
     @Override
@@ -66,7 +66,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         mPresenter.checkAdmin();
 
-        mShowVotaciones.setOnClickListener(new View.OnClickListener() {
+        mVotacionesTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mVotaciones.getVisibility() == View.GONE){
@@ -79,7 +79,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
             }
         });
 
-        mShowAvisos.setOnClickListener(new View.OnClickListener() {
+        mAvisosTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mAvisos.getVisibility() == View.GONE){
@@ -92,7 +92,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
             }
         });
 
-        mShowIncidencias.setOnClickListener(new View.OnClickListener() {
+        mIncidenciasTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mCardViewIncidences.getVisibility() == View.GONE){
@@ -105,7 +105,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
             }
         });
 
-        mShowReservas.setOnClickListener(new View.OnClickListener() {
+        mReservasTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mReservas.getVisibility() == View.GONE){
@@ -121,7 +121,6 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
-        //TODO añadir una opcion de ver todas las incidencias
     }
 
     @Override
@@ -140,6 +139,10 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
         mReservas = findViewById(R.id.cardView_reservas);
         mAvisos = findViewById(R.id.cardView_avisos);
         mVotaciones = findViewById(R.id.cardView_votaciones);
+        mIncidenciasTitle = findViewById(R.id.cardView_incidencias_title);
+        mVotacionesTitle = findViewById(R.id.cardView_votaciones_title);
+        mReservasTitle = findViewById(R.id.cardView_reservas_title);
+        mAvisosTitle = findViewById(R.id.cardView_avisos_title);
     }
 
     //TODO hay que hacer override de onResume o onRestart para que actualice las incidencias

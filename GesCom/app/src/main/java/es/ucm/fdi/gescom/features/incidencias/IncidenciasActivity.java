@@ -47,6 +47,9 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
             mIncidencias.setLayoutManager(new LinearLayoutManager(this));
         }
 
+        if (mPresenter.checkAdmin()) {
+            mButton.setVisibility(View.GONE);
+        }
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

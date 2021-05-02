@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Incidencia;
-import es.ucm.fdi.gescom.features.principal.IncidencesAdapter;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
@@ -41,12 +41,17 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
         holder.descripcion.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDescripcion()));
         holder.date.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getDate()));
         holder.user.setText(String.valueOf( mIncidences.get(holder.getAbsoluteAdapterPosition()).getUsername()));
-        if(mIncidences.get(holder.getAbsoluteAdapterPosition()).getSeen()){
-            holder.mNotSeen.setVisibility(View.GONE);
-            holder.mSeen.setVisibility(View.VISIBLE);
+        if(GesComApp.getUser().getLocalizer().equals("Administrador")){
+            if(mIncidences.get(holder.getAbsoluteAdapterPosition()).getSeen()){
+                holder.mNotSeen.setVisibility(View.GONE);
+                holder.mSeen.setVisibility(View.VISIBLE);
+            }else{
+                holder.mSeen.setVisibility(View.GONE);
+                holder.mNotSeen.setVisibility(View.VISIBLE);
+            }
         }else{
             holder.mSeen.setVisibility(View.GONE);
-            holder.mNotSeen.setVisibility(View.VISIBLE);
+            holder.mNotSeen.setVisibility(View.GONE);
         }
 
         holder.mSeen.setOnClickListener(new View.OnClickListener() {
@@ -142,7 +147,6 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
                 public void onClick(View v) {
                     mNotSeen.setVisibility(View.GONE);
                     mSeen.setVisibility(View.VISIBLE);
-
                 }
             });
 

@@ -16,9 +16,9 @@ public class Incidencia {
         mUsuario = usuario;
         mComunidad = comunidad;
         this.date = date;
-        if(seen.equals("0")){
+        if(Integer.parseInt(seen) == 0){
             this.seen = false;
-        } this.seen = true;
+        } else this.seen = true;
         this.username = username;
         this._id = _id;
     }
