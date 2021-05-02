@@ -41,7 +41,7 @@ public class RegisterUserModel extends BaseModel {
 
         if(cursor.moveToFirst()){
             if(cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_PASSWORD)).equals(clave)){
-                GesComApp.getApp().setUser(dni, clave, cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER)));
+                GesComApp.getApp().setUser(dni, clave, cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER)), cursor.getInt(0));
                 return true;
             }
             else return false;

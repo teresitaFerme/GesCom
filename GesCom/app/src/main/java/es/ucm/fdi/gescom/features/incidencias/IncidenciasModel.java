@@ -113,7 +113,6 @@ public class IncidenciasModel extends BaseModel {
                     cursor.getInt(0));
             list.add(incidencia);
         }
-
         return list;
     }
 }

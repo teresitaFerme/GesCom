@@ -7,17 +7,17 @@ public class User {
     private String mLocalizer;
     private static User mUser;
 
-    public static User getUser(String username, String password, String localizer){
-        if(mUser == null){
-            mUser = new User(username, password, localizer);
+    public static User getUser(String username, String password, String localizer, int id){
+        if(mUser == null || !username.equals(mUser.getUserName()) ){
+            mUser = new User(username, password, localizer, id);
             return mUser;
         }else return mUser;
     }
 
-    public User(String username, String password, String localizer){
+    public User(String username, String password, String localizer, int id){
         mUserName = username;
         mPassword = password;
-        mId = 0;
+        mId = id;
         mLocalizer = localizer;
     }
 

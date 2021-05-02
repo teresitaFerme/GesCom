@@ -6,10 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
-import java.util.Random;
-
 import es.ucm.fdi.gescom.base.BaseModel;
-import es.ucm.fdi.gescom.datacache.Comunidad;
 import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.User;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
@@ -69,6 +66,6 @@ public class InitAccountModel extends BaseModel {
                 CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER
         };
         selectionArgs = new String[]{username};
-        GesComApp.setUser(new User(username, pss, db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getString(0)));
+        GesComApp.setUser(new User(username, pss, db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getString(1), db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getInt(0)));
     }
 }

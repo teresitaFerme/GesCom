@@ -43,7 +43,7 @@ public class LoginRegisterModel extends BaseModel {
 
         if(cursor.moveToFirst()){
             if(cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_PASSWORD)).equals(password)){
-                GesComApp.getApp().setUser(username, password, cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER)));
+                GesComApp.getApp().setUser(username, password, cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER)), cursor.getInt(0));
                 String communityName = cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_COMMUNITY));
                 projection = new String[]{
                         BaseColumns._ID,
