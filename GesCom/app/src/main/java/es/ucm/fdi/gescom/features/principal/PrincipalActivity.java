@@ -122,6 +122,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         //TODO que el menu no ocupe la mitad de la pantalla
         //TODO cambiar el tamaño de los items del menu
+        //TODO que aquellos apartados que tengan cosas en la lista salgan desplegados
     }
 
     @Override
@@ -221,6 +222,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     public void drawIncidences() {
         mIncidencias = mPresenter.getIncidencias();
         if(mIncidencias.size() != 0){
+            mCardViewIncidences.setVisibility(View.VISIBLE);
             mNoIncidences.setVisibility(View.GONE);
             IncidencesAdapter incidencesAdapter = new IncidencesAdapter(this, mIncidencias);
             mRecyclerIncidences.setAdapter(incidencesAdapter);

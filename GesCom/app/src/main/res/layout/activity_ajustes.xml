@@ -6,52 +6,244 @@
     android:layout_height="match_parent"
     tools:context=".features.ajustes.AjustesActivity">
 
-
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar_activity" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView_body"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@color/purple_200"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_modo_oscuro"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:padding="16dp"
-                android:layout_weight="1"
-                android:text="Modo oscuro" />
-
             <TextView
+                android:id="@+id/ajustes_notificaciones_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Notificaciones"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/ajustes_notificaciones_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ajustes_notificaciones_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar contraseña"
-                android:padding="16dp"
-                android:textColor="@color/black"
-                android:clickable="true"/>
+                android:layout_margin="8dp"
+                android:background="@color/purple_200"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ajustes_notificaciones_title">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="16dp"
+                        android:text="Activar todas las notificaciones" />
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="Recibir notificaciones de avisos" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="Recibir notificaciones cuando se cierren votaciones" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
+                android:id="@+id/ajustes_accesibilidad_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Accesibilidad"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/ajustes_accesibilidad_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ajustes_notificaciones_container" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/ajustes_accesibilidad_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Preferencias"
-                android:padding="16dp"
-                android:textColor="@color/black"
-                android:clickable="true"/>
+                android:layout_margin="8dp"
+                android:background="@color/purple_200"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ajustes_accesibilidad_title">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_modo_oscuro"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="16dp"
+                        android:text="Modo oscuro" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="16dp"
+                        android:text="Idioma" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/ajustes_gestionar_cuenta_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Gestiona tu cuenta"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/cardView_body"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ajustes_accesibilidad_container" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/purple_200"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ajustes_gestionar_cuenta_title">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/userDisplay_change_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="16dp"
+                        android:text="Cambiar contraseña" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="16dp"
+                        android:text="Preferencias" />
+
+
+                    <TextView
+                        android:id="@+id/userDisplay_cerrar_sesion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="16dp"
+                        android:text="Cerrar Sesión" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/userDisplay_admin_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Gestión de la comunidad"
+                android:textColor="@color/teal_700"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/userDisplay_admin_functionalities"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView_body" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/userDisplay_admin_functionalities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/purple_200"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userDisplay_admin_title">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="16dp"
+                        android:text="Gestionar usuarios de la comunidad" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:padding="16dp"
+                        android:text="Hacer algo de admin" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+
+    </ScrollView>
+
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_activity" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
