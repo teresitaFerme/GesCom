@@ -16,20 +16,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //TODO: poner que salga el splash unos segundos antes de que aparezca la primera vista
-//        SystemClock.sleep(100000);
+      
         mApp = GesComApp.getApp();
-        launchView();
+
+        Thread background = new Thread() {
+            public void run() {
+                try {
+                    sleep(3*1000);
+
+                    Intent i=new Intent(getBaseContext(),LoginRegisterActivity.class);
+                    startActivity(i);
+
+                    finish();
+                } catch (Exception e) {
+                }
+            }
+        };
+        background.start();
 
         //NO COMMITEAR ESTE CAMBIO
         //this.deleteDatabase("GesCom.db");
 
     }
-
-    private void launchView(){
-        Intent intent = new Intent(this, LoginRegisterActivity.class);
-        startActivity(intent);
-    }
-
-
 }
