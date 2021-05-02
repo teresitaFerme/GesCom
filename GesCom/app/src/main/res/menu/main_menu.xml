@@ -7,10 +7,6 @@
         android:title="Avisos"
         android:onClick="onOptionsItemSelected"
          />
-    <item android:id="@+id/reportar_incidencia"
-        android:title="Reportar Incidencia"
-        android:onClick="onOptionsItemSelected"
-        />
     <item android:id="@+id/incidencias"
         android:title="Incidencias"
         android:onClick="onOptionsItemSelected"

@@ -20,4 +20,8 @@ public class IncidenciasPresenter extends BasePresenter {
         ArrayList<Incidencia> list = mModel.getIncidences();
         return list;
     }
+
+    public void launchNewIncidence() {
+        mView.launchNewIncidence();
+    }
 }

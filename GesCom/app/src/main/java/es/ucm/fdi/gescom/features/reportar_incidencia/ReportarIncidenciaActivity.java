@@ -1,7 +1,5 @@
 package es.ucm.fdi.gescom.features.reportar_incidencia;
 
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.Toolbar;
+
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
-import es.ucm.fdi.gescom.features.principal.PrincipalActivity;
+import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
 
 public class ReportarIncidenciaActivity extends BaseActivity implements ReportarIncidenciaView {
     private ReportarIncidenciaPresenter mIncidenciasPresenter;
@@ -64,7 +64,7 @@ public class ReportarIncidenciaActivity extends BaseActivity implements Reportar
 
     @Override
     public void reportSuccessful() {
-        Intent intent = new Intent(this, PrincipalActivity.class);
+        Intent intent = new Intent(this, IncidenciasActivity.class);
         startActivity(intent);
     }
 
