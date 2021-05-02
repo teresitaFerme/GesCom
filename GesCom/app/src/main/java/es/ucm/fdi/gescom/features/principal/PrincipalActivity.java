@@ -223,6 +223,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
         mIncidencias = mPresenter.getIncidencias();
         if(mIncidencias.size() != 0){
             mCardViewIncidences.setVisibility(View.VISIBLE);
+            mShowIncidencias.setBackground(getDrawable(R.drawable.ic_desplegado));
             mNoIncidences.setVisibility(View.GONE);
             IncidencesAdapter incidencesAdapter = new IncidencesAdapter(this, mIncidencias);
             mRecyclerIncidences.setAdapter(incidencesAdapter);
