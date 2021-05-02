@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".features.userdisplay.UserDisplayActivity">
 
-    <include android:id="@+id/toolbar" layout="@layout/toolbar_activity"/>
-
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_activity" />
 
 
     <androidx.cardview.widget.CardView
@@ -34,8 +35,8 @@
                 style="@style/TextAppearance.AppCompat.Display1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
                 android:text="Username"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
@@ -45,25 +46,25 @@
                 android:id="@+id/userDisplay_role"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Localizador: "
-                android:textSize="20dp"
                 android:layout_marginBottom="16dp"
+                android:text="Localizador: "
                 android:textColor="@color/cardview_light_background"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/userDisplay_username"
-                app:layout_constraintTop_toBottomOf="@+id/userDisplay_username"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/userDisplay_username" />
 
             <TextView
                 android:id="@+id/userDisplay_community"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="Comunidad: "
-                android:textSize="20dp"
                 android:layout_marginBottom="16dp"
+                android:text="Comunidad: "
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/userDisplay_username"
-                app:layout_constraintTop_toBottomOf="@+id/userDisplay_role"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/userDisplay_role" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -72,10 +73,10 @@
         android:id="@+id/userDisplay_gestionar_cuenta_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Gestiona tu cuenta"
         android:textColor="@color/teal_700"
         android:textSize="20sp"
-        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView_body"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,83 +93,94 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userDisplay_gestionar_cuenta_title">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-           >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/userDisplay_change_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cambiar contraseña"
+                android:clickable="true"
                 android:padding="16dp"
-                android:clickable="true"/>
+                android:text="Cambiar contraseña" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Preferencias"
+                android:clickable="true"
                 android:padding="16dp"
-                android:clickable="true"/>
+                android:text="Preferencias" />
 
 
             <TextView
                 android:id="@+id/userDisplay_cerrar_sesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cerrar Sesión"
+                android:clickable="true"
                 android:padding="16dp"
-                android:clickable="true"/>
+                android:text="Cerrar Sesión" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/userDisplay_admin_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gestión de la comunidad"
-        android:textColor="@color/teal_700"
-        android:textSize="20sp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/userDisplay_admin_functionalities"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView_body" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/userDisplay_admin_functionalities"
+    <LinearLayout
+        android:id="@+id/userDisplay_admin_functionalities_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@color/purple_200"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userDisplay_admin_title">
-        <LinearLayout
+        app:layout_constraintTop_toBottomOf="@+id/cardView_body">
+
+
+        <TextView
+            android:id="@+id/userDisplay_admin_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="Gestión de la comunidad"
+            android:textColor="@color/teal_700"
+            android:textSize="20sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/userDisplay_admin_functionalities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <TextView
+            android:layout_margin="8dp"
+            android:background="@color/purple_200"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Gestionar usuarios de la comunidad"
-                android:padding="16dp"
-                android:clickable="true"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hacer algo de admin"
-                android:padding="16dp"
-                android:clickable="true"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:padding="16dp"
+                    android:text="Gestionar usuarios de la comunidad" />
 
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/userDisplay_ver_clave_comunidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:padding="16dp"
+                    android:text="Ver la clave de la comunidad" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

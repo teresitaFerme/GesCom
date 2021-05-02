@@ -25,4 +25,9 @@ public class UserDisplayPresenter extends BasePresenter {
     public void changePassword() {
         mView.changePassword();
     }
+
+    public boolean checkAdmin() {
+        if(GesComApp.getUser().getLocalizer().equals("Administrador")) return true;
+        else return false;
+    }
 }
