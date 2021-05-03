@@ -25,10 +25,10 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_register);
         getIntent();
+        bindViews();
 
         mPresenter = new LoginRegisterPresenter(this);
 
-        mRegisterUser = findViewById(R.id.button_register_user_selected);
         mRegisterUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +36,6 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
             }
         });
 
-        mRegisterCommunity = findViewById(R.id.button_register_community_selected);
         mRegisterCommunity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,17 +43,12 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
             }
         });
 
-        mUsername = findViewById(R.id.editText_user);
-        mPassword = findViewById(R.id.editText_password);
-
-        mLogIn = findViewById(R.id.button_login);
         mLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.validateLogin(String.valueOf(mUsername.getText()), String.valueOf(mPassword.getText()));
             }
         });
-
     }
 
     @Override
@@ -91,4 +85,13 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
 
     @Override
     public void onBackPressed() {}
+
+    @Override
+    public void bindViews() {
+        mRegisterUser = findViewById(R.id.button_register_user_selected);
+        mRegisterCommunity = findViewById(R.id.button_register_community_selected);
+        mUsername = findViewById(R.id.editText_user);
+        mPassword = findViewById(R.id.editText_password);
+        mLogIn = findViewById(R.id.button_login);
+    }
 }

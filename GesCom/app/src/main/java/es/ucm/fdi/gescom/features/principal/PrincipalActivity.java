@@ -126,7 +126,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     }
 
     @Override
-    protected void bindViews() {
+    public void bindViews() {
         toolbar = this.findViewById(R.id.toolbar);
         mMenuNavigation = findViewById(R.id.navigation_view);
         mMenuIcon = findViewById(R.id.imagen_menu);

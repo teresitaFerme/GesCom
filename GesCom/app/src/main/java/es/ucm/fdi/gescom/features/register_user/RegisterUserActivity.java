@@ -1,7 +1,5 @@
 package es.ucm.fdi.gescom.features.register_user;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,13 +20,11 @@ public class RegisterUserActivity extends BaseActivity implements RegisterUserVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
-
+        bindViews();
         getIntent();
         mRegisterUserPresenter = new RegisterUserPresenter(this);
 
-        mClave = findViewById(R.id.editText_clave);
-        mDni = findViewById(R.id.editText_dni);
-        mButton = findViewById(R.id.button_register_user);
+
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,5 +45,12 @@ public class RegisterUserActivity extends BaseActivity implements RegisterUserVi
     public void wrongData(String message){
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    @Override
+    public void bindViews() {
+        mClave = findViewById(R.id.editText_clave);
+        mDni = findViewById(R.id.editText_dni);
+        mButton = findViewById(R.id.button_register_user);
     }
 }

@@ -25,12 +25,12 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_initialization);
+        bindViews();
 
         Intent intent = getIntent();
         int numhouses = Integer.parseInt(intent.getStringExtra("numHouses"));
         mPresenter = new UsersInitializationPresenter(this);
 
-        mRecyclerView = findViewById(R.id.initialize_users_recyclerView);
 
         mUsers = InitializableUser.createContactsList(numhouses);
         UsersAdapter usersAdapter = new UsersAdapter(this, mUsers);
@@ -38,7 +38,6 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mButton = findViewById(R.id.button_end_register);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,5 +57,11 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
     public void validationFailure(String message) {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    @Override
+    public void bindViews() {
+        mRecyclerView = findViewById(R.id.initialize_users_recyclerView);
+        mButton = findViewById(R.id.button_end_register);
     }
 }

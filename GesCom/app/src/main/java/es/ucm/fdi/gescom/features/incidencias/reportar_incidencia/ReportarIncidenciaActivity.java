@@ -24,19 +24,15 @@ public class ReportarIncidenciaActivity extends BaseActivity implements Reportar
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reportar_incidencia);
+        bindViews();
 
         mIncidenciasPresenter = new ReportarIncidenciaPresenter(this);
 
-        mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TextView title = mToolbar.findViewById(R.id.title);
         title.setText("Reportar incidencia");
 
-        mAsunto = findViewById(R.id.incidencias_asunto);
-        mDescripcion = findViewById(R.id.incidencias_descripcion);
-
-        mButton = findViewById(R.id.button_incidencias);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,4 +64,11 @@ public class ReportarIncidenciaActivity extends BaseActivity implements Reportar
         startActivity(intent);
     }
 
+    @Override
+    public void bindViews() {
+        mToolbar = findViewById(R.id.toolbar);
+        mAsunto = findViewById(R.id.incidencias_asunto);
+        mDescripcion = findViewById(R.id.incidencias_descripcion);
+        mButton = findViewById(R.id.button_incidencias);
+    }
 }

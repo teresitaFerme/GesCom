@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Votacion;
 
 
@@ -38,6 +39,14 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
         holder.description.setText(String.valueOf( mVotaciones.get(holder.getAbsoluteAdapterPosition()).getDescription()));
         holder.mVotosContra.setText(String.valueOf( mVotaciones.get(holder.getAbsoluteAdapterPosition()).getVotosContra()));
         holder.mVotosFavor.setText(String.valueOf( mVotaciones.get(holder.getAbsoluteAdapterPosition()).getVotosFavor()));
+
+        if(GesComApp.getUser().getLocalizer().equals("Administrador")){
+            holder.mCerrarVotacion.setVisibility(View.VISIBLE);
+            holder.mEnviarVoto.setVisibility(View.GONE);
+        }else{
+            holder.mCerrarVotacion.setVisibility(View.GONE);
+            holder.mEnviarVoto.setVisibility(View.VISIBLE);
+        }
     }
 
 
@@ -54,7 +63,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
 
     public class VotacionViewHolder extends RecyclerView.ViewHolder {
         final VotacionesAdapter mAdapter;
-        public final Button mEnviarVoto;
+        public final Button mEnviarVoto, mCerrarVotacion;
         public final ImageButton mFavor, mContra;
         public final TextView mVotosFavor, mVotosContra, titulo, description;
 
@@ -68,6 +77,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
             mVotosContra = itemView.findViewById(R.id.votacion_votos_en_contra);
             titulo = itemView.findViewById(R.id.votacion_title);
             description = itemView.findViewById(R.id.votacion_description);
+            mCerrarVotacion = itemView.findViewById(R.id.votacion_cerrar_admin_button);
         }
     }
 }

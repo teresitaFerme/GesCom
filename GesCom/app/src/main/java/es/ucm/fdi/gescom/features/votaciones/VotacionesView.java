@@ -4,4 +4,6 @@ import es.ucm.fdi.gescom.base.BaseView;
 
 public interface VotacionesView extends BaseView {
     void launchAddVotacion();
+
+
 }

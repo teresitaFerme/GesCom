@@ -43,7 +43,7 @@ public class ChangePasswordActivity extends BaseActivity implements ChangePasswo
     }
 
     @Override
-    protected void bindViews() {
+    public void bindViews() {
         toolbar = findViewById(R.id.toolbar);
         mPassword = findViewById(R.id.change_password_contrasena_actual);
         mNewPassword = findViewById(R.id.change_password_contrasena_nueva);

@@ -1,16 +1,13 @@
 package es.ucm.fdi.gescom.features.register_comunidad;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.features.register_comunidad.initialize_users.UserInitializationActivity;
@@ -18,21 +15,15 @@ import es.ucm.fdi.gescom.features.register_comunidad.initialize_users.UserInitia
 public class RegisterActivity extends AppCompatActivity implements RegisterView{
     private RegisterPresenter mRegisterPresenter;
     private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat, mUserDni, mNumHouses;
+    private Button mButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        bindViews();
         mRegisterPresenter = new RegisterPresenter(this);
 
-        mCommunityName = findViewById(R.id.registro_editText_nombre_comunidad);
-        mUserName = findViewById(R.id.registro_editText_username_admin);
-        mUserPassword = findViewById(R.id.registro_editText_password);
-        mUserPasswordRepeat = findViewById(R.id.registro_editText_password_repeat);
-        mUserDni = findViewById(R.id.editText_dni_administrador);
-        mNumHouses = findViewById(R.id.registro_editText_num_viviendas);
-
-        Button mButton = findViewById(R.id.button_register);
         mButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -92,5 +83,16 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         Toast toast = Toast.makeText(this, "Formato de DNI inválido.", Toast.LENGTH_LONG);
         toast.show();
         mUserDni.setText("");
+    }
+
+    @Override
+    public void bindViews() {
+        mCommunityName = findViewById(R.id.registro_editText_nombre_comunidad);
+        mUserName = findViewById(R.id.registro_editText_username_admin);
+        mUserPassword = findViewById(R.id.registro_editText_password);
+        mUserPasswordRepeat = findViewById(R.id.registro_editText_password_repeat);
+        mUserDni = findViewById(R.id.editText_dni_administrador);
+        mNumHouses = findViewById(R.id.registro_editText_num_viviendas);
+        mButton = findViewById(R.id.button_register);
     }
 }

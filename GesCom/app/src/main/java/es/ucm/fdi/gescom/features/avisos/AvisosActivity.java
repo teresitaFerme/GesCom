@@ -1,18 +1,13 @@
 package es.ucm.fdi.gescom.features.avisos;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -21,12 +16,7 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.datacache.Aviso;
-import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.features.avisos.add_aviso.AddAvisoActivity;
-import es.ucm.fdi.gescom.features.incidencias.IncidenciasAdapterActivity;
-import es.ucm.fdi.gescom.features.principal.PrincipalActivity;
-
-import static androidx.recyclerview.widget.RecyclerView.*;
 
 public class AvisosActivity extends BaseActivity implements AvisosView {
     private RecyclerView mRecyclerAvisos;
@@ -78,5 +68,10 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
     public void launchAddAviso() {
         Intent intent = new Intent(this, AddAvisoActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void bindViews() {
+
     }
 }
