@@ -22,17 +22,20 @@ public class RegisterUserPresenter extends BasePresenter {
     }
 
     public void validate(String username, String pass, String passRepeat, String dni) {
+        //TODO meter validacion del dni en la funcion validate de arriba y en el initialize users
         if (username.length() != 0 && pass.length() != 0 && passRepeat.length() != 0) {
-            if(contieneSoloLetras(username)){
-                if(pass.equals(passRepeat)){
-                    if(pass.length() >= 8){
-                        if (!mModel.getUsername(username)) {
-                            mModel.registerUser(username, pass, dni);
-                            mView.initSuccessful();
-                        } else mView.initFailure("Ese usuario ya está cogido. Introduzca otro usuario.");//TODO borrar aqui el campo usuario
-                    }else  mView.initFailure("La contraseña debe tener 8 carácteres como mínimo.");
-                }else mView.initFailure("Las contraseñas no coinciden");//TODO hacer que se borren los campos de las contraseñas
-            } else mView.initFailure("El usuario solo puede contener letras, números y barra baja.");
+            if(esDni(dni)){
+                if(contieneSoloLetras(username)){
+                    if(pass.equals(passRepeat)){
+                        if(pass.length() >= 8){
+                            if (!mModel.getUsername(username)) {
+                                mModel.registerUser(username, pass, dni);
+                                mView.initSuccessful();
+                            } else mView.initFailure("Ese usuario ya está cogido. Introduzca otro usuario.");//TODO borrar aqui el campo usuario
+                        }else  mView.initFailure("La contraseña debe tener 8 carácteres como mínimo.");
+                    }else mView.initFailure("Las contraseñas no coinciden");//TODO hacer que se borren los campos de las contraseñas
+                } else mView.initFailure("El usuario solo puede contener letras, números y barra baja.");
+            }else mView.initFailure("Introduce un DNI válido.");
         }else mView.initFailure("Por favor rellene todos los campos");
     }
 
@@ -44,6 +47,24 @@ public class RegisterUserPresenter extends BasePresenter {
             }
         }
         return true;
+    }
+
+    private static boolean esDni(String cadena){
+        if(cadena.length() != 9){
+            return false;
+        }else{
+            for (int x = 0; x < cadena.length() - 1; x++) {
+                char c = cadena.charAt(x);
+                if (x < 8 && !(c >= '0' && c <='9')) {
+                    return false;
+                }
+            }
+            char c = cadena.charAt(8);
+            if(!(c >= 'A' && c <= 'Z')){
+                return false;
+            }
+            return true;
+        }
     }
 
 }
