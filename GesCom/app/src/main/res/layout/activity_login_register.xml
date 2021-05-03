@@ -50,35 +50,73 @@
                 android:id="@+id/cardView_formulario_username"
                 style="@style/cardFormulary">
 
-                <EditText
-                    android:id="@+id/editText_user"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="4dp"
-                    android:hint="@string/introduce_tu_usuario"
-                    android:importantForAutofill="yes"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_marginStart="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_usuario_color" />
+
+                    <EditText
+                        android:id="@+id/editText_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:layout_gravity="center_vertical"
+                        android:hint="@string/introduce_tu_usuario"
+                        android:importantForAutofill="yes"
+                        android:background="@drawable/shape_cardview"
+                        android:padding="8dp"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+
             </androidx.cardview.widget.CardView>
+
+            <!--TODO colocar bien los iconos en los campos-->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_formulario_password"
                 style="@style/cardFormulary">
 
-                <EditText
-                    android:id="@+id/editText_password"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="4dp"
-                    android:hint="@string/introduce_tu_contrasena"
-                    android:importantForAutofill="yes"
-                    android:inputType="textPassword"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    tools:ignore="TextFields" />
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_marginStart="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_key" />
+
+                    <EditText
+                        android:id="@+id/editText_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_margin="4dp"
+                        android:hint="@string/introduce_tu_contrasena"
+                        android:background="@drawable/shape_cardview"
+                        android:padding="8dp"
+                        android:importantForAutofill="yes"
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        tools:ignore="TextFields" />
+
+                </LinearLayout>
+
+
             </androidx.cardview.widget.CardView>
 
             <Button
