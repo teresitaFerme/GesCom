@@ -37,9 +37,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
     @Override
     public void registerSuccessful() {
-        Toast toast = Toast.makeText(this, "SUCCESSFUL", Toast.LENGTH_LONG);
-        toast.show();
-
         Intent intent = new Intent(this, UserInitializationActivity.class);
         intent.putExtra("numHouses", String.valueOf(mNumHouses.getText()));
         startActivity(intent);
