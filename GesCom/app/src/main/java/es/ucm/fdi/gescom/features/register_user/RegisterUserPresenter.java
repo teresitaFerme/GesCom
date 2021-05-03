@@ -22,16 +22,28 @@ public class RegisterUserPresenter extends BasePresenter {
     }
 
     public void validate(String username, String pass, String passRepeat, String dni) {
-        //TODO meter validaciones de username (sin signos) y de las contraseñas
         if (username.length() != 0 && pass.length() != 0 && passRepeat.length() != 0) {
-            if(pass.equals(passRepeat)){
-                if(pass.length() >= 8){
-                    if (!mModel.getUsername(username)) {
-                        mModel.registerUser(username, pass, dni);
-                        mView.initSuccessful();
-                    } else mView.initFailure("Ese usuario ya está cogido. Introduzca otro usuario.");//TODO borrar aqui el campo usuario
-                }else  mView.initFailure("La contraseña debe tener 8 carácteres como mínimo.");
-            }else mView.initFailure("Las contraseñas no coinciden");//TODO hacer que se borren los campos de las contraseñas
+            if(contieneSoloLetras(username)){
+                if(pass.equals(passRepeat)){
+                    if(pass.length() >= 8){
+                        if (!mModel.getUsername(username)) {
+                            mModel.registerUser(username, pass, dni);
+                            mView.initSuccessful();
+                        } else mView.initFailure("Ese usuario ya está cogido. Introduzca otro usuario.");//TODO borrar aqui el campo usuario
+                    }else  mView.initFailure("La contraseña debe tener 8 carácteres como mínimo.");
+                }else mView.initFailure("Las contraseñas no coinciden");//TODO hacer que se borren los campos de las contraseñas
+            } else mView.initFailure("El usuario solo puede contener letras, números y barra baja.");
         }else mView.initFailure("Por favor rellene todos los campos");
     }
+
+    public static boolean contieneSoloLetras(String cadena) {
+        for (int x = 0; x < cadena.length(); x++) {
+            char c = cadena.charAt(x);
+            if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_' || (c >= '0' && c <='9'))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

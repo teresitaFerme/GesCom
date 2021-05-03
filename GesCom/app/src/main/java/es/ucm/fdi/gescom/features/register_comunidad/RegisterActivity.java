@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
         //TODO que no se registre la comunidad hasta que no finalice el proceso
         //TODO hacer que el admin pueda crear o eliminar usuarios de la comunidad
+        //TODO meter las validaciones al username y a la contraseña del admin que se han metido en register user
     }
 
     @Override
