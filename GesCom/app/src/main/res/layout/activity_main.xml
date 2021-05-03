@@ -7,6 +7,12 @@
     android:background="@drawable/ic_first_background"
     tools:context=".features.main.MainActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@color/black" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

@@ -6,55 +6,68 @@
     android:layout_height="match_parent">
 
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_activity" />
 
-    <include android:id="@+id/toolbar" layout="@layout/toolbar_activity"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
-
-        <TextView
-            android:id="@+id/votaciones_title_votaciones_pendientes"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:background="@color/teal_700"
-            android:textColor="@color/white"
-            android:padding="8dp"
-            android:text="Votaciones en curso"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_votaciones_pendientes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/votaciones_title_votaciones_pendientes" />
+            <TextView
+                android:id="@+id/votaciones_title_votaciones_pendientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/teal_700"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="Votaciones en curso"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_votaciones_pendientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/votaciones_title_votaciones_pendientes" />
 
-        <TextView
-            android:id="@+id/votaciones_title_votaciones_anteriores"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:background="@color/teal_700"
-            android:textColor="@color/white"
-            android:gravity="center_horizontal"
-            android:text="Votaciones anteriores"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_votaciones_pendientes"/>
+            <TextView
+                android:id="@+id/votaciones_title_votaciones_anteriores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/teal_700"
+                android:gravity="center_horizontal"
+                android:padding="8dp"
+                android:text="Votaciones anteriores"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_votaciones_pendientes" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_votaciones_anteriores"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/votaciones_title_votaciones_anteriores" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_votaciones_anteriores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/votaciones_title_votaciones_anteriores" />
 
+        </LinearLayout>
+
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/votaciones_admin_fab"
@@ -63,9 +76,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/ic_fab_add"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

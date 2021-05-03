@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
@@ -46,6 +45,8 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
         mLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                findViewById(R.id.loginregister_bad_credentials).setVisibility(View.GONE);
+                findViewById(R.id.loginregister_not_filled).setVisibility(View.GONE);
                 mPresenter.validateLogin(String.valueOf(mUsername.getText()), String.valueOf(mPassword.getText()));
             }
         });
@@ -71,16 +72,14 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
 
     @Override
     public void loginFailure() {
-        Toast toast = Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
-        toast.show();
+        findViewById(R.id.loginregister_bad_credentials).setVisibility(View.VISIBLE);
         mUsername.setText("");
         mPassword.setText("");
     }
 
     @Override
     public void fillingFailure() {
-        Toast toast = Toast.makeText(this, "Por favor, rellena todos los campos", Toast.LENGTH_LONG);
-        toast.show();
+        findViewById(R.id.loginregister_not_filled).setVisibility(View.VISIBLE);
     }
 
     @Override
