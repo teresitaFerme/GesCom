@@ -4,13 +4,17 @@ public class Votacion {
     private String title, description;
     private String id;
     private int votosFavor, votosContra;
+    private boolean opened;
 
-    public Votacion(String id, String title, String description, int votosFavor, int votosContra){
+    public Votacion(String id, String title, String description, int votosFavor, int votosContra, String opened){
         this.id = id;
         this.title = title;
         this.description = description;
         this.votosFavor = votosFavor;
         this.votosContra = votosContra;
+        if(Integer.parseInt(opened) == 0){
+            this.opened = false;
+        } else this.opened = true;
     }
 
     public int getVotosFavor() {
@@ -52,4 +56,7 @@ public class Votacion {
     public void setVotosFavor(int votosFavor) {
         this.votosFavor = votosFavor;
     }
+
+    public boolean getOpened(){return opened;}
+
 }

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.base.BaseModel;
 import es.ucm.fdi.gescom.datacache.GesComApp;
-import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.datacache.Votacion;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
@@ -50,11 +49,13 @@ public class VotacionesModel extends BaseModel {
                 String description = cursor.getString(4);
                 int votos_favor = cursor.getInt(2);
                 int votos_contra = cursor.getInt(3);
+                String opened = cursor.getString(5);
                 Votacion votacion = new Votacion(cursor.getString(0),
                         title,
                         description,
                         votos_favor,
-                        votos_contra);
+                        votos_contra,
+                        opened);
                 list.add(votacion);
             }
         }
@@ -91,11 +92,13 @@ public class VotacionesModel extends BaseModel {
                 String description = cursor.getString(4);
                 int votos_favor = cursor.getInt(2);
                 int votos_contra = cursor.getInt(3);
+                String opened = cursor.getString(5);
                 Votacion votacion = new Votacion(cursor.getString(0),
                         title,
                         description,
                         votos_favor,
-                        votos_contra);
+                        votos_contra,
+                        opened);
                 list.add(votacion);
             }
         }

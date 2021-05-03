@@ -1,6 +1,9 @@
 package es.ucm.fdi.gescom.features.votaciones;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,6 +20,8 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Votacion;
+import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
+import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
 
 public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.VotacionViewHolder> {
@@ -41,8 +47,56 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
         holder.mVotosFavor.setText(String.valueOf( mVotaciones.get(holder.getAbsoluteAdapterPosition()).getVotosFavor()));
 
         if(GesComApp.getUser().getLocalizer().equals("Administrador")){
-            holder.mCerrarVotacion.setVisibility(View.VISIBLE);
             holder.mEnviarVoto.setVisibility(View.GONE);
+            if(mVotaciones.get(holder.getAbsoluteAdapterPosition()).getOpened()){
+                holder.mCerrarVotacion.setVisibility(View.VISIBLE);
+                holder.mCerrarVotacion.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(v.getContext());
+                        builder1.setMessage("¿Desea cerrar la votación " + holder.titulo.getText() + "?");
+                        builder1.setCancelable(true);
+
+                        builder1.setPositiveButton(
+                                "Cerrar votación",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        CommunitiesDatabaseHelper mCommunitiesDBHelper  = new CommunitiesDatabaseHelper(holder.mCerrarVotacion.getContext());
+                                        SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+
+                                        ContentValues values = new ContentValues();
+                                        values.put(CommunitiesDatabase.Votes.COLUMN_NAME_OPENED, 0);
+
+                                        String selection = CommunitiesDatabase.Votes._ID + " = ?";
+                                        String[] selectionArgs = {mVotaciones.get(holder.getAbsoluteAdapterPosition()).getId()};
+
+                                        db.update(
+                                                CommunitiesDatabase.Votes.TABLE_NAME,
+                                                values,
+                                                selection,
+                                                selectionArgs
+                                        );
+                                        //TODO hacer que se actualice en la vista que la votacion esta cerrada
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        builder1.setNegativeButton(
+                                "Cancelar",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        AlertDialog alert11 = builder1.create();
+                        alert11.show();
+                    }
+                });
+            } else{
+                holder.mCerrarVotacion.setVisibility(View.GONE);
+            }
+
         }else{
             holder.mCerrarVotacion.setVisibility(View.GONE);
             holder.mEnviarVoto.setVisibility(View.VISIBLE);
