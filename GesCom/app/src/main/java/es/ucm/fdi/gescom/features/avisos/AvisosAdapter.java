@@ -34,6 +34,10 @@ public class AvisosAdapter extends RecyclerView.Adapter<AvisosAdapter.AvisoViewH
         holder.titulo.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).getAsunto()));
         holder.descripcion.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).getDescripcion()));
         holder.date.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).getDate()));
+
+        //TODO L- No se si hay que añadir estas líneas
+        //holder.editar.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).get -- ()));
+        //holder.eliminar.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).get -- ()));
     }
 
 
@@ -49,7 +53,7 @@ public class AvisosAdapter extends RecyclerView.Adapter<AvisosAdapter.AvisoViewH
 
 
     public class AvisoViewHolder extends RecyclerView.ViewHolder {
-        public final TextView titulo, descripcion, date;
+        public final TextView titulo, descripcion, date, editar, eliminar;
         final AvisosAdapter mAdapter;
 
         public AvisoViewHolder(View itemView, AvisosAdapter avisosAdapter) {
@@ -58,6 +62,8 @@ public class AvisosAdapter extends RecyclerView.Adapter<AvisosAdapter.AvisoViewH
             titulo = itemView.findViewById(R.id.component_aviso_principal_title);
             descripcion = itemView.findViewById(R.id.component_aviso_principal_body);
             date = itemView.findViewById(R.id.component_aviso_principal_date);
+            editar = itemView.findViewById(R.id.component_aviso_principal_editar);
+            eliminar = itemView.findViewById(R.id.component_aviso_principal_eliminar);
         }
     }
 }

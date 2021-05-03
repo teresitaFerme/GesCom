@@ -28,6 +28,15 @@ public class AvisosPresenter extends BasePresenter {
         mView.launchAddAviso();
     }
 
+    public void editarAviso() {
+        mView.launchEditarAviso();
+    }
+
+    //TODO L- Pasar variable para el mModel, el id de mi fila
+    public void eliminarAviso() {
+        mModel.eliminarAviso();
+    }
+
     public ArrayList<Aviso> getAvisos() {
         ArrayList<Aviso> list = mModel.getAvisos();
         return list;

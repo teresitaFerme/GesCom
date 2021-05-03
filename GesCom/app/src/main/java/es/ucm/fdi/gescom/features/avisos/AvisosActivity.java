@@ -17,6 +17,7 @@ import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.datacache.Aviso;
 import es.ucm.fdi.gescom.features.avisos.add_aviso.AddAvisoActivity;
+import es.ucm.fdi.gescom.features.avisos.editar_aviso.EditarAvisoActivity;
 
 public class AvisosActivity extends BaseActivity implements AvisosView {
     private RecyclerView mRecyclerAvisos;
@@ -42,7 +43,6 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
 
         mRecyclerAvisos = findViewById(R.id.recycler_avisos);
 
-
         mNuevoAviso = findViewById(R.id.avisos_admin_fab);
         if(mPresenter.checkAdmin()){
             mNuevoAviso.setVisibility(View.VISIBLE);
@@ -59,6 +59,29 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
             AvisosAdapter avisosAdapter = new AvisosAdapter(this, mAvisosList);
             mRecyclerAvisos.setAdapter(avisosAdapter);
             mRecyclerAvisos.setLayoutManager(new LinearLayoutManager(this));
+
+        //TODO L- Añadir lógica para conectar el icono (variable creada en el adapter) con "editar_aviso"
+
+        /*
+        mEditarAviso = ???.AvisoViewHolder.editar
+        mEliminarAviso = ???.AvisoViewHolder.eliminar
+
+        mEditarAviso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.editarAviso();
+            }
+        });
+
+        mEditarAviso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.eliminarAviso();
+            }
+        });
+         */
+
+
         }
         //TODO que los avisos puedan filtrarse por dias, semanas o meses
         //TODO poner bien el recycler view y que salgan todos los card views
@@ -67,6 +90,12 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
     @Override
     public void launchAddAviso() {
         Intent intent = new Intent(this, AddAvisoActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void launchEditarAviso() {
+        Intent intent = new Intent(this, EditarAvisoActivity.class);
         startActivity(intent);
     }
 

@@ -62,4 +62,10 @@ public class AvisosModel extends BaseModel {
 
         return list;
     }
+
+    //TODO L- No se qué variable hay que pasar al model para especificar qué fila borar de la BBDD
+    public void eliminarAviso() {
+
+
+    }
 }
