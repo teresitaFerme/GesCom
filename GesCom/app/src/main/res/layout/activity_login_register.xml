@@ -7,15 +7,18 @@
     android:background="@drawable/ic_first_background"
     tools:context=".features.loginregister.LoginRegisterActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:alpha="0.5"/>
 
-    <androidx.cardview.widget.CardView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="25dp"
-        android:background="@color/purple_500"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
+        android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +27,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/purple_500"
             android:orientation="vertical"
             android:padding="15dp">
 
@@ -81,7 +83,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <!--TODO colocar bien los iconos en los campos-->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView_formulario_password"
@@ -139,6 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
                 android:text="¿Todavía no estás registrado como usuario?"
                 android:textAlignment="center" />
 
@@ -156,6 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
                 android:text="¿Tu comunidad no está registrada?"
                 android:textAlignment="center" />
 
@@ -169,7 +172,7 @@
                 android:textColor="@color/white" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
