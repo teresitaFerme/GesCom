@@ -99,7 +99,38 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
 
         }else{
             holder.mCerrarVotacion.setVisibility(View.GONE);
-            holder.mEnviarVoto.setVisibility(View.VISIBLE);
+            if(mVotaciones.get(holder.getAbsoluteAdapterPosition()).getOpened()){
+                holder.mEnviarVoto.setVisibility(View.VISIBLE);
+                holder.mEnviarVoto.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder1 = new AlertDialog.Builder(v.getContext());
+                        builder1.setMessage("¿Cuál será su voto para esta votación?");
+                        builder1.setCancelable(true);
+
+                        builder1.setPositiveButton(
+                                "A favor",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        builder1.setNegativeButton(
+                                "En contra",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.cancel();
+                                    }
+                                });
+
+                        AlertDialog alert11 = builder1.create();
+                        alert11.show();
+                    }
+                });
+            } else{
+                holder.mCerrarVotacion.setVisibility(View.GONE);
+            }
         }
     }
 
