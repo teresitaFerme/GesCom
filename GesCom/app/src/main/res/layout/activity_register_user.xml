@@ -70,21 +70,66 @@
                     tools:ignore="TextFields" />
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_init_account_username"
+                style="@style/cardFormulary">
+                <EditText
+                    android:id="@+id/editText_init_account_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="8dp"
+                    android:hint="Introduce un nombre de usuario"
+                    android:importantForAutofill="yes"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_init_account_password"
+                style="@style/cardFormulary">
+                <EditText
+                    android:id="@+id/editText_init_account_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="Introduce tu contraseña"
+                    android:importantForAutofill="yes"
+                    android:layout_margin="8dp"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    tools:ignore="TextFields" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView_init_account_repite_password"
+                style="@style/cardFormulary">
+                <EditText
+                    android:id="@+id/editText_init_account_repite_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="Repite tu contraseña"
+                    android:importantForAutofill="yes"
+                    android:layout_margin="8dp"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    tools:ignore="TextFields" />
+            </androidx.cardview.widget.CardView>
+
             <Button
-                android:id="@+id/button_register_user"
+                android:id="@+id/button_init_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="30dp"
-                android:padding="20dp"
-                android:text="Regístrarme"
+                android:text="¡Comencemos!"
                 android:textColor="@color/white"
                 app:backgroundTint="@color/teal_700"
                 app:layout_constraintBottom_toBottomOf="@id/editText_password"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
-
 
         </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
