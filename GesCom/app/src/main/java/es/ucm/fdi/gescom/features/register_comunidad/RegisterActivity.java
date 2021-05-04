@@ -39,7 +39,11 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     @Override
     public void registerSuccessful() {
         Intent intent = new Intent(this, UserInitializationActivity.class);
+        intent.putExtra("comunidadNombre", String.valueOf(mCommunityName.getText()));
+        intent.putExtra("nombreAdmin", String.valueOf(mUserName.getText()));
         intent.putExtra("numHouses", String.valueOf(mNumHouses.getText()));
+        intent.putExtra("password", String.valueOf(mUserPassword.getText()));
+        intent.putExtra("dni", String.valueOf(mUserDni.getText()));
         startActivity(intent);
     }
 

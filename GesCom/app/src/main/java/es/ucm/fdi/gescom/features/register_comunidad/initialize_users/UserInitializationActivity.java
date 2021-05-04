@@ -29,6 +29,11 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
 
         Intent intent = getIntent();
         int numhouses = Integer.parseInt(intent.getStringExtra("numHouses"));
+        String nombreAdmin = intent.getStringExtra("nombreAdmin");
+        String comName = intent.getStringExtra("comunidadNombre");
+        String password = intent.getStringExtra("password");
+        String dni = intent.getStringExtra("dni");
+
         mPresenter = new UsersInitializationPresenter(this);
 
 
@@ -41,7 +46,7 @@ public class UserInitializationActivity extends BaseActivity implements UsersIni
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.validateUsers(mUsers);
+                mPresenter.validateUsers(mUsers, comName, nombreAdmin, password, dni);
             }
         });
     }

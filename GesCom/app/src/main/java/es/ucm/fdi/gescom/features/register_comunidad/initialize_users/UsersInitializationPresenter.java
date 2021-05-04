@@ -15,7 +15,7 @@ public class UsersInitializationPresenter extends BasePresenter {
         mModel = new UsersInitializationModel((Context) view);
     }
 
-    public void validateUsers(ArrayList<InitializableUser> mUsers) {
+    public void validateUsers(ArrayList<InitializableUser> mUsers,String comName,String nombreAdmin,String password, String dni) {
         String message = "";
         for(int i = 0; i< mUsers.size(); i++){
             if(mUsers.get(i).getUsername().equals("") || mUsers.get(i).getLocalizer().equals("")) {
@@ -27,7 +27,11 @@ public class UsersInitializationPresenter extends BasePresenter {
                 mView.validationFailure(message);
                 mUsers.get(i).setUsername("", "");
                 return;
-            }//TODO METER AQUI MÁS VALIDACIONES DEL TIPO QUE LOS LOCALIZADORES SEan DIFERENTES Y QUE LOS DNIS TENGAN FORMATO DNI
+            }//TODO METER AQUI MÁS VALIDACIONES DEL TIPO QUE LOS LOCALIZADORES SEan DIFERENTES Y QUE LOS DNIS TENGAN FORMATO DNI Y sean diferentes entre ellos
+        }
+        long admin_id = mModel.registerUser(nombreAdmin, comName, password, dni, "Administrador");
+        if(admin_id != -1){
+            mModel.registerCommunity(comName, admin_id);
         }
         mModel.registerUsers(mUsers);
         mView.validationSuccess();
