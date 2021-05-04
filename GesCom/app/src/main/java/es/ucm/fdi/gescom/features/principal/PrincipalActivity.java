@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
 import es.ucm.fdi.gescom.datacache.Incidencia;
+import es.ucm.fdi.gescom.datacache.Votacion;
 import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
@@ -37,8 +38,9 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     private Menu mMenu;
     private RecyclerView mRecyclerIncidences, mRecyclerVotaciones, mRecyclerAvisos, mRecyclerReservas;
     private ArrayList<Incidencia> mIncidencias = new ArrayList<>();
+    private ArrayList<Votacion> mVotes = new ArrayList<>();
     private PrincipalPresenter mPresenter;
-    private TextView mNoIncidences, mViewAllIncidences;
+    private TextView mNoIncidences, mNoVotes, mViewAllIncidences, mViewAllVotes;
     private CardView mCardViewIncidences, mVotaciones, mReservas, mAvisos, mIncidenciasTitle, mAvisosTitle, mVotacionesTitle, mReservasTitle;
     private ImageButton mShowReservas, mShowIncidencias, mShowAvisos, mShowVotaciones;
 
@@ -64,8 +66,15 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
                 launchAllIncidences();
             }
         });
+        mViewAllVotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchAllVotes();
+            }
+        });
 
         mPresenter.checkAdmin();
+        drawVotes();
 
         mVotacionesTitle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +134,11 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
         //TODO que aquellos apartados que tengan cosas en la lista salgan desplegados
     }
 
+    private void launchAllVotes() {
+        Intent intent = new Intent(this, VotacionesActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void bindViews() {
         toolbar = this.findViewById(R.id.toolbar);
@@ -145,6 +159,8 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
         mVotacionesTitle = findViewById(R.id.cardView_votaciones_title);
         mReservasTitle = findViewById(R.id.cardView_reservas_title);
         mAvisosTitle = findViewById(R.id.cardView_avisos_title);
+        mViewAllVotes = findViewById(R.id.principal_view_all_votaciones);
+        mNoVotes = findViewById(R.id.principal_votaciones_none);
     }
 
     //TODO hay que hacer override de onResume o onRestart para que actualice las incidencias
@@ -237,6 +253,21 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     public void hideIncidences() {
         findViewById(R.id.cardView_incidencias_title).setVisibility(View.GONE);
         findViewById(R.id.cardView_incidencias).setVisibility(View.GONE);
+    }
+
+    @Override
+    public void drawVotes() {
+        /*mVotes = mPresenter.getVotes();
+        if(mVotes.size() != 0){
+            mVotaciones.setVisibility(View.VISIBLE);
+            mShowVotaciones.setBackground(getDrawable(R.drawable.ic_desplegado));
+            mNoVotes.setVisibility(View.GONE);
+            VotacionesAdapter votacionesAdapter = new VotacionesAdapter(this, mVotes);
+            mRecyclerVotaciones.setAdapter(votacionesAdapter);
+
+            mRecyclerVotaciones.setLayoutManager(new LinearLayoutManager(this));
+        }
+        else mNoVotes.setVisibility(View.VISIBLE);*/
     }
 
     @Override

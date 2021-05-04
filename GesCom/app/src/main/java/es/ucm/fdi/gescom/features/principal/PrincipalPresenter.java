@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.base.BasePresenter;
 import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Incidencia;
+import es.ucm.fdi.gescom.datacache.Votacion;
 
 public class PrincipalPresenter extends BasePresenter {
     private PrincipalView mView;
@@ -34,5 +35,10 @@ public class PrincipalPresenter extends BasePresenter {
 
     public void launchAddIncidence() {
         mView.launchAddIncidence();
+    }
+
+    public ArrayList<Votacion> getVotes() {
+        ArrayList<Votacion> list = mModel.getLastVotes();
+        return list;
     }
 }
