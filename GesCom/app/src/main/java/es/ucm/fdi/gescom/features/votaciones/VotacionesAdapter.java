@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -183,7 +183,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
     public class VotacionViewHolder extends RecyclerView.ViewHolder {
         final VotacionesAdapter mAdapter;
         public final Button mEnviarVoto, mCerrarVotacion;
-        public final ImageButton mFavor, mContra;
+        public final ImageView mFavor, mContra;
         public final TextView mVotosFavor, mVotosContra, titulo, description;
 
         public VotacionViewHolder(View itemView, VotacionesAdapter adapter) {
