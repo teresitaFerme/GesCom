@@ -78,6 +78,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
                                         );
                                         //TODO hacer que se actualice en la vista que la votacion esta cerrada
                                         dialog.cancel();
+                                        VotacionesAdapter.this.notifyDataSetChanged();
                                     }
                                 });
 
@@ -162,7 +163,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
                     }
                 });
             } else{
-                holder.mCerrarVotacion.setVisibility(View.GONE);
+                holder.mEnviarVoto.setVisibility(View.GONE);
             }
         }
     }

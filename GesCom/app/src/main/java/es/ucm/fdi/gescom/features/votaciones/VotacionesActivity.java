@@ -84,4 +84,5 @@ public class VotacionesActivity extends BaseActivity implements VotacionesView{
         mVotacionesPendientes = findViewById(R.id.recycler_votaciones_pendientes);
         mVotacionesAnteriores = findViewById(R.id.recycler_votaciones_anteriores);
     }
+
 }
