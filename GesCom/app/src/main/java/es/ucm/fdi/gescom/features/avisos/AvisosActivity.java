@@ -24,6 +24,7 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
     private FloatingActionButton mNuevoAviso;
     private AvisosPresenter mPresenter;
     private ArrayList<Aviso> mAvisosList;
+    private Toolbar mToolbar;
 
 
     @Override
@@ -32,8 +33,8 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
         setContentView(R.layout.activity_avisos);
 
         getIntent();
+        bindViews();
 
-        Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TextView title = mToolbar.findViewById(R.id.title);
@@ -41,9 +42,6 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
 
         mPresenter = new AvisosPresenter(this);
 
-        mRecyclerAvisos = findViewById(R.id.recycler_avisos);
-
-        mNuevoAviso = findViewById(R.id.avisos_admin_fab);
         if(mPresenter.checkAdmin()){
             mNuevoAviso.setVisibility(View.VISIBLE);
         }
@@ -59,32 +57,8 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
             AvisosAdapter avisosAdapter = new AvisosAdapter(this, mAvisosList);
             mRecyclerAvisos.setAdapter(avisosAdapter);
             mRecyclerAvisos.setLayoutManager(new LinearLayoutManager(this));
-
-        //TODO L- Añadir lógica para conectar el icono (variable creada en el adapter) con "editar_aviso"
-
-        /*
-        mEditarAviso = ???.AvisoViewHolder.editar
-        mEliminarAviso = ???.AvisoViewHolder.eliminar
-
-        mEditarAviso.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.editarAviso();
-            }
-        });
-
-        mEditarAviso.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.eliminarAviso();
-            }
-        });
-         */
-
-
         }
         //TODO que los avisos puedan filtrarse por dias, semanas o meses
-        //TODO poner bien el recycler view y que salgan todos los card views
     }
 
     @Override
@@ -101,6 +75,8 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
 
     @Override
     public void bindViews() {
-
+        mToolbar = findViewById(R.id.toolbar);
+        mRecyclerAvisos = findViewById(R.id.recycler_avisos);
+        mNuevoAviso = findViewById(R.id.avisos_admin_fab);
     }
 }

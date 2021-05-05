@@ -36,8 +36,26 @@ public class AvisosAdapter extends RecyclerView.Adapter<AvisosAdapter.AvisoViewH
         holder.date.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).getDate()));
 
         //TODO L- No se si hay que añadir estas líneas
-        //holder.editar.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).get -- ()));
-        //holder.eliminar.setText(String.valueOf( mAvisos.get(holder.getAbsoluteAdapterPosition()).get -- ()));
+
+        holder.editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchEditAviso();
+            }
+        });
+
+        holder.eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO abres un alert (en votaciones) con la mitica pregunta borrar o no, y al boton aceptar le metes "eliminar el aviso de la bbdd"
+            }
+        });
+    }
+
+    private void launchEditAviso() {
+        //Intent intent = new Intent(, EditarAvisoActivity.class);
+        //startActivity(intent);
+        //TODO buscar en internet "how to launch an activity from a recyclerView adapter android studio"
     }
 
 
