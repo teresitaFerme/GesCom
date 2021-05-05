@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.base.BaseModel;
 import es.ucm.fdi.gescom.datacache.Aviso;
 import es.ucm.fdi.gescom.datacache.GesComApp;
-import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
@@ -47,6 +46,7 @@ public class AvisosModel extends BaseModel {
         );
 
         for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()) {
+            String id = cursor.getString(0);
             String title  = cursor.getString(1);
             String body = cursor.getString(2);
             String date = cursor.getString(3);
@@ -56,7 +56,8 @@ public class AvisosModel extends BaseModel {
                     body,
                     comm_id,
                     date,
-                    hour);
+                    hour,
+                    id);
             list.add(aviso);
         }
 
