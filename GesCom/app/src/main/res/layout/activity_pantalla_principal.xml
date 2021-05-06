@@ -55,7 +55,7 @@
                     android:text="Nueva incidencia"
                     android:layout_weight="1"
                     android:textColor="@color/teal_700"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     android:layout_margin="16dp"
                     />
 
@@ -66,7 +66,7 @@
                     android:text="Nueva reserva"
                     android:layout_weight="1"
                     android:textColor="@color/teal_700"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     android:layout_margin="16dp"
                     />
             </LinearLayout>
@@ -93,7 +93,7 @@
                     android:padding="4dp"
                     android:text="Reservas"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
 
                 <ImageButton
                     android:id="@+id/principal_reservas_no_desplegadas"
@@ -146,7 +146,7 @@
                     android:padding="4dp"
                     android:text="Incidencias"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
 
 
                 <ImageButton
@@ -228,7 +228,7 @@
                     android:padding="4dp"
                     android:text="Avisos"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
 
 
                 <ImageButton
@@ -310,7 +310,7 @@
                     android:padding="4dp"
                     android:text="Votaciones"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="14sp" />
 
                 <ImageButton
                     android:id="@+id/principal_votaciones_no_desplegadas"

@@ -74,7 +74,7 @@
                         android:inputType="textPersonName"
                         android:padding="8dp"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -110,7 +110,7 @@
                         android:inputType="textPassword"
                         android:padding="8dp"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="13sp"
                         tools:ignore="TextFields" />
 
                 </LinearLayout>
@@ -131,6 +131,7 @@
                     android:layout_gravity="center_horizontal"
                     android:visibility="visible"
                     android:text="@string/he_olvidado_mi_contrase_a"
+                    android:textSize="13sp"
                     android:textColor="@color/white" />
 
                 <ImageView
@@ -149,6 +150,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:visibility="gone"
+                android:textSize="13sp"
                 android:text="El usuario o la contraseña son incorrectos."
                 android:textColor="@color/white"/>
 
@@ -183,6 +185,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="¿Todavía no estás registrado como usuario?"
                 android:textAlignment="center"
+                android:textSize="13sp"
                 android:textColor="@color/white" />
 
             <TextView
@@ -201,6 +204,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="¿Tu comunidad no está registrada?"
                 android:textAlignment="center"
+                android:textSize="13sp"
                 android:textColor="@color/white" />
 
             <TextView

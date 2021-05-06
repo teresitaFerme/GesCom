@@ -28,9 +28,6 @@
             android:parentActivityName=".features.principal.PrincipalActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".features.register_user.initialize_account.InitAccountActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
             android:name=".features.register_user.RegisterUserActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
@@ -62,10 +59,6 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.loginregister.LoginRegisterActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".features.login.LoginActivity"
-            android:parentActivityName=".features.loginregister.LoginRegisterActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.main.MainActivity"
