@@ -4,7 +4,6 @@ public class GesComApp {
     private static User mUser = null;
     private static Comunidad mComunidad = null;
     private static GesComApp mApp = null;
-    private static Incidencia mIncidencia;
 
     public static GesComApp getApp(){
         if(mApp == null){
@@ -22,12 +21,6 @@ public class GesComApp {
     }
 
     public static void setUser(User user){mUser = user;}
-
-    public static void setIncidencia(Incidencia incidencia){
-        mIncidencia = incidencia;
-    }
-
-    public static Incidencia getIncidencia(){return mIncidencia;}
 
     public static Comunidad getComunidad(){return mComunidad;}
 
