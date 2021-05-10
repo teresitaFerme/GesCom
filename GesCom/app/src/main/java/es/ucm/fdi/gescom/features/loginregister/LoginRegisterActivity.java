@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
-import es.ucm.fdi.gescom.features.principal.PrincipalActivity;
+import es.ucm.fdi.gescom.features.dashBoard.DashBoardActivity;
 import es.ucm.fdi.gescom.features.register_comunidad.RegisterActivity;
 import es.ucm.fdi.gescom.features.register_user.RegisterUserActivity;
 
@@ -66,7 +66,7 @@ public class LoginRegisterActivity extends BaseActivity implements LoginRegister
 
     @Override
     public void loginSuccessful() {
-        Intent intent = new Intent(this, PrincipalActivity.class);
+        Intent intent = new Intent(this, DashBoardActivity.class);
         startActivity(intent);
     }
 

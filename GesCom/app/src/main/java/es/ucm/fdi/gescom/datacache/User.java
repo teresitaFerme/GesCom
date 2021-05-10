@@ -7,7 +7,7 @@ public class User {
     private String mLocalizer;
     private static User mUser;
 
-    public static User getUser(String username, String password, String localizer, int id){
+    public static User getInstance(String username, String password, String localizer, int id){
         if(mUser == null || !username.equals(mUser.getUserName()) ){
             mUser = new User(username, password, localizer, id);
             return mUser;

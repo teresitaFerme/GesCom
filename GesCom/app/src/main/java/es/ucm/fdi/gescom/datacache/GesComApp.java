@@ -13,7 +13,7 @@ public class GesComApp {
     }
 
     public void setUser(String username, String password, String localizer, int id){
-       mUser =  User.getUser(username, password, localizer, id);
+       mUser =  User.getInstance(username, password, localizer, id);
     }
 
     public static User getUser(){

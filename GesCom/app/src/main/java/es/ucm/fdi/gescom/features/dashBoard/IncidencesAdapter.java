@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.features.principal;
+package es.ucm.fdi.gescom.features.dashBoard;
 
 import android.content.Context;
 import android.view.LayoutInflater;

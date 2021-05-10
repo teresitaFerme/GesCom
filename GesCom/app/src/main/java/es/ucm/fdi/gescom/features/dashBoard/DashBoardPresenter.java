@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.features.principal;
+package es.ucm.fdi.gescom.features.dashBoard;
 
 import android.content.Context;
 
@@ -9,13 +9,13 @@ import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.datacache.Votacion;
 
-public class PrincipalPresenter extends BasePresenter {
-    private PrincipalView mView;
-    private PrincipalModel mModel;
+public class DashBoardPresenter extends BasePresenter {
+    private DashBoardView mView;
+    private DashBoardModel mModel;
 
-    PrincipalPresenter(PrincipalView view){
+    DashBoardPresenter(DashBoardView view){
         mView = view;
-        mModel = new PrincipalModel((Context) view);
+        mModel = new DashBoardModel((Context) view);
     }
 
     public ArrayList<Incidencia> getIncidencias() {

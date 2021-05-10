@@ -21,11 +21,11 @@
             />
         <activity
             android:name=".features.incidencias.IncidenciasActivity"
-            android:parentActivityName=".features.principal.PrincipalActivity"
+            android:parentActivityName=".features.dashBoard.DashBoardActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.votaciones.VotacionesActivity"
-            android:parentActivityName=".features.principal.PrincipalActivity"
+            android:parentActivityName=".features.dashBoard.DashBoardActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.register_user.RegisterUserActivity"
@@ -35,7 +35,7 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.ajustes.AjustesActivity"
-            android:parentActivityName=".features.principal.PrincipalActivity"
+            android:parentActivityName=".features.dashBoard.DashBoardActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.incidencias.reportar_incidencia.ReportarIncidenciaActivity"
@@ -44,14 +44,14 @@
         <activity android:name=".base.BaseActivity" />
         <activity
             android:name=".features.avisos.AvisosActivity"
-            android:parentActivityName=".features.principal.PrincipalActivity"
+            android:parentActivityName=".features.dashBoard.DashBoardActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.userdisplay.UserDisplayActivity"
-            android:parentActivityName=".features.principal.PrincipalActivity"
+            android:parentActivityName=".features.dashBoard.DashBoardActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".features.principal.PrincipalActivity"
+            android:name=".features.dashBoard.DashBoardActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".features.register_comunidad.RegisterActivity"

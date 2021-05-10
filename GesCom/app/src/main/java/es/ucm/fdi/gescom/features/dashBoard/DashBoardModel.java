@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.features.principal;
+package es.ucm.fdi.gescom.features.dashBoard;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -14,10 +14,10 @@ import es.ucm.fdi.gescom.datacache.Votacion;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
-public class PrincipalModel extends BaseModel {
+public class DashBoardModel extends BaseModel {
     private final CommunitiesDatabaseHelper mCommunitiesDBHelper;
 
-    PrincipalModel(Context ctx){
+    DashBoardModel(Context ctx){
         mCommunitiesDBHelper = new CommunitiesDatabaseHelper(ctx);
     }
 

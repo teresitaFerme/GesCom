@@ -1,4 +1,4 @@
-package es.ucm.fdi.gescom.features.principal;
+package es.ucm.fdi.gescom.features.dashBoard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -31,7 +31,7 @@ import es.ucm.fdi.gescom.features.incidencias.reportar_incidencia.ReportarIncide
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 import es.ucm.fdi.gescom.features.votaciones.VotacionesActivity;
 
-public class PrincipalActivity extends BaseActivity implements PrincipalView{
+public class DashBoardActivity extends BaseActivity implements DashBoardView {
     private Toolbar toolbar;
     private NavigationView mMenuNavigation;
     private ImageView mMenuIcon;
@@ -39,7 +39,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
     private RecyclerView mRecyclerIncidences, mRecyclerVotaciones, mRecyclerAvisos, mRecyclerReservas;
     private ArrayList<Incidencia> mIncidencias = new ArrayList<>();
     private ArrayList<Votacion> mVotes = new ArrayList<>();
-    private PrincipalPresenter mPresenter;
+    private DashBoardPresenter mPresenter;
     private TextView mNoIncidences, mNoVotes, mViewAllIncidences, mViewAllVotes;
     private CardView mCardViewIncidences, mVotaciones, mReservas, mAvisos, mIncidenciasTitle, mAvisosTitle, mVotacionesTitle, mReservasTitle;
     private ImageButton mShowReservas, mShowIncidencias, mShowAvisos, mShowVotaciones;
@@ -54,7 +54,7 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        mPresenter = new PrincipalPresenter(this);
+        mPresenter = new DashBoardPresenter(this);
 
 
         mMenuNavigation.setVisibility(View.GONE);
@@ -268,6 +268,31 @@ public class PrincipalActivity extends BaseActivity implements PrincipalView{
             mRecyclerVotaciones.setLayoutManager(new LinearLayoutManager(this));
         }
         else mNoVotes.setVisibility(View.VISIBLE);*/
+    }
+
+    @Override
+    public void hideVotes() {
+
+    }
+
+    @Override
+    public void drawAvisos() {
+
+    }
+
+    @Override
+    public void hideAvisos() {
+
+    }
+
+    @Override
+    public void drawReservas() {
+
+    }
+
+    @Override
+    public void hideReservas() {
+
     }
 
     @Override
