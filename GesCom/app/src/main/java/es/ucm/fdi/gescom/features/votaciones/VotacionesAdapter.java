@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -78,6 +78,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
                                         );
                                         //TODO hacer que se actualice en la vista que la votacion esta cerrada
                                         dialog.cancel();
+                                        VotacionesAdapter.this.notifyDataSetChanged();
                                     }
                                 });
 
@@ -112,6 +113,22 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
                                 "A favor",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
+                                        CommunitiesDatabaseHelper mCommunitiesDBHelper  = new CommunitiesDatabaseHelper(holder.mEnviarVoto.getContext());
+                                        SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+
+                                        ContentValues values = new ContentValues();
+                                        values.put(CommunitiesDatabase.Votes.COLUMN_NAME_VOTOS_FAVOR, String.valueOf(mVotaciones.get(holder.getAbsoluteAdapterPosition()).getVotosFavor() + 1));
+
+                                        String selection = CommunitiesDatabase.Votes._ID + " = ?";
+                                        String[] selectionArgs = {mVotaciones.get(holder.getAbsoluteAdapterPosition()).getId()};
+
+                                        db.update(
+                                                CommunitiesDatabase.Votes.TABLE_NAME,
+                                                values,
+                                                selection,
+                                                selectionArgs
+                                        );
+                                        //TODO hacer que se actualice en la vista que la votacion esta cerrada
                                         dialog.cancel();
                                     }
                                 });
@@ -120,6 +137,23 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
                                 "En contra",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
+                                        CommunitiesDatabaseHelper mCommunitiesDBHelper  = new CommunitiesDatabaseHelper(holder.mEnviarVoto.getContext());
+                                        SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+
+                                        ContentValues values = new ContentValues();
+                                        values.put(CommunitiesDatabase.Votes.COLUMN_NAME_VOTOS_CONTRA, String.valueOf(mVotaciones.get(holder.getAbsoluteAdapterPosition()).getVotosContra() + 1));
+
+                                        String selection = CommunitiesDatabase.Votes._ID + " = ?";
+                                        String[] selectionArgs = {mVotaciones.get(holder.getAbsoluteAdapterPosition()).getId()};
+
+                                        db.update(
+                                                CommunitiesDatabase.Votes.TABLE_NAME,
+                                                values,
+                                                selection,
+                                                selectionArgs
+                                        );
+                                        //TODO hacer que se actualice en la vista que la votacion esta cerrada
+                                        //TODO falta registrar la votacion para esconder el boton cuando ya hayan votado
                                         dialog.cancel();
                                     }
                                 });
@@ -129,7 +163,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
                     }
                 });
             } else{
-                holder.mCerrarVotacion.setVisibility(View.GONE);
+                holder.mEnviarVoto.setVisibility(View.GONE);
             }
         }
     }
@@ -149,7 +183,7 @@ public class VotacionesAdapter extends RecyclerView.Adapter<VotacionesAdapter.Vo
     public class VotacionViewHolder extends RecyclerView.ViewHolder {
         final VotacionesAdapter mAdapter;
         public final Button mEnviarVoto, mCerrarVotacion;
-        public final ImageButton mFavor, mContra;
+        public final ImageView mFavor, mContra;
         public final TextView mVotosFavor, mVotosContra, titulo, description;
 
         public VotacionViewHolder(View itemView, VotacionesAdapter adapter) {

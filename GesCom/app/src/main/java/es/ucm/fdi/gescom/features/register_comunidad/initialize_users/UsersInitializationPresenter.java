@@ -15,21 +15,11 @@ public class UsersInitializationPresenter extends BasePresenter {
         mModel = new UsersInitializationModel((Context) view);
     }
 
-    public void validateUsers(ArrayList<InitializableUser> mUsers) {
-        String message = "";
-        for(int i = 0; i< mUsers.size(); i++){
-            if(mUsers.get(i).getUsername().equals("") || mUsers.get(i).getLocalizer().equals("")) {
-                message = "Por favor rellena todos los campos";
-                mView.validationFailure(message);
-                return;
-            }else if(mModel.getUsername(mUsers.get(i).getUsername())){
-                message = "Ese usuario ya pertenece a otra comunidad";
-                mView.validationFailure(message);
-                mUsers.get(i).setUsername("", "");
-                return;
-            }//TODO METER AQUI MÁS VALIDACIONES DEL TIPO QUE LOS LOCALIZADORES SEan DIFERENTES Y QUE LOS DNIS TENGAN FORMATO DNI
+    public void validateUsers(ArrayList<InitializableUser> mUsers,String comName,String nombreAdmin,String password, String dni) {
+        long admin_id = mModel.registerUser(nombreAdmin, comName, password, dni, "Administrador");
+        if(admin_id != -1){
+            mModel.registerCommunity(comName, admin_id);
         }
-        mModel.registerUsers(mUsers);
         mView.validationSuccess();
     }
 }

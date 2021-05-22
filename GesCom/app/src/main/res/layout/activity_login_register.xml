@@ -74,7 +74,7 @@
                         android:inputType="textPersonName"
                         android:padding="8dp"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -110,13 +110,58 @@
                         android:inputType="textPassword"
                         android:padding="8dp"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="13sp"
                         tools:ignore="TextFields" />
 
                 </LinearLayout>
 
 
             </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="visible"
+                    android:text="@string/he_olvidado_mi_contrase_a"
+                    android:textSize="13sp"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="4dp"
+                    app:srcCompat="@drawable/ic_arrow" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/loginregister_bad_credentials"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:textSize="13sp"
+                android:text="El usuario o la contraseña son incorrectos."
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/loginregister_not_filled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:text="Por favor rellena todos los campos."
+                android:textColor="@color/white"/>
 
             <Button
                 android:id="@+id/button_login"
@@ -140,6 +185,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="¿Todavía no estás registrado como usuario?"
                 android:textAlignment="center"
+                android:textSize="13sp"
                 android:textColor="@color/white" />
 
             <TextView
@@ -158,6 +204,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="¿Tu comunidad no está registrada?"
                 android:textAlignment="center"
+                android:textSize="13sp"
                 android:textColor="@color/white" />
 
             <TextView

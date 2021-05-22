@@ -19,12 +19,7 @@ public class RegisterPresenter extends BasePresenter {
             if(pss.equals(pssRepeat)){//TODO: meterle aqui comprobaciones a la contraseña
                 if (!mRegisterModel.getUsername(username)) {
                     if (!mRegisterModel.getCommunityName(commName)) {
-                        long admin_id = mRegisterModel.registerUser(username, commName, pss, userDni, "Administrador");
-                        if(admin_id != -1){
-                            mRegisterModel.registerCommunity(commName, admin_id);
-                            mRegisterView.registerSuccessful();
-                        }
-                        else mRegisterView.registerUserServerFailure();
+                        mRegisterView.registerSuccessful();
                     } else mRegisterView.registerCommunityFailure();
                 } else mRegisterView.registerExistingUser();
             }else mRegisterView.noMatchingPasswords();

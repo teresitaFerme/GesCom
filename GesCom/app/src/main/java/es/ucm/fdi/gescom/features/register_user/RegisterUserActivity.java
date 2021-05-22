@@ -9,12 +9,12 @@ import android.widget.Toast;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
-import es.ucm.fdi.gescom.features.register_user.initialize_account.InitAccountActivity;
+import es.ucm.fdi.gescom.features.loginregister.LoginRegisterActivity;
 
 public class RegisterUserActivity extends BaseActivity implements RegisterUserView{
     private RegisterUserPresenter mRegisterUserPresenter;
     private Button mButton;
-    private EditText mDni, mClave;
+    private EditText mDni, mClave, mUsername, mPass, mPassRepeat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +29,9 @@ public class RegisterUserActivity extends BaseActivity implements RegisterUserVi
             @Override
             public void onClick(View v) {
                 mRegisterUserPresenter.validate(mDni.getText().toString(), mClave.getText().toString());
+                mRegisterUserPresenter.validate(mUsername.getText().toString(), mPass.getText().toString(), mPassRepeat.getText().toString(), mDni.getText().toString());
             }
         });
-    }
-
-    public void correctData(){
-        //TODO launch here the activity to change password and username, los username no pueden tener formato de dni
-        Toast toast = Toast.makeText(this, "SUCCESS", Toast.LENGTH_LONG);
-        toast.show();
-        Intent intent = new Intent(this, InitAccountActivity.class);
-        intent.putExtra("dni", mDni.getText().toString());
-        startActivity(intent);
     }
 
     public void wrongData(String message){
@@ -51,6 +43,22 @@ public class RegisterUserActivity extends BaseActivity implements RegisterUserVi
     public void bindViews() {
         mClave = findViewById(R.id.editText_clave);
         mDni = findViewById(R.id.editText_dni);
-        mButton = findViewById(R.id.button_register_user);
+        mButton = findViewById(R.id.button_init_account);
+        mUsername = findViewById(R.id.editText_init_account_username);
+        mPass = findViewById(R.id.editText_init_account_password);
+        mPassRepeat = findViewById(R.id.editText_init_account_repite_password);
     }
+
+    @Override
+    public void initSuccessful() {
+        Intent intent = new Intent(this, LoginRegisterActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void initFailure(String message) {
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
 }

@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Thread background = new Thread() {
             public void run() {
                 try {
-                    sleep(3*1000);
+                    sleep(2*1000);
 
                     Intent i=new Intent(getBaseContext(),LoginRegisterActivity.class);
                     startActivity(i);

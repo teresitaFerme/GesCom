@@ -23,8 +23,9 @@
         android:layout_gravity="center_horizontal"
         android:fontFamily="cursive"
         android:gravity="center_vertical"
+        android:layout_marginTop="32dp"
         android:padding="4dp"
-        android:text="Registra a los vecinos: "
+        android:text="Has completado tu registro "
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold|italic"
@@ -33,25 +34,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@id/button_end_register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registro_título">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/initialize_users_recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+   <TextView
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/registro_título"
+       android:layout_margin="16dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:textColor="@color/white"
+       android:text="@string/info_registro"/>
 
     <Button
         android:id="@+id/button_end_register"

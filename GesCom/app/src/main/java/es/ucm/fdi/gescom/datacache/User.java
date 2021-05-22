@@ -5,20 +5,22 @@ public class User {
     private int mId;
     private String mPassword;
     private String mLocalizer;
+    private String mDNI;
     private static User mUser;
 
-    public static User getUser(String username, String password, String localizer, int id){
+    public static User getInstance(String username, String password, String localizer, int id, String dni){
         if(mUser == null || !username.equals(mUser.getUserName()) ){
-            mUser = new User(username, password, localizer, id);
+            mUser = new User(username, password, localizer, id, dni);
             return mUser;
         }else return mUser;
     }
 
-    public User(String username, String password, String localizer, int id){
+    public User(String username, String password, String localizer, int id, String dni){
         mUserName = username;
         mPassword = password;
         mId = id;
         mLocalizer = localizer;
+        mDNI = dni;
     }
 
     public String getUserName(){
@@ -39,5 +41,13 @@ public class User {
 
     public void setmPassword(String mPassword) {
         this.mPassword = mPassword;
+    }
+
+    public String getmDNI() {
+        return mDNI;
+    }
+
+    public void setmDNI(String mDNI) {
+        this.mDNI = mDNI;
     }
 }

@@ -14,7 +14,7 @@ import es.ucm.fdi.gescom.features.register_comunidad.initialize_users.UserInitia
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView{
     private RegisterPresenter mRegisterPresenter;
-    private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat, mUserDni, mNumHouses;
+    private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat, mUserDni;
     private Button mButton;
 
     @Override
@@ -33,12 +33,16 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
         //TODO que no se registre la comunidad hasta que no finalice el proceso
         //TODO hacer que el admin pueda crear o eliminar usuarios de la comunidad
+        //TODO meter las validaciones al username y a la contraseña del admin que se han metido en register user
     }
 
     @Override
     public void registerSuccessful() {
         Intent intent = new Intent(this, UserInitializationActivity.class);
-        intent.putExtra("numHouses", String.valueOf(mNumHouses.getText()));
+        intent.putExtra("comunidadNombre", String.valueOf(mCommunityName.getText()));
+        intent.putExtra("nombreAdmin", String.valueOf(mUserName.getText()));
+        intent.putExtra("password", String.valueOf(mUserPassword.getText()));
+        intent.putExtra("dni", String.valueOf(mUserDni.getText()));
         startActivity(intent);
     }
 
@@ -89,7 +93,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         mUserPassword = findViewById(R.id.registro_editText_password);
         mUserPasswordRepeat = findViewById(R.id.registro_editText_password_repeat);
         mUserDni = findViewById(R.id.editText_dni_administrador);
-        mNumHouses = findViewById(R.id.registro_editText_num_viviendas);
         mButton = findViewById(R.id.button_register);
     }
 }
