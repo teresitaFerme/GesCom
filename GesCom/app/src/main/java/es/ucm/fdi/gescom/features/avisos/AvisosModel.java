@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.base.BaseModel;
 import es.ucm.fdi.gescom.datacache.Aviso;
 import es.ucm.fdi.gescom.datacache.GesComApp;
-import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabase;
 import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 
@@ -56,10 +55,17 @@ public class AvisosModel extends BaseModel {
                     body,
                     comm_id,
                     date,
-                    hour);
+                    hour,
+                    cursor.getInt(0));
             list.add(aviso);
         }
 
         return list;
+    }
+
+    public void deleteAviso(int id) {
+        SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+        db.execSQL("PRAGMA foreign_keys=ON");
+        long newRowId = db.delete(CommunitiesDatabase.Avisos.TABLE_NAME, BaseColumns._ID + "=?", new String[]{String.valueOf(id)});
     }
 }

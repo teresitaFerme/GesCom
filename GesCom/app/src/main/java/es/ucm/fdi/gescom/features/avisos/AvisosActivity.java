@@ -1,5 +1,6 @@
 package es.ucm.fdi.gescom.features.avisos;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,7 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
         mPresenter = new AvisosPresenter(this);
 
         mRecyclerAvisos = findViewById(R.id.recycler_avisos);
+        populateRecyclerView();
 
 
         mNuevoAviso = findViewById(R.id.avisos_admin_fab);
@@ -54,21 +56,56 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
             }
         });
 
-        mAvisosList = mPresenter.getAvisos();
-        if(mAvisosList.size() != 0){
-            AvisosAdapter avisosAdapter = new AvisosAdapter(this, mAvisosList);
-            mRecyclerAvisos.setAdapter(avisosAdapter);
-            mRecyclerAvisos.setLayoutManager(new LinearLayoutManager(this));
-        }
-        //TODO que los avisos puedan filtrarse por dias, semanas o meses
-        //TODO poner bien el recycler view y que salgan todos los card views
     }
+
+
 
     @Override
     public void launchAddAviso() {
         Intent intent = new Intent(this, AddAvisoActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void deleteAviso(int id) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("¿Estás seguro de que quieres eliminar este aviso?");
+        alertDialog.setPositiveButton("Sí", (dialog, which) -> {
+            mPresenter.validateDeleteAviso(id);
+            populateRecyclerView();
+        });
+        alertDialog.setNegativeButton("No", (dialog, which) -> {
+            //Do nothing
+        });
+        alertDialog.show();
+    }
+
+    @Override
+    public void editAviso(int position) {
+            Intent intent = new Intent(this, EditAvisoActivity.class);
+            intent.putExtra("user", mAvisosList.get(position).getId());
+            startActivity(intent);
+
+    }
+
+    @Override
+    public void modifyAviso(int position, boolean delete, boolean edit) {
+        if(edit){
+            editAviso(position);
+        }else if(delete){
+            deleteAviso(mAvisosList.get(position).getId());
+            populateRecyclerView();
+        }
+    }
+
+    @Override
+    public void populateRecyclerView() {
+        mAvisosList = mPresenter.getAvisos();
+            AvisosAdapter avisosAdapter = new AvisosAdapter(this, mAvisosList, this);
+            mRecyclerAvisos.setAdapter(avisosAdapter);
+            mRecyclerAvisos.setLayoutManager(new LinearLayoutManager(this));
+    }
+
 
     @Override
     public void bindViews() {

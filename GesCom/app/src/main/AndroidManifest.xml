@@ -11,10 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_gescom_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GesCom">
-        <activity android:name=".features.user_management.edit_user.EditUserActivity"
+        <activity android:name=".features.avisos.EditAvisoActivity"
+            android:parentActivityName=".features.avisos.AvisosActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".features.user_management.edit_user.EditUserActivity"
             android:parentActivityName=".features.user_management.UserManagementActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".features.user_management.new_user.AddUserActivity"
+        <activity
+            android:name=".features.user_management.new_user.AddUserActivity"
             android:parentActivityName=".features.user_management.UserManagementActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity

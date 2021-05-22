@@ -145,7 +145,8 @@ public class DashBoardModel extends BaseModel {
                     body,
                     0,
                     date,
-                    null);
+                    null,
+                    cursor.getInt(0));
             list.add(aviso);
             i++;
         }
