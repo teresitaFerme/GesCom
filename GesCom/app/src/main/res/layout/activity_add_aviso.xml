@@ -80,7 +80,7 @@
         android:layout_margin="8dp"
         android:padding="16dp"
         android:textColor="@color/white"
-        android:text="Crear nueva votación"
+        android:text="Crear nuevo aviso"
         app:layout_constraintTop_toBottomOf="@id/add_aviso_descripcion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"

@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.base.BasePresenter;
+import es.ucm.fdi.gescom.datacache.Aviso;
 import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.datacache.Votacion;
@@ -20,6 +21,11 @@ public class DashBoardPresenter extends BasePresenter {
 
     public ArrayList<Incidencia> getIncidencias() {
         ArrayList<Incidencia> list = mModel.getLastIncidences();
+        return list;
+    }
+
+    public ArrayList<Aviso> getAvisos() {
+        ArrayList<Aviso> list = mModel.getLastAvisos();
         return list;
     }
 

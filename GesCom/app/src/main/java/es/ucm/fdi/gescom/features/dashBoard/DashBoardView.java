@@ -8,7 +8,6 @@ public interface DashBoardView extends BaseView {
     void drawVotes();
     void hideVotes();
     void drawAvisos();
-    void hideAvisos();
     void drawReservas();
     void hideReservas();
     void hideUserShortcuts();

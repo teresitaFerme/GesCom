@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.base.BaseActivity;
+import es.ucm.fdi.gescom.datacache.Aviso;
 import es.ucm.fdi.gescom.datacache.Incidencia;
 import es.ucm.fdi.gescom.datacache.Votacion;
 import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
@@ -38,10 +39,11 @@ public class DashBoardActivity extends BaseActivity implements DashBoardView {
     private Menu mMenu;
     private RecyclerView mRecyclerIncidences, mRecyclerVotaciones, mRecyclerAvisos, mRecyclerReservas;
     private ArrayList<Incidencia> mIncidencias = new ArrayList<>();
+    private ArrayList<Aviso> mAvisos = new ArrayList<>();
     private ArrayList<Votacion> mVotes = new ArrayList<>();
     private DashBoardPresenter mPresenter;
-    private TextView mNoIncidences, mNoVotes, mViewAllIncidences, mViewAllVotes;
-    private CardView mCardViewIncidences, mVotaciones, mReservas, mAvisos, mIncidenciasTitle, mAvisosTitle, mVotacionesTitle, mReservasTitle;
+    private TextView mNoIncidences, mNoVotes, mViewAllIncidences, mViewAllVotes, mViewAllAvisos;
+    private CardView mCardViewIncidences, mVotaciones, mReservas, mAvisosCardview, mIncidenciasTitle, mAvisosTitle, mVotacionesTitle, mReservasTitle;
     private ImageButton mShowReservas, mShowIncidencias, mShowAvisos, mShowVotaciones;
 
     @Override
@@ -76,6 +78,8 @@ public class DashBoardActivity extends BaseActivity implements DashBoardView {
         mPresenter.checkAdmin();
         drawVotes();
 
+        drawAvisos();
+
         mVotacionesTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,19 +89,6 @@ public class DashBoardActivity extends BaseActivity implements DashBoardView {
                 }else{
                     mVotaciones.setVisibility(View.GONE);
                     mShowVotaciones.setBackground(getDrawable(R.drawable.ic_no_desplegado));
-                }
-            }
-        });
-
-        mAvisosTitle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mAvisos.getVisibility() == View.GONE){
-                    mAvisos.setVisibility(View.VISIBLE);
-                    mShowAvisos.setBackground(getDrawable(R.drawable.ic_desplegado));
-                }else{
-                    mAvisos.setVisibility(View.GONE);
-                    mShowAvisos.setBackground(getDrawable(R.drawable.ic_no_desplegado));
                 }
             }
         });
@@ -147,13 +138,13 @@ public class DashBoardActivity extends BaseActivity implements DashBoardView {
         mRecyclerIncidences = findViewById(R.id.principal_incidences_recyclerView);
         mNoIncidences = findViewById(R.id.principal_incidences_none);
         mViewAllIncidences = findViewById(R.id.principal_view_all_incidences);
-        mShowAvisos = findViewById(R.id.principal_avisos_no_desplegadas);
         mShowIncidencias = findViewById(R.id.principal_incidencias_no_desplegadas);
         mShowReservas = findViewById(R.id.principal_reservas_no_desplegadas);
         mShowVotaciones = findViewById(R.id.principal_votaciones_no_desplegadas);
         mCardViewIncidences = findViewById(R.id.cardView_incidencias);
         mReservas = findViewById(R.id.cardView_reservas);
-        mAvisos = findViewById(R.id.cardView_avisos);
+        mAvisosCardview = findViewById(R.id.cardView_avisos);
+        mRecyclerAvisos = findViewById(R.id.principal_avisos_recyclerView);
         mVotaciones = findViewById(R.id.cardView_votaciones);
         mIncidenciasTitle = findViewById(R.id.cardView_incidencias_title);
         mVotacionesTitle = findViewById(R.id.cardView_votaciones_title);
@@ -167,6 +158,11 @@ public class DashBoardActivity extends BaseActivity implements DashBoardView {
 
     public void launchAllIncidences(){
         Intent intent = new Intent(this, IncidenciasActivity.class);
+        startActivity(intent);
+    }
+
+    public void launchAllAvisos(){
+        Intent intent = new Intent(this, AvisosActivity.class);
         startActivity(intent);
     }
 
@@ -277,12 +273,19 @@ public class DashBoardActivity extends BaseActivity implements DashBoardView {
 
     @Override
     public void drawAvisos() {
-
-    }
-
-    @Override
-    public void hideAvisos() {
-
+        mAvisos = mPresenter.getAvisos();
+        if(mAvisos.size() != 0){
+            findViewById(R.id.principal_avisos_none).setVisibility(View.GONE);
+            AvisosAdapterDashBoard avisosAdapter = new AvisosAdapterDashBoard(this, mAvisos);
+            mRecyclerAvisos.setAdapter(avisosAdapter);
+            mRecyclerAvisos.setLayoutManager(new LinearLayoutManager(this));
+            findViewById(R.id.principal_view_all_avisos).setVisibility(View.VISIBLE);
+            findViewById(R.id.principal_view_all_avisos).setOnClickListener(view -> launchAllAvisos());
+        }
+        else {
+            findViewById(R.id.principal_avisos_none).setVisibility(View.VISIBLE);
+            findViewById(R.id.principal_view_all_avisos).setVisibility(View.GONE);
+        }
     }
 
     @Override
