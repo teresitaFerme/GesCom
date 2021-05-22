@@ -9,6 +9,8 @@
     <string name="registrate"><u>Regístrate</u></string>
     <string name="registra_tu_comunidad"><u>Regístra tu comunidad</u></string>
     <string name="he_olvidado_mi_contrase_a"><u>He olvidado mi contraseña</u></string>
+    <string name="info_registro">¡Ya has resgistrado tu comunidad! Para poder disfrutar de todas las funcionalidades de la aplicación, registra a los vecinos de tu comunidad en el apartado Gestionar usuarios.
+    \n\nUna vez hayas registrado a todos los vecinos de tu comunidad, estos podrán registrarse como usuarios de GesCom desde la pantalla de login. Aquí deberan introducir su DNI junto con la clave de la comunidad que puedes consultar en tu perfil de usuario.</string>
 
 
     <string-array name="valores_filtros_incidencias">

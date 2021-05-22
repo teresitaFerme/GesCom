@@ -60,27 +60,19 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+
+            <TextView
+                android:id="@+id/component_user_dni"
+                android:text="Dni: "
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/component_user_dni"
-                    android:text="Dni: "
-                    android:minWidth="120dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content" />
-
-                <TextView
-                    android:id="@+id/component_user_localizer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Localizador: "/>
-
-            </LinearLayout>
+                android:layout_width="wrap_content" />
 
 
+            <TextView
+                android:id="@+id/component_user_localizer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Localizador: "/>
 
 
         </LinearLayout>

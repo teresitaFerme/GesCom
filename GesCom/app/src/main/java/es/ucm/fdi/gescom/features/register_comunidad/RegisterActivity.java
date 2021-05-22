@@ -14,7 +14,7 @@ import es.ucm.fdi.gescom.features.register_comunidad.initialize_users.UserInitia
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView{
     private RegisterPresenter mRegisterPresenter;
-    private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat, mUserDni, mNumHouses;
+    private EditText mCommunityName, mUserName, mUserPassword, mUserPasswordRepeat, mUserDni;
     private Button mButton;
 
     @Override
@@ -41,7 +41,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         Intent intent = new Intent(this, UserInitializationActivity.class);
         intent.putExtra("comunidadNombre", String.valueOf(mCommunityName.getText()));
         intent.putExtra("nombreAdmin", String.valueOf(mUserName.getText()));
-        intent.putExtra("numHouses", String.valueOf(mNumHouses.getText()));
         intent.putExtra("password", String.valueOf(mUserPassword.getText()));
         intent.putExtra("dni", String.valueOf(mUserDni.getText()));
         startActivity(intent);
@@ -94,7 +93,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         mUserPassword = findViewById(R.id.registro_editText_password);
         mUserPasswordRepeat = findViewById(R.id.registro_editText_password_repeat);
         mUserDni = findViewById(R.id.editText_dni_administrador);
-        mNumHouses = findViewById(R.id.registro_editText_num_viviendas);
         mButton = findViewById(R.id.button_register);
     }
 }

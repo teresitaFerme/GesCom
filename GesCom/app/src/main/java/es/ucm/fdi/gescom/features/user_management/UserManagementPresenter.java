@@ -20,4 +20,8 @@ public class UserManagementPresenter extends BasePresenter {
         ArrayList<User> users = mModel.retrieveCommunityUsers();
         return users;
     }
+
+    public void validateDeleteUser(Integer petId) {
+            mModel.deleteUser(petId);
+    }
 }

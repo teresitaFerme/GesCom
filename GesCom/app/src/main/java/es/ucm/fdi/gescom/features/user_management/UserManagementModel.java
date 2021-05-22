@@ -17,7 +17,7 @@ public class UserManagementModel extends BaseModel {
     private final CommunitiesDatabaseHelper mCommunitiesDBHelper;
 
 
-    UserManagementModel(Context ctx){
+    public UserManagementModel(Context ctx){
         mCommunitiesDBHelper = new CommunitiesDatabaseHelper(ctx);
     }
 
@@ -57,5 +57,14 @@ public class UserManagementModel extends BaseModel {
         }
 
         return list;
+    }
+
+    public boolean deleteUser(Integer petId) {
+        SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+        db.execSQL("PRAGMA foreign_keys=ON");
+        long newRowId = db.delete(CommunitiesDatabase.User.TABLE_NAME, BaseColumns._ID + "=?", new String[]{String.valueOf(petId)});
+
+        if (newRowId == -1) return false;
+        else return true;
     }
 }

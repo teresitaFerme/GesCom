@@ -18,10 +18,12 @@ import es.ucm.fdi.gescom.datacache.User;
 public class UsersAdapter  extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
     private final ArrayList<User> mUsers;
     private final LayoutInflater mInflater;
+    private UserManagementView mView;
 
-    public UsersAdapter(Context context, ArrayList<User> users) {
+    public UsersAdapter(Context context, ArrayList<User> users, UserManagementView view) {
         mInflater = LayoutInflater.from(context);
         mUsers = users;
+        this.mView = view;
     }
 
     @Override
@@ -32,14 +34,33 @@ public class UsersAdapter  extends RecyclerView.Adapter<UsersAdapter.UserViewHol
 
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
-        String username = holder.username.getText() + mUsers.get(position).getUserName();
+        String username = mUsers.get(position).getUserName();
         holder.username.setText(username);
 
-        String dni = holder.dni.getText() + mUsers.get(position).getmDNI();
+        String dni = "DNI: " + mUsers.get(position).getmDNI();
         holder.dni.setText(dni);
 
-        String localizer = holder.localizer.getText() + mUsers.get(position).getLocalizer();
+        String localizer = "Localizador: " + mUsers.get(position).getLocalizer();
         holder.localizer.setText(localizer);
+
+        holder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchView(position, true, false);
+            }
+        });
+
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchView(position, false, true);
+            }
+        });
+
+    }
+
+    private void launchView(int position, boolean edit, boolean delete){
+        mView.onClick(position, edit, delete);
     }
 
     @Override

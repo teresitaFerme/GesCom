@@ -1,7 +1,11 @@
 package es.ucm.fdi.gescom.features.user_management;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
@@ -21,6 +25,7 @@ public class UserManagementActivity extends BaseActivity implements UserManageme
     private ArrayList<User> mUserList;
     private Toolbar mToolbar;
     private UserManagementPresenter mPresenter;
+    private Button mAddUserButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,13 @@ public class UserManagementActivity extends BaseActivity implements UserManageme
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         TextView title = mToolbar.findViewById(R.id.title);
         title.setText("Gestionar usuarios");
+
+        mAddUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addUser();
+            }
+        });
     }
 
     @Override
@@ -43,17 +55,16 @@ public class UserManagementActivity extends BaseActivity implements UserManageme
         mPresenter = new UserManagementPresenter(this);
         mRecycler= findViewById(R.id.recycler_usuarios);
         mToolbar = findViewById(R.id.toolbar_users);
+        mAddUserButton = findViewById(R.id.button_add_user);
     }
 
     @Override
     public void populateRecyclerView() {
         mUserList = mPresenter.getCommunityUsers();
         if(mUserList.size() != 0){
-                UsersAdapter usersAdapter = new UsersAdapter(this, mUserList);
+                UsersAdapter usersAdapter = new UsersAdapter(this, mUserList, this);
                 mRecycler.setAdapter(usersAdapter);
                 mRecycler.setLayoutManager(new LinearLayoutManager(this));
-        }else{
-
         }
     }
 
@@ -64,10 +75,34 @@ public class UserManagementActivity extends BaseActivity implements UserManageme
     }
 
     @Override
-    public void editUser() {
+    public void editUser(int userid) {
         Intent intent = new Intent(this, EditUserActivity.class);
         startActivity(intent);
     }
 
+    @Override
+    public void deleteUser(int userid) {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setMessage("¿Estás seguro de que quieres eliminar a este usuario?");
+        alertDialog.setPositiveButton("Sí", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int which) {
+                mPresenter.validateDeleteUser(userid);
+                populateRecyclerView();
+            }
+        });
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int which) {
+                //Do nothing
+            }
+        });
+        alertDialog.show();
+    }
 
+    public void onClick(int position, boolean edit, boolean delete) {
+        if(edit){
+            editUser(mUserList.get(position).getId());
+        }else if(delete){
+            deleteUser(mUserList.get(position).getId());
+        }
+    }
 }
