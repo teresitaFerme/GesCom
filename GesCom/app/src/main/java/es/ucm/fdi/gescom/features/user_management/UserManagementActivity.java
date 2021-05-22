@@ -75,8 +75,9 @@ public class UserManagementActivity extends BaseActivity implements UserManageme
     }
 
     @Override
-    public void editUser(int userid) {
+    public void editUser(int position) {
         Intent intent = new Intent(this, EditUserActivity.class);
+        intent.putExtra("user", mUserList.get(position).getId());
         startActivity(intent);
     }
 
@@ -100,7 +101,7 @@ public class UserManagementActivity extends BaseActivity implements UserManageme
 
     public void onClick(int position, boolean edit, boolean delete) {
         if(edit){
-            editUser(mUserList.get(position).getId());
+            editUser(position);
         }else if(delete){
             deleteUser(mUserList.get(position).getId());
         }
