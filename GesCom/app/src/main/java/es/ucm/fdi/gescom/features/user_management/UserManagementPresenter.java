@@ -22,6 +22,6 @@ public class UserManagementPresenter extends BasePresenter {
     }
 
     public void validateDeleteUser(Integer petId) {
-            mModel.deleteUser(petId);
+        mModel.deleteUser(petId);
     }
 }

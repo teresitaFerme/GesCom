@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import es.ucm.fdi.gescom.base.BasePresenter;
 import es.ucm.fdi.gescom.datacache.Aviso;
 import es.ucm.fdi.gescom.datacache.GesComApp;
-import es.ucm.fdi.gescom.datacache.Votacion;
 
 public class AvisosPresenter extends BasePresenter {
     private AvisosView  mView;
@@ -40,5 +39,9 @@ public class AvisosPresenter extends BasePresenter {
     public ArrayList<Aviso> getAvisos() {
         ArrayList<Aviso> list = mModel.getAvisos();
         return list;
+    }
+
+    public void validateDeleteAviso(int id) {
+        mModel.deleteAviso(id);
     }
 }

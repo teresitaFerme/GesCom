@@ -46,7 +46,6 @@ public class AvisosModel extends BaseModel {
         );
 
         for (cursor.moveToLast(); !cursor.isBeforeFirst(); cursor.moveToPrevious()) {
-            String id = cursor.getString(0);
             String title  = cursor.getString(1);
             String body = cursor.getString(2);
             String date = cursor.getString(3);
@@ -57,16 +56,16 @@ public class AvisosModel extends BaseModel {
                     comm_id,
                     date,
                     hour,
-                    id);
+                    cursor.getInt(0));
             list.add(aviso);
         }
 
         return list;
     }
 
-    //TODO L- No se qué variable hay que pasar al model para especificar qué fila borar de la BBDD
-    public void eliminarAviso() {
-
-
+    public void deleteAviso(int id) {
+        SQLiteDatabase db = mCommunitiesDBHelper.getWritableDatabase();
+        db.execSQL("PRAGMA foreign_keys=ON");
+        long newRowId = db.delete(CommunitiesDatabase.Avisos.TABLE_NAME, BaseColumns._ID + "=?", new String[]{String.valueOf(id)});
     }
 }

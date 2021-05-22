@@ -23,10 +23,12 @@ import es.ucm.fdi.gescom.sqlite.CommunitiesDatabaseHelper;
 public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<IncidenciasAdapterActivity.IncidenceViewHolder> {
     private final ArrayList<Incidencia> mIncidences;
     private final LayoutInflater mInflater;
+    private final IncidenciasView mView;
 
-    public IncidenciasAdapterActivity(Context context, ArrayList<Incidencia> users) {
+    public IncidenciasAdapterActivity(Context context, ArrayList<Incidencia> users, IncidenciasView view) {
         mInflater = LayoutInflater.from(context);
         mIncidences = users;
+        mView = view;
     }
 
     @Override
@@ -57,7 +59,7 @@ public class IncidenciasAdapterActivity  extends RecyclerView.Adapter<Incidencia
             holder.mEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   // editIncidence();
+                    //editIncidence();
                 }
             });
         }

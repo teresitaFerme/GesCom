@@ -43,7 +43,7 @@ public class IncidenciasActivity extends BaseActivity implements IncidenciasView
 
         mIncidenciasList = mPresenter.getIncidencias();
         if (mIncidenciasList.size() != 0) {
-            IncidenciasAdapterActivity incidencesAdapter = new IncidenciasAdapterActivity(this, mIncidenciasList);
+            IncidenciasAdapterActivity incidencesAdapter = new IncidenciasAdapterActivity(this, mIncidenciasList, this);
             mIncidencias.setAdapter(incidencesAdapter);
             mIncidencias.setLayoutManager(new LinearLayoutManager(this));
         }else findViewById(R.id.incidencias_no_incidencias).setVisibility(View.VISIBLE);
