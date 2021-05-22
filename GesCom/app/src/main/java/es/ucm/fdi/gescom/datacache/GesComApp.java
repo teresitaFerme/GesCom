@@ -12,8 +12,8 @@ public class GesComApp {
         return mApp;
     }
 
-    public void setUser(String username, String password, String localizer, int id){
-       mUser =  User.getInstance(username, password, localizer, id);
+    public void setUser(String username, String password, String localizer, int id, String dni){
+       mUser =  User.getInstance(username, password, localizer, id, dni);
     }
 
     public static User getUser(){

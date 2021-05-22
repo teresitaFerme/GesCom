@@ -29,6 +29,7 @@ import es.ucm.fdi.gescom.features.ajustes.AjustesActivity;
 import es.ucm.fdi.gescom.features.avisos.AvisosActivity;
 import es.ucm.fdi.gescom.features.incidencias.IncidenciasActivity;
 import es.ucm.fdi.gescom.features.incidencias.reportar_incidencia.ReportarIncidenciaActivity;
+import es.ucm.fdi.gescom.features.user_management.UserManagementActivity;
 import es.ucm.fdi.gescom.features.userdisplay.UserDisplayActivity;
 import es.ucm.fdi.gescom.features.votaciones.VotacionesActivity;
 
@@ -194,6 +195,9 @@ public class DashBoardActivity extends BaseActivity implements DashBoardView {
                 break;
             case R.id.ajustes:
                 nextClass = AjustesActivity.class;
+                break;
+            case R.id.gestionar_usuarios:
+                nextClass = UserManagementActivity.class;
                 break;
         }
         Intent intent = new Intent(this, nextClass);

@@ -31,7 +31,8 @@ public class RegisterUserPresenter extends BasePresenter {
                     BaseColumns._ID,
                     CommunitiesDatabase.User.COLUMN_NAME_USERNAME,
                     CommunitiesDatabase.User.COLUMN_NAME_PASSWORD,
-                    CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER
+                    CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER,
+                    CommunitiesDatabase.User.COLUMN_NAME_DNI
             };
             String selection = CommunitiesDatabase.User.COLUMN_NAME_USERNAME + " = ?";
             String[] selectionArgs = {dni};
@@ -47,7 +48,7 @@ public class RegisterUserPresenter extends BasePresenter {
 
             if(cursor.moveToFirst()){
                 if(cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_PASSWORD)).equals(clave)){
-                    GesComApp.getApp().setUser(dni, clave, cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER)), cursor.getInt(0));
+                    GesComApp.getApp().setUser(dni, clave, cursor.getString(cursor.getColumnIndex(CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER)), cursor.getInt(0), dni);
                 }
                 else  mView.wrongData("Dni o clave incorrectos");
             } else  mView.wrongData("Dni o clave incorrectos");
@@ -100,10 +101,11 @@ public class RegisterUserPresenter extends BasePresenter {
 
                                 projection = new String[]{
                                         BaseColumns._ID,
-                                        CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER
+                                        CommunitiesDatabase.User.COLUMN_NAME_LOCALIZER,
+                                        CommunitiesDatabase.User.COLUMN_NAME_DNI
                                 };
                                 selectionArgs = new String[]{username};
-                                GesComApp.setUser(new User(username, pass, db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getString(1), db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getInt(0)));
+                                GesComApp.setUser(new User(username, pass, db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getString(1), db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getInt(0), db.query(CommunitiesDatabase.User.TABLE_NAME, projection, selection, selectionArgs, null, null, null).getString(1)));
 
                                 mView.initSuccessful();
                             } else mView.initFailure("Ese usuario ya está cogido. Introduzca otro usuario.");//TODO borrar aqui el campo usuario
