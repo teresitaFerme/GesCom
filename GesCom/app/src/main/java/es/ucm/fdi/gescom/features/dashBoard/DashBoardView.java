@@ -13,4 +13,6 @@ public interface DashBoardView extends BaseView {
     void hideUserShortcuts();
     void bindUserShortcuts();
     void launchAddIncidence();
+
+    void showUserManagement();
 }

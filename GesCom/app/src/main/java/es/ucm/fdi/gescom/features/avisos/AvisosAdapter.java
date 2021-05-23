@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.R;
 import es.ucm.fdi.gescom.datacache.Aviso;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 
 public class AvisosAdapter extends RecyclerView.Adapter<AvisosAdapter.AvisoViewHolder> {
     private final ArrayList<Aviso> mAvisos;
@@ -80,6 +81,12 @@ public class AvisosAdapter extends RecyclerView.Adapter<AvisosAdapter.AvisoViewH
             date = itemView.findViewById(R.id.component_aviso_principal_date);
             edit = itemView.findViewById(R.id.aviso_edit);
             delete = itemView.findViewById(R.id.aviso_delete);
+
+
+            if(!GesComApp.getUser().getLocalizer().equals("Administrador")){
+                edit.setVisibility(View.GONE);
+                delete.setVisibility(View.GONE);
+            }
         }
     }
 }

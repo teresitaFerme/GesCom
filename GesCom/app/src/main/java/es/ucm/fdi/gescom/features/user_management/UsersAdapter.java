@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import es.ucm.fdi.gescom.R;
+import es.ucm.fdi.gescom.datacache.GesComApp;
 import es.ucm.fdi.gescom.datacache.User;
 
 public class UsersAdapter  extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
@@ -87,6 +88,7 @@ public class UsersAdapter  extends RecyclerView.Adapter<UsersAdapter.UserViewHol
             localizer = itemView.findViewById(R.id.component_user_localizer);
             edit = itemView.findViewById(R.id.component_user_edit);
             delete = itemView.findViewById(R.id.component_user_delete);
+
         }
     }
 }
