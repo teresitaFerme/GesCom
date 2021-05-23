@@ -136,7 +136,7 @@ public class DashBoardModel extends BaseModel {
                 null               // The sort order
         );
         int i = 0;
-        for (cursor.moveToLast(); !cursor.isBeforeFirst() && i < 5; cursor.moveToPrevious()) {
+        for (cursor.moveToLast(); !cursor.isBeforeFirst() && i < 2; cursor.moveToPrevious()) {
             String title  = cursor.getString(1);
             String body = cursor.getString(2);
             String date = cursor.getString(3);

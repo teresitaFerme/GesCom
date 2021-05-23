@@ -50,22 +50,7 @@ public class VotacionesActivity extends BaseActivity implements VotacionesView{
             }
         });
 
-
-        mVotacionesPendientesList = mPresenter.getVotacionesPendientes();
-        if(mVotacionesPendientesList.size() != 0){
-            VotacionesAdapter votacionesAdapter = new VotacionesAdapter(this, mVotacionesPendientesList);
-            mVotacionesPendientes.setAdapter(votacionesAdapter);
-
-            mVotacionesPendientes.setLayoutManager(new LinearLayoutManager(this));
-        }
-
-        mVotacionesAnterioresList = mPresenter.getVotacionesAnteriores();
-        if(mVotacionesAnterioresList.size() != 0){
-            VotacionesAdapter votacionesAdapter = new VotacionesAdapter(this, mVotacionesAnterioresList);
-            mVotacionesAnteriores.setAdapter(votacionesAdapter);
-
-            mVotacionesAnteriores.setLayoutManager(new LinearLayoutManager(this));
-        }
+        populateRecyclers();
 
         //TODO el admin debe poder cerrar las votaciones
     }
@@ -74,6 +59,24 @@ public class VotacionesActivity extends BaseActivity implements VotacionesView{
     public void launchAddVotacion() {
         Intent intent = new Intent(this, AddVotacionActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void populateRecyclers() {
+        mVotacionesPendientesList = mPresenter.getVotacionesPendientes();
+
+        VotacionesAdapter votacionesAdapter = new VotacionesAdapter(this, mVotacionesPendientesList, this);
+        mVotacionesPendientes.setAdapter(votacionesAdapter);
+
+        mVotacionesPendientes.setLayoutManager(new LinearLayoutManager(this));
+
+
+        mVotacionesAnterioresList = mPresenter.getVotacionesAnteriores();
+        votacionesAdapter = new VotacionesAdapter(this, mVotacionesAnterioresList, this);
+        mVotacionesAnteriores.setAdapter(votacionesAdapter);
+
+        mVotacionesAnteriores.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
 

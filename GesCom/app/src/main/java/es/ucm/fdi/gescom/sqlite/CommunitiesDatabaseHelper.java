@@ -52,6 +52,7 @@ public class CommunitiesDatabaseHelper extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_VOTE_REGISTER_TABLE =
             "CREATE TABLE " + CommunitiesDatabase.VotesRegister.TABLE_NAME + " (" +
+                    CommunitiesDatabase.VotesRegister._ID + " INTEGER PRIMARY KEY," +
                     CommunitiesDatabase.VotesRegister.COLUMN_NAME_USER + " TEXT," +
                     CommunitiesDatabase.VotesRegister.COLUMN_NAME_VOTE + " TEXT, FOREIGN KEY (" +
                     CommunitiesDatabase.VotesRegister.COLUMN_NAME_USER + ") REFERENCES "+ CommunitiesDatabase.User.TABLE_NAME + "(" + CommunitiesDatabase.User._ID +"), FOREIGN KEY (" +
