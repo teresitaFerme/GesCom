@@ -324,4 +324,9 @@ public class DashBoardActivity extends BaseActivity implements DashBoardView {
         Intent intent = new Intent(this, ReportarIncidenciaActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void showUserManagement() {
+        mMenu.findItem(R.id.gestionar_usuarios).setVisible(true);
+    }
 }

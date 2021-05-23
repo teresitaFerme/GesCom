@@ -33,6 +33,7 @@ public class DashBoardPresenter extends BasePresenter {
         if (GesComApp.getUser().getLocalizer().equals("Administrador")) {
             mView.drawIncidences();
             mView.hideUserShortcuts();
+            mView.showUserManagement();
         } else{
             mView.hideIncidences();
             mView.bindUserShortcuts();

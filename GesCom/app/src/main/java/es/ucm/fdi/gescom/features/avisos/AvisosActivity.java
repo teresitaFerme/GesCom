@@ -48,6 +48,8 @@ public class AvisosActivity extends BaseActivity implements AvisosView {
         mNuevoAviso = findViewById(R.id.avisos_admin_fab);
         if(mPresenter.checkAdmin()){
             mNuevoAviso.setVisibility(View.VISIBLE);
+        }else{
+            mNuevoAviso.setVisibility(View.GONE);
         }
         mNuevoAviso.setOnClickListener(new View.OnClickListener() {
             @Override
